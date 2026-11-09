@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CORONEL | TURBAN (@turbancoronel) — Estudio de Arquitectura</title>
+  <title>CORONEL | TURBAN (@turbancoronel) — Precisión &amp; Fantasía en la Arquitectura</title>
   <meta name="description" content="CORONEL | TURBAN (@turbancoronel) — Exploramos la fusión entre precisión y fantasía en la Arquitectura. Arq @juankturban &amp; Arq @die.coronel.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="CORONEL | TURBAN (@turbancoronel) — Estudio de Arquitectura">
@@ -27,7 +27,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -35,319 +35,408 @@
   <!-- MANDATORY: Purely decorative visual scroll progress bar with aria-hidden="true" -->
   <div id="scrollProgress" class="scroll-progress-bar" aria-hidden="true"></div>
 
-  <!-- Live Architectural Elevation & Cursor Coordinates HUD -->
-  <aside class="elevation-hud" aria-hidden="true">
-    <div class="hud-item">
-      <span class="hud-label">COTA</span>
-      <span id="hudElevation" class="hud-value">±0.00 m</span>
+  <!-- Custom Magnetic Architectural Cursor Follower -->
+  <div id="archCursor" class="arch-cursor" aria-hidden="true">
+    <span id="cursorLabel" class="cursor-label">RAYOS-X</span>
+  </div>
+
+  <!-- Floating Technical Altimeter & Solar Angle HUD -->
+  <aside class="telemetry-hud" aria-hidden="true">
+    <div class="hud-cell">
+      <span class="hud-key">COTA</span>
+      <span id="hudElevation" class="hud-val">±0.00m</span>
     </div>
-    <div class="hud-divider"></div>
-    <div class="hud-item">
-      <span class="hud-label">EJE</span>
-      <span id="hudCoords" class="hud-value">X:050 Y:050</span>
+    <div class="hud-cell">
+      <span class="hud-key">SOL</span>
+      <span id="hudSunAngle" class="hud-val">16:30 · 42°</span>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-key">EJE</span>
+      <span id="hudCoords" class="hud-val">050 · 050</span>
     </div>
   </aside>
 
-  <!-- Minimal Floating Header -->
+  <!-- Ultra-Clean Floating Glass Header -->
   <header class="site-header" id="top">
     <a href="#top" class="brand-logo" aria-label="CORONEL | TURBAN — Inicio">
       <img
         src="assets/turbancoronel-logo.jpg"
         alt="Emblema oficial CORONEL | TURBAN"
-        width="38"
-        height="38"
+        width="40"
+        height="40"
         class="brand-emblem"
         id="rotatingEmblem"
       >
       <span class="brand-name">turban <span class="pipe">|</span> coronel</span>
     </a>
 
-    <nav class="minimal-nav" aria-label="Navegación principal">
-      <a href="#concepto" class="nav-link">Concepto</a>
-      <a href="#obras" class="nav-link">Obras</a>
-      <a href="#estudio" class="nav-link">Estudio</a>
-      <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="nav-pill">
+    <nav class="floating-nav" aria-label="Navegación principal">
+      <a href="#portal" class="nav-item">Portal</a>
+      <a href="#maqueta" class="nav-item">Maqueta 3D</a>
+      <a href="#obras" class="nav-item">Obras</a>
+      <a href="#estudio" class="nav-item">Estudio</a>
+      <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="nav-ig-chip">
         @turbancoronel ↗
       </a>
-      <button type="button" id="themeToggle" class="theme-btn" aria-label="Alternar luz y sombra" title="Alternar luz / sombra">
-        <span class="theme-dot"></span>
+      <button type="button" id="themeToggle" class="theme-orb" aria-label="Alternar modo de luz" title="Alternar tema">
+        <span class="orb-core"></span>
       </button>
     </nav>
   </header>
 
   <main>
-    <!-- ACTO I: HERO INTERACTIVO CON LENTE DE RAYOS-X (PRECISIÓN / FANTASÍA) -->
-    <section class="hero-stage">
-      <div class="hero-header-block">
-        <p class="mono-kicker">
-          ESTUDIO DE ARQUITECTURA · <a href="https://www.instagram.com/juankturban/" target="_blank" rel="noopener noreferrer">@juankturban</a> &amp; <a href="https://www.instagram.com/die.coronel/" target="_blank" rel="noopener noreferrer">@die.coronel</a>
-        </p>
-        <h1 class="hero-statement">
-          Exploramos la fusión entre <em>precisión</em> y <em>fantasía</em> en la Arquitectura.
-        </h1>
-      </div>
+    <!-- =======================================================================
+         ACTO I: PORTAL EXPANSIVO + LENTE DE RAYOS-X + HELIODÓN SOLAR EN VIVO
+         ======================================================================= -->
+    <section id="portal" class="portal-scroll-track">
+      <div class="portal-sticky-viewport">
+        <!-- Giant Split Kinetic Typography that parts as you scroll -->
+        <div class="kinetic-backdrop" aria-hidden="true">
+          <div class="kinetic-line kinetic-left" id="kineticLeft">PRECISIÓN</div>
+          <div class="kinetic-line kinetic-right" id="kineticRight">FANTASÍA</div>
+        </div>
 
-      <!-- Interactive Spotlight Canvas: Move cursor to reveal the CAD Blueprint / Fantasy layer -->
-      <div class="spotlight-canvas" id="heroSpotlight">
-        <!-- Base Layer: Finished Architectural Photography (LCP image) -->
-        <img
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85"
-          alt="Obra arquitectónica de hormigón y luz por CORONEL | TURBAN"
-          fetchpriority="high"
-          width="1600"
-          height="960"
-          class="canvas-photo"
-        >
+        <div class="hero-top-caption">
+          <p class="mono-kicker">
+            CORONEL | TURBAN · <a href="https://www.instagram.com/juankturban/" target="_blank" rel="noopener noreferrer">Arq @juankturban</a> &amp; <a href="https://www.instagram.com/die.coronel/" target="_blank" rel="noopener noreferrer">Arq @die.coronel</a>
+          </p>
+          <h1 class="hero-manifesto">
+            Exploramos la fusión entre <em>precisión</em> y <em>fantasía</em> en la Arquitectura.
+          </h1>
+        </div>
 
-        <!-- Decorative Spotlight Reveal Layer: Architectural Blueprint & Fantasy Wireframe -->
-        <div class="reveal-layer" aria-hidden="true">
+        <!-- Expanding Architectural Portal Window -->
+        <div class="portal-window" id="heroSpotlight" data-cursor="RAYOS-X">
+          <!-- Base LCP Architectural Photograph with Dynamic Solar Lighting Filter -->
           <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85"
-            alt=""
-            width="1600"
-            height="960"
-            class="canvas-blueprint-img"
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85"
+            alt="Pabellón contemporáneo de hormigón y luz por CORONEL | TURBAN"
+            fetchpriority="high"
+            width="1800"
+            height="1080"
+            class="portal-photo"
+            id="solarPhoto"
           >
-          <svg class="blueprint-vectors" viewBox="0 0 1200 720" fill="none">
-            <!-- Grid & Construction Axes -->
-            <line x1="0" y1="180" x2="1200" y2="180" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.6"/>
-            <line x1="0" y1="540" x2="1200" y2="540" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.6"/>
-            <line x1="260" y1="0" x2="260" y2="720" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.6"/>
-            <line x1="940" y1="0" x2="940" y2="720" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.6"/>
-            <!-- Geometric Fantasy Arcs & Structural Framing -->
-            <circle cx="600" cy="360" r="240" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="600" cy="360" r="140" stroke="currentColor" stroke-dasharray="4 4"/>
-            <rect x="260" y="180" width="680" height="360" stroke="currentColor" stroke-width="2"/>
-            <line x1="260" y1="540" x2="940" y2="180" stroke="currentColor" stroke-opacity="0.5"/>
-            <text x="275" y="168" fill="currentColor" font-family="JetBrains Mono" font-size="14">COTA +4.20m // PRECISIÓN TECTÓNICA</text>
-            <text x="275" y="565" fill="currentColor" font-family="JetBrains Mono" font-size="14">NIVEL ±0.00 // FANTASÍA ESPACIAL · @turbancoronel</text>
-            <text x="820" y="168" fill="currentColor" font-family="JetBrains Mono" font-size="14">ESC 1:50</text>
-          </svg>
-        </div>
 
-        <div class="canvas-hint mono-kicker" aria-hidden="true">
-          <span class="pulse-ring"></span> Mové el cursor sobre la obra para revelar el trazo oculto
-        </div>
-      </div>
+          <!-- Dynamic Architectural Sunbeam Overlay driven by Solar Slider -->
+          <div class="solar-beam-overlay" id="solarBeam" aria-hidden="true"></div>
 
-      <div class="hero-footer-strip">
-        <span class="mono-kicker">PAYSANDÚ · SALTO · MONTEVIDEO</span>
-        <a href="#concepto" class="scroll-cue mono-kicker">Deslizar para construir ↓</a>
+          <!-- Interactive X-Ray Spotlight Layer (Modern Web Guidance: interactive-content-reveal) -->
+          <div class="reveal-layer" aria-hidden="true">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85"
+              alt=""
+              width="1800"
+              height="1080"
+              class="portal-blueprint-photo"
+            >
+            <svg class="portal-cad-svg" viewBox="0 0 1200 720" fill="none">
+              <line x1="0" y1="160" x2="1200" y2="160" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.55"/>
+              <line x1="0" y1="560" x2="1200" y2="560" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.55"/>
+              <line x1="240" y1="0" x2="240" y2="720" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.55"/>
+              <line x1="960" y1="0" x2="960" y2="720" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.55"/>
+              <circle cx="600" cy="360" r="250" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="600" cy="360" r="130" stroke="currentColor" stroke-dasharray="4 4"/>
+              <rect x="240" y="160" width="720" height="400" stroke="currentColor" stroke-width="2"/>
+              <line x1="240" y1="560" x2="960" y2="160" stroke="currentColor" stroke-opacity="0.5"/>
+              <line x1="240" y1="160" x2="960" y2="560" stroke="currentColor" stroke-opacity="0.3"/>
+              <text x="256" y="146" fill="currentColor" font-family="JetBrains Mono" font-size="14">COTA +4.20m // VOLADIZO HORMIGÓN ARMADO</text>
+              <text x="256" y="586" fill="currentColor" font-family="JetBrains Mono" font-size="14">NIVEL ±0.00 // CORONEL | TURBAN · @turbancoronel</text>
+              <text x="845" y="146" fill="currentColor" font-family="JetBrains Mono" font-size="14">ESC 1:50</text>
+            </svg>
+          </div>
+
+          <!-- Interactive Heliodon / Sun Position Control inside the Portal -->
+          <div class="solar-controller">
+            <label for="sunSlider" class="mono-kicker">
+              <span class="sun-dot"></span> ASOLEAMIENTO INTERACTIVO
+            </label>
+            <input
+              type="range"
+              id="sunSlider"
+              min="6"
+              max="21"
+              step="0.25"
+              value="16.5"
+              aria-label="Cambiar hora solar y sombras proyectadas en la obra"
+            >
+            <output for="sunSlider" id="sunTimeOutput" class="mono-kicker">16:30 HS · LUZ DORADA</output>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ACTO II: SCROLLYTELLING — EL EDIFICIO SE ENSAMBLA AL SCROLLEAR -->
-    <section id="concepto" class="scrolly-architecture">
-      <!-- Visual Sticky Stage where isometric architectural planes assemble on scroll -->
-      <div id="animated" class="scrolly-sticky-stage" aria-hidden="true">
-        <div class="iso-architecture">
-          <!-- Layer 1: Roof Slab / Luz -->
-          <div class="iso-plane iso-roof">
-            <span class="iso-tag">03 · CUBIERTA &amp; LUZ (+3.80m)</span>
-            <svg viewBox="0 0 400 220" fill="none">
-              <polygon points="200,20 370,105 200,190 30,105" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.07"/>
-              <circle cx="200" cy="105" r="36" stroke="currentColor" stroke-dasharray="4 4"/>
-              <line x1="200" y1="20" x2="200" y2="190" stroke="currentColor" stroke-opacity="0.3"/>
-            </svg>
-          </div>
+    <!-- =======================================================================
+         ACTO II: MAQUETA 3D VOLUMÉTRICA QUE EXPLOTA AL SCROLLEAR Y ROTA EN VIVO
+         ======================================================================= -->
+    <section id="maqueta" class="scrolly-architecture">
+      <!-- Sticky 3D Volumetric Stage -->
+      <div id="animated" class="scrolly-sticky-stage">
+        <div class="stage-3d-controls">
+          <button type="button" id="explodeToggleBtn" class="spring-btn mono-kicker" aria-pressed="false">
+            [ EXPLOTAR AXONOMETRÍA 3D ]
+          </button>
+          <span class="mono-kicker stage-hint">Arrastrá o hacé scroll para orbitar la estructura</span>
+        </div>
 
-          <!-- Layer 2: Spatial Envelope / Fantasía -->
-          <div class="iso-plane iso-walls">
-            <span class="iso-tag">02 · VACÍO &amp; FANTASÍA (+1.80m)</span>
-            <svg viewBox="0 0 400 220" fill="none">
-              <polygon points="200,20 370,105 200,190 30,105" stroke="currentColor" stroke-dasharray="5 5"/>
-              <line x1="90" y1="75" x2="90" y2="145" stroke="currentColor" stroke-width="2.5"/>
-              <line x1="200" y1="45" x2="200" y2="165" stroke="currentColor" stroke-width="2.5"/>
-              <line x1="310" y1="75" x2="310" y2="145" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M90,110 Q200,40 310,110" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
+        <div class="scene-3d" id="scene3d" data-cursor="ORBITAR 3D">
+          <div class="building-rig" id="buildingRig">
+            <!-- Nivel 03: Losa Casentonada & Lucernario -->
+            <div class="slab-3d slab-roof iso-plane">
+              <div class="slab-face slab-top">
+                <span class="slab-coord">03 // CUBIERTA &amp; LUCERNARIO (+4.20m)</span>
+                <div class="skylight-void"></div>
+              </div>
+              <div class="slab-edge-front"></div>
+              <div class="slab-edge-side"></div>
+            </div>
 
-          <!-- Layer 3: Foundation / Precisión -->
-          <div class="iso-plane iso-base">
-            <span class="iso-tag">01 · FUNDACIÓN &amp; PRECISIÓN (±0.00m)</span>
-            <svg viewBox="0 0 400 220" fill="none">
-              <polygon points="200,20 370,105 200,190 30,105" stroke="currentColor" stroke-width="2.5" fill="currentColor" fill-opacity="0.14"/>
-              <line x1="115" y1="62" x2="285" y2="147" stroke="currentColor" stroke-opacity="0.4"/>
-              <line x1="285" y1="62" x2="115" y2="147" stroke="currentColor" stroke-opacity="0.4"/>
-            </svg>
+            <!-- Nivel 02: Pórticos, Vidrio & Brise-Soleil (Fantasía Espacial) -->
+            <div class="slab-3d slab-envelope iso-plane">
+              <div class="slab-face slab-glass">
+                <span class="slab-coord">02 // VACÍO &amp; ENVOLVENTE (+2.10m)</span>
+                <div class="columns-grid">
+                  <i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nivel 01: Basamento de Piedra & Espejo de Agua (Precisión) -->
+            <div class="slab-3d slab-foundation iso-plane">
+              <div class="slab-face slab-stone">
+                <span class="slab-coord">01 // BASAMENTO &amp; TERRITORIO (±0.00m)</span>
+                <div class="water-mirror"></div>
+              </div>
+              <div class="slab-edge-front"></div>
+              <div class="slab-edge-side"></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Tracked Narrative Chapters -->
+      <!-- Tracked Scroll Chapters driving the 3D assembly -->
       <div id="tracked" class="scrolly-chapters">
         <section class="scrolly-step">
-          <div class="step-card">
-            <span class="mono-kicker">CAPÍTULO 01 / PRECISIÓN</span>
-            <h2>El rigor del trazo</h2>
+          <div class="step-glass-card">
+            <span class="mono-kicker">01 / PRECISIÓN TECTÓNICA</span>
+            <h2>La gravedad ordenada</h2>
             <p class="pretty-copy">
-              Cada proyecto nace de una lectura exacta del territorio, el asoleamiento y la estructura. Sin artificios innecesarios: hormigón, acero, piedra y madera trabajando en su máxima expresión.
+              Todo proyecto parte de una geometría rigurosa. Implantación, estructura y materia responden al clima y al suelo sin gestos superfluos.
             </p>
           </div>
         </section>
 
         <section class="scrolly-step">
-          <div class="step-card">
-            <span class="mono-kicker">CAPÍTULO 02 / FANTASÍA</span>
-            <h2>La emoción del vacío</h2>
+          <div class="step-glass-card">
+            <span class="mono-kicker">02 / FANTASÍA ESPACIAL</span>
+            <h2>El asombro de la luz</h2>
             <p class="pretty-copy">
-              Donde termina el cálculo empieza la atmósfera: voladizos que desafían la gravedad, patios de luz cenital y transiciones que diluyen el límite entre interior y paisaje.
+              La técnica se pone al servicio de la emoción: grandes luces libres, reflejos de agua y voladizos que suspenden el paisaje frente a los ojos.
             </p>
           </div>
         </section>
 
         <section class="scrolly-step">
-          <div class="step-card">
-            <span class="mono-kicker">CAPÍTULO 03 / SÍNTESIS</span>
-            <h2>Obra construida</h2>
+          <div class="step-glass-card">
+            <span class="mono-kicker">03 / ESCALA INTEGRAL</span>
+            <h2>Del detalle al territorio</h2>
             <p class="pretty-copy">
-              Desde viviendas e infraestructura industrial en Paysandú hasta complejos de 28 hectáreas en Salto y primeros premios de diseño urbano en Montevideo.
+              Obras residenciales, complejos culturales de 28 hectáreas, plantas industriales y espacio público premiado en Paysandú, Salto y Montevideo.
             </p>
           </div>
         </section>
       </div>
     </section>
 
-    <!-- ACTO III: 4 OBRAS MONUMENTALES EN PARALLAX & REVELACIÓN -->
-    <section id="obras" class="works-showcase">
-      <div class="works-intro">
-        <span class="mono-kicker">ARCHIVO SELECCIONADO · CLIC PARA INTERACTUAR CON EL CORTE CAD</span>
-        <h2 class="works-heading">Obras &amp; Premios</h2>
-      </div>
-
-      <div class="monumental-list">
-        <!-- Obra 01 -->
-        <article class="monumental-item" data-project-id="ayelen">
-          <div class="monumental-index mono-kicker">01 / SALTO · 28 HECTÁREAS</div>
-          <div class="monumental-frame" data-open-project="ayelen" role="button" tabindex="0" aria-label="Abrir comparador interactivo de Ayelén Venue">
-            <img
-              src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=80"
-              alt="Ayelén Venue en Salto — Arte, Arquitectura y Naturaleza"
-              loading="lazy"
-              width="1400"
-              height="850"
-              class="monumental-img"
-            >
-            <div class="monumental-hover-pill mono-kicker">Explorar plano vs. obra +</div>
+    <!-- =======================================================================
+         ACTO III: GALERÍA HORIZONTAL CINEMÁTICA IMPULSADA POR SCROLL VERTICAL
+         ======================================================================= -->
+    <section id="obras" class="horizontal-gallery-section">
+      <div class="horizontal-sticky-wrap">
+        <div class="gallery-top-bar">
+          <div>
+            <span class="mono-kicker">ARCHIVO SELECCIONADO · CORONEL | TURBAN</span>
+            <h2 class="gallery-heading">Obras en Movimiento</h2>
           </div>
-          <div class="monumental-caption">
-            <h3>Ayelén Venue</h3>
-            <p class="pretty-copy">Complejo multipropósito en 28 hectáreas citrícolas que fusiona arquitectura pabellonal, escultura contemporánea y naturaleza.</p>
-          </div>
-        </article>
-
-        <!-- Obra 02 -->
-        <article class="monumental-item" data-project-id="centripeta">
-          <div class="monumental-index mono-kicker">02 / MONTEVIDEO · 1° PREMIO NACIONAL ARQATÓN</div>
-          <div class="monumental-frame" data-open-project="centripeta" role="button" tabindex="0" aria-label="Abrir comparador interactivo de Proyecto Centrípeta">
-            <img
-              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=80"
-              alt="Proyecto Centrípeta — Plaza Lluís Companys en Montevideo"
-              loading="lazy"
-              width="1400"
-              height="850"
-              class="monumental-img"
-            >
-            <div class="monumental-hover-pill mono-kicker">Explorar plano vs. obra +</div>
-          </div>
-          <div class="monumental-caption">
-            <h3>Proyecto «Centrípeta» — Plaza Lluís Companys</h3>
-            <p class="pretty-copy">Primer Premio Arqatón y representación de Uruguay en la Bienal Panamericana de Arquitectura de Quito (BAQ).</p>
-          </div>
-        </article>
-
-        <!-- Obra 03 -->
-        <article class="monumental-item" data-project-id="nave">
-          <div class="monumental-index mono-kicker">03 / PAYSANDÚ · RUTA 3 &amp; AV. DE LAS AMÉRICAS</div>
-          <div class="monumental-frame" data-open-project="nave" role="button" tabindex="0" aria-label="Abrir comparador interactivo de Planta Industrial Metalúrgica">
-            <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80"
-              alt="Planta Industrial Metalúrgica en Ruta 3 y Av. de las Américas, Paysandú"
-              loading="lazy"
-              width="1400"
-              height="850"
-              class="monumental-img"
-            >
-            <div class="monumental-hover-pill mono-kicker">Explorar plano vs. obra +</div>
-          </div>
-          <div class="monumental-caption">
-            <h3>Planta Industrial Metalúrgica</h3>
-            <p class="pretty-copy">Infraestructura productiva de gran escala y bloque corporativo en el acceso estratégico a Paysandú.</p>
-          </div>
-        </article>
-
-        <!-- Obra 04 -->
-        <article class="monumental-item" data-project-id="casario">
-          <div class="monumental-index mono-kicker">04 / LITORAL OESTE · VIVIENDA UNIFAMILIAR</div>
-          <div class="monumental-frame" data-open-project="casario" role="button" tabindex="0" aria-label="Abrir comparador interactivo de Casa del Litoral">
-            <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80"
-              alt="Casa del Litoral — Hormigón visto y madera frente al Río Uruguay"
-              loading="lazy"
-              width="1400"
-              height="850"
-              class="monumental-img"
-            >
-            <div class="monumental-hover-pill mono-kicker">Explorar plano vs. obra +</div>
-          </div>
-          <div class="monumental-caption">
-            <h3>Casa del Litoral</h3>
-            <p class="pretty-copy">Losa continua en voladizo sobre muros de piedra local y lapacho, enmarcando el horizonte fluvial.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ACTO IV: EL ESTUDIO & INSTAGRAM @turbancoronel -->
-    <section id="estudio" class="studio-minimal">
-      <div class="studio-minimal-inner">
-        <!-- Official Instagram Identity Card -->
-        <div class="ig-identity-feature">
-          <img
-            src="assets/turbancoronel-logo.jpg"
-            alt="CORONEL | TURBAN (@turbancoronel)"
-            loading="lazy"
-            width="112"
-            height="112"
-            class="ig-big-emblem"
-          >
-          <span class="mono-kicker">PERFIL OFICIAL · 59 PUBLICACIONES · 2.663 SEGUIDORES</span>
-          <h2 class="ig-big-title">CORONEL | TURBAN</h2>
-          <p class="ig-big-quote pretty-copy">
-            «Exploramos la fusión entre precisión y fantasía en la Arquitectura»
-          </p>
-
-          <div class="architects-duo">
-            <a href="https://www.instagram.com/juankturban/" target="_blank" rel="noopener noreferrer" class="arch-chip">
-              <img src="assets/juankturban.jpg" alt="Arq. Juank Turban" loading="lazy" width="56" height="56">
-              <div>
-                <strong>Arq. Juank Turban</strong>
-                <span class="mono-kicker">@juankturban · Dir. Vialidad IDP</span>
-              </div>
-            </a>
-
-            <a href="https://www.instagram.com/die.coronel/" target="_blank" rel="noopener noreferrer" class="arch-chip">
-              <img src="assets/die-coronel.jpg" alt="Arq. Diego Coronel" loading="lazy" width="56" height="56">
-              <div>
-                <strong>Arq. Diego Coronel</strong>
-                <span class="mono-kicker">@die.coronel · Proyecto &amp; Obra</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="cta-row">
-            <a
-              href="https://www.instagram.com/turbancoronel/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="magnetic-btn"
-              id="magneticCta"
-            >
-              <span>Abrir Instagram @turbancoronel ↗</span>
-            </a>
+          <div class="gallery-counter mono-kicker">
+            <span id="activeSlideNum">01</span> / 04 · CLIC EN CUALQUIER OBRA PARA ABRIR CORTE CAD
           </div>
         </div>
+
+        <div class="horizontal-track" id="horizontalTrack">
+          <!-- Obra 01: Ayelén Venue -->
+          <article class="h-card" data-open-project="ayelen" data-cursor="ABRIR CORTE" tabindex="0" role="button" aria-label="Abrir comparador CAD de Ayelén Venue">
+            <div class="h-card-media">
+              <img
+                src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85"
+                alt="Ayelén Venue en Salto — 28 hectáreas de arquitectura, arte y paisaje"
+                loading="lazy"
+                width="1400"
+                height="900"
+                class="h-card-img"
+              >
+              <span class="h-card-tag mono-kicker">01 · SALTO · 28 HECTÁREAS</span>
+            </div>
+            <div class="h-card-info">
+              <h3>Ayelén Venue</h3>
+              <p class="pretty-copy">Fusión de arquitectura pabellonal, escultura contemporánea y naturaleza en 28 ha citrícolas.</p>
+            </div>
+          </article>
+
+          <!-- Obra 02: Proyecto Centrípeta -->
+          <article class="h-card" data-open-project="centripeta" data-cursor="ABRIR CORTE" tabindex="0" role="button" aria-label="Abrir comparador CAD de Proyecto Centrípeta">
+            <div class="h-card-media">
+              <img
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=85"
+                alt="Proyecto Centrípeta — 1° Premio Nacional Arqatón en Plaza Lluís Companys"
+                loading="lazy"
+                width="1400"
+                height="900"
+                class="h-card-img"
+              >
+              <span class="h-card-tag mono-kicker">02 · MONTEVIDEO · 1° PREMIO ARQATÓN</span>
+            </div>
+            <div class="h-card-info">
+              <h3>Proyecto «Centrípeta»</h3>
+              <p class="pretty-copy">1° Premio Concurso Nacional Arqatón (Plaza Lluís Companys) y representación en la BAQ Quito.</p>
+            </div>
+          </article>
+
+          <!-- Obra 03: Planta Industrial Metalúrgica -->
+          <article class="h-card" data-open-project="nave" data-cursor="ABRIR CORTE" tabindex="0" role="button" aria-label="Abrir comparador CAD de Planta Industrial Metalúrgica">
+            <div class="h-card-media">
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85"
+                alt="Planta Industrial Metalúrgica en Ruta 3 y Av. de las Américas, Paysandú"
+                loading="lazy"
+                width="1400"
+                height="900"
+                class="h-card-img"
+              >
+              <span class="h-card-tag mono-kicker">03 · PAYSANDÚ · RUTA 3 &amp; AV. LAS AMÉRICAS</span>
+            </div>
+            <div class="h-card-info">
+              <h3>Planta Industrial Metalúrgica</h3>
+              <p class="pretty-copy">Infraestructura industrial de gran luz libre y bloque corporativo en el acceso a Paysandú.</p>
+            </div>
+          </article>
+
+          <!-- Obra 04: Casa del Litoral -->
+          <article class="h-card" data-open-project="casario" data-cursor="ABRIR CORTE" tabindex="0" role="button" aria-label="Abrir comparador CAD de Casa del Litoral">
+            <div class="h-card-media">
+              <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85"
+                alt="Casa del Litoral — Hormigón visto y madera frente al Río Uruguay"
+                loading="lazy"
+                width="1400"
+                height="900"
+                class="h-card-img"
+              >
+              <span class="h-card-tag mono-kicker">04 · LITORAL OESTE · VIVIENDA</span>
+            </div>
+            <div class="h-card-info">
+              <h3>Casa del Litoral</h3>
+              <p class="pretty-copy">Losa continua de hormigón armado en voladizo sobre muros de piedra local y lapacho.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         ACTO IV: CINTA CINÉTICA + ARQUITECTOS & PORTAL @turbancoronel
+         ======================================================================= -->
+    <section id="estudio" class="studio-portal-section">
+      <!-- Velocity-Reactive Kinetic Marquee -->
+      <div class="marquee-band" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack">
+          <span>PRECISIÓN &amp; FANTASÍA</span>
+          <span class="dot">✦</span>
+          <span>CORONEL | TURBAN</span>
+          <span class="dot">✦</span>
+          <span>@TURBANCORONEL</span>
+          <span class="dot">✦</span>
+          <span>ARQ @JUANKTURBAN</span>
+          <span class="dot">✦</span>
+          <span>ARQ @DIE.CORONEL</span>
+          <span class="dot">✦</span>
+          <span>PRECISIÓN &amp; FANTASÍA</span>
+          <span class="dot">✦</span>
+          <span>CORONEL | TURBAN</span>
+          <span class="dot">✦</span>
+          <span>@TURBANCORONEL</span>
+          <span class="dot">✦</span>
+        </div>
+      </div>
+
+      <div class="studio-bento">
+        <!-- Main Instagram Identity Feature -->
+        <div class="bento-card bento-main">
+          <div class="bento-emblem-wrap">
+            <img
+              src="assets/turbancoronel-logo.jpg"
+              alt="Logo oficial CORONEL | TURBAN (@turbancoronel)"
+              loading="lazy"
+              width="120"
+              height="120"
+              class="bento-emblem"
+              id="compassEmblem"
+            >
+          </div>
+          <span class="mono-kicker">INSTAGRAM OFICIAL · 59 PUBLICACIONES · 2.663 SEGUIDORES</span>
+          <h2 class="bento-title">CORONEL | TURBAN</h2>
+          <p class="bento-quote pretty-copy">
+            «Exploramos la fusión entre precisión y fantasía en la Arquitectura»
+          </p>
+          <a
+            href="https://www.instagram.com/turbancoronel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="magnetic-cta spring-interactive"
+            id="magneticCta"
+            data-cursor="INSTAGRAM ↗"
+          >
+            <span>Entrar a @turbancoronel ↗</span>
+          </a>
+        </div>
+
+        <!-- Architect 1: Juank Turban -->
+        <a
+          href="https://www.instagram.com/juankturban/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bento-card bento-founder spring-interactive"
+          data-cursor="@JUANKTURBAN"
+        >
+          <div class="founder-top">
+            <img src="assets/juankturban.jpg" alt="Arq. Juank Turban (@juankturban)" loading="lazy" width="84" height="84" class="founder-pic">
+            <span class="mono-kicker pill-badge">@juankturban ↗</span>
+          </div>
+          <h3>Arq. Juank Turban</h3>
+          <p class="founder-sub mono-kicker">Arq en @turbancoronel · Director de Vialidad de la IDP</p>
+          <p class="founder-desc pretty-copy">
+            Juan Carlos Turban Lasaga. Arquitectura, diseño urbano e infraestructura departamental en Paysandú, Salto y Montevideo.
+          </p>
+        </a>
+
+        <!-- Architect 2: Diego Coronel -->
+        <a
+          href="https://www.instagram.com/die.coronel/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bento-card bento-founder spring-interactive"
+          data-cursor="@DIE.CORONEL"
+        >
+          <div class="founder-top">
+            <img src="assets/die-coronel.jpg" alt="Arq. Diego Coronel (@die.coronel)" loading="lazy" width="84" height="84" class="founder-pic">
+            <span class="mono-kicker pill-badge">@die.coronel ↗</span>
+          </div>
+          <h3>Arq. Diego Coronel</h3>
+          <p class="founder-sub mono-kicker">Arquitecto @turbancoronel · Proyecto &amp; Dirección</p>
+          <p class="founder-desc pretty-copy">
+            Síntesis morfológica, resolución tectónica y dirección de obras residenciales, culturales, industriales y concursos nacionales.
+          </p>
+        </a>
       </div>
     </section>
   </main>
@@ -357,7 +446,7 @@
     <span class="mono-kicker">PAYSANDÚ · SALTO · MONTEVIDEO — URUGUAY</span>
   </footer>
 
-  <!-- MODAL CON COMPARADOR INTERACTIVO ANTES/DESPUÉS (OBRA REAL vs. TRAZO CAD) -->
+  <!-- MODAL CON COMPARADOR DESLIZANTE ANTES/DESPUÉS (OBRA REAL vs. TRAZO CAD) -->
   <!-- MANDATORY: closedby="any" + showModal() -->
   <dialog id="projectDialog" class="project-dialog" closedby="any" aria-labelledby="dialogProjectTitle">
     <div class="dialog-inner">
@@ -371,15 +460,14 @@
         </button>
       </header>
 
-      <!-- Interactive Split Comparison Slider (Move slider to compare Real Photo vs. Technical Blueprint) -->
-      <div class="comparison-viewer" id="comparisonViewer" style="--split: 55%;">
+      <div class="comparison-viewer" id="comparisonViewer" style="--split: 52%;">
         <img
           id="dialogImage"
-          src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=85"
+          src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85"
           alt="Vista de la obra"
           fetchpriority="low"
-          width="1200"
-          height="750"
+          width="1400"
+          height="850"
           class="comp-real-img"
         >
         <div class="comp-cad-layer" aria-hidden="true">
@@ -391,7 +479,7 @@
           class="comp-range"
           min="5"
           max="95"
-          value="55"
+          value="52"
           aria-label="Deslizar para comparar fotografía de obra y plano técnico CAD"
         >
         <div class="comp-divider" aria-hidden="true">

@@ -1,100 +1,93 @@
 /* ==========================================================================
-   CORONEL | TURBAN (@turbancoronel) — Minimalist & Interactive Architecture
+   CORONEL | TURBAN (@turbancoronel) — ULTRA-MODERN KINETIC ARCHITECTURE
+   "Exploramos la fusión entre precisión y fantasía en la Arquitectura"
+   Arq @juankturban & Arq @die.coronel
    ========================================================================== */
 
-/* MANDATORY: Register custom properties for smooth spotlight mask interpolation */
+/* 1. Registered Custom Properties for X-Ray Spotlight Lens (interactive-content-reveal) */
 @property --inner-size {
-  syntax: "<length-percentage>";
-  inherits: true;
-  initial-value: 0px;
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 95px;
 }
 
 @property --outer-size {
-  syntax: "<length-percentage>";
-  inherits: true;
-  initial-value: 0px;
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 145px;
 }
 
+/* 2. Theme Tokens + Physics-Based Spring Easing (dark-mode & physics-based-easing) */
 :root {
-  --bg-light: #f5f2eb;
-  --bg-dark: #0e0f0d;
+  color-scheme: light dark;
 
-  --surface-light: #ebe6dc;
-  --surface-dark: #161815;
+  /* Adaptive Architectural Palette via light-dark() */
+  --bg-canvas: light-dark(#f5f3ee, #090a0d);
+  --bg-elevated: light-dark(#ebe7df, #111319);
+  --bg-glass: light-dark(rgba(245, 243, 238, 0.76), rgba(14, 16, 22, 0.76));
+  --bg-blueprint: light-dark(#0c233c, #07192d);
 
-  --text-light: #141413;
-  --text-dark: #f2efe9;
+  --text-primary: light-dark(#111215, #f4f1ea);
+  --text-secondary: light-dark(#4e4d48, #a4a19a);
+  --text-muted: light-dark(#7b7870, #686660);
 
-  --muted-light: #6e6a61;
-  --muted-dark: #8e8a80;
-
-  --line-light: rgba(20, 20, 19, 0.14);
-  --line-dark: rgba(242, 239, 233, 0.14);
-
-  --accent-light: #9e472a;
-  --accent-dark: #e07a5f;
-
-  --cad-bg: #0b192c;
-  --cad-ink: #64b5f6;
-
-  --bg: var(--bg-light);
-  --surface: var(--surface-light);
-  --text: var(--text-light);
-  --muted: var(--muted-light);
-  --line: var(--line-light);
-  --accent: var(--accent-light);
-
-  /* MANDATORY: Fallback for browsers without light-dark() support */
-  @media (prefers-color-scheme: dark) {
-    --bg: var(--bg-dark);
-    --surface: var(--surface-dark);
-    --text: var(--text-dark);
-    --muted: var(--muted-dark);
-    --line: var(--line-dark);
-    --accent: var(--accent-dark);
-  }
-
-  @supports (color: light-dark(white, black)) {
-    --bg: light-dark(var(--bg-light), var(--bg-dark));
-    --surface: light-dark(var(--surface-light), var(--surface-dark));
-    --text: light-dark(var(--text-light), var(--text-dark));
-    --muted: light-dark(var(--muted-light), var(--muted-dark));
-    --line: light-dark(var(--line-light), var(--line-dark));
-    --accent: light-dark(var(--accent-light), var(--accent-dark));
-  }
+  --accent-gold: light-dark(#9a6b26, #dfaf67);
+  --accent-cyan: light-dark(#38bdf8, #5ce1e6);
+  --border-hairline: light-dark(rgba(17, 18, 21, 0.12), rgba(244, 241, 234, 0.12));
+  --border-strong: light-dark(rgba(17, 18, 21, 0.26), rgba(244, 241, 234, 0.26));
 
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  color-scheme: light dark;
-  accent-color: var(--accent);
+  /* Physics-based spring easing via linear() (Modern Web Guidance: physics-based-easing) */
+  --spring-easing: linear(
+    0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017,
+    1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%,
+    1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%,
+    0.997 69.8%, 1.003 76.9%, 1.004 83.8%, 1
+  );
+  --smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Live Interactive Variables updated by app.js */
+  --sun-angle: 132deg;
+  --sun-warmth: 0.28;
+  --sun-contrast: 1.06;
+  --sun-brightness: 1.02;
+  --portal-scale: 0.88;
+  --portal-radius: 24px;
+  --kinetic-shift: 0px;
+  --scroll-skew: 0deg;
 }
 
-html {
-  scroll-behavior: smooth;
-  /* MANDATORY for scrollytelling: Hoist named view-timelines to common ancestor */
-  timeline-scope: --tl-1, --tl-2, --tl-3;
+@supports not (animation-timing-function: linear(0, 1)) {
+  :root {
+    --spring-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
 }
 
 html[data-theme="light"] {
   color-scheme: light;
-  --bg: var(--bg-light);
-  --surface: var(--surface-light);
-  --text: var(--text-light);
-  --muted: var(--muted-light);
-  --line: var(--line-light);
-  --accent: var(--accent-light);
 }
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --bg: var(--bg-dark);
-  --surface: var(--surface-dark);
-  --text: var(--text-dark);
-  --muted: var(--muted-dark);
-  --line: var(--line-dark);
-  --accent: var(--accent-dark);
+}
+
+/* 3. Root Scroll Timeline & Smooth Anchor Navigation */
+html {
+  scroll-timeline: --page-scroll block;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 *,
@@ -106,30 +99,18 @@ html[data-theme="dark"] {
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans);
-  font-weight: 300;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  background-color: var(--bg-canvas);
+  background-image:
+    linear-gradient(to right, var(--border-hairline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-hairline) 1px, transparent 1px);
+  background-size: 96px 96px;
 }
 
-/* MANDATORY: Balanced headings & pretty body copy */
-h1,
-h2,
-h3 {
-  text-wrap: balance;
-  font-family: var(--font-serif);
-  font-weight: 300;
-  line-height: 1.06;
-  letter-spacing: -0.02em;
-}
-
-p,
-.pretty-copy {
-  text-wrap: pretty;
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 a {
@@ -137,10 +118,34 @@ a {
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* 4. Typography & Legibility (improve-text-layout-and-legibility) */
+h1,
+h2,
+h3,
+.bento-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.pretty-copy {
+  text-wrap: pretty;
+  max-inline-size: 62ch;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: 1rem;
 }
 
 .mono-kicker {
@@ -148,696 +153,1012 @@ img {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-muted);
 }
 
-.mono-kicker a {
-  color: var(--accent);
-  border-bottom: 1px solid currentColor;
-}
-
-/* ==========================================================================
-   SCROLL PROGRESS BAR & LIVE ARCHITECTURAL ELEVATION HUD
-   ========================================================================== */
+/* 5. Purely Decorative Scroll Progress Bar (scroll-progress-indicator) */
 .scroll-progress-bar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--accent);
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
   transform-origin: 0 50%;
-  transform: scaleX(0);
-  z-index: 100;
+  animation: scale-progress auto linear;
+  animation-timeline: --page-scroll;
+  z-index: 200;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: scroll()) {
-    @keyframes grow-progress {
-      from {
-        transform: scaleX(0);
-      }
-      to {
-        transform: scaleX(1);
-      }
-    }
-
-    .scroll-progress-bar {
-      animation: grow-progress auto linear;
-      /* MANDATORY: Declare animation-timeline after animation shorthand */
-      animation-timeline: scroll();
-    }
+@keyframes scale-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 
-.elevation-hud {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 40;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.45rem 0.85rem;
-  background-color: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--line);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  pointer-events: none;
-}
-
-.hud-item {
-  display: flex;
-  gap: 0.4rem;
-}
-
-.hud-label {
-  color: var(--muted);
-}
-
-.hud-value {
-  color: var(--accent);
-  font-weight: 400;
-}
-
-.hud-divider {
-  width: 1px;
-  height: 12px;
-  background-color: var(--line);
-}
-
-/* ==========================================================================
-   MINIMAL FLOATING HEADER
-   ========================================================================== */
-.site-header {
+/* 6. Custom Magnetic Architectural Cursor Follower */
+.arch-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 50;
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  margin-top: -16px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-gold);
+  background: rgba(223, 175, 103, 0.12);
+  backdrop-filter: blur(6px);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.1rem clamp(1.25rem, 4vw, 3.5rem);
-  background: color-mix(in srgb, var(--bg) 80%, transparent);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
+  justify-content: center;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+  transform: translate3d(-100px, -100px, 0) scale(0.85);
+  transition:
+    width 450ms var(--spring-easing),
+    height 450ms var(--spring-easing),
+    margin 450ms var(--spring-easing),
+    background-color 250ms ease,
+    opacity 250ms ease;
+}
+
+.arch-cursor.is-visible {
+  opacity: 1;
+}
+
+.arch-cursor.is-expanded {
+  width: 108px;
+  height: 108px;
+  margin-left: -54px;
+  margin-top: -54px;
+  background: var(--text-primary);
+  border-color: transparent;
+}
+
+.cursor-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--bg-canvas);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 200ms ease, transform 350ms var(--spring-easing);
+  white-space: nowrap;
+}
+
+.arch-cursor.is-expanded .cursor-label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .arch-cursor {
+    display: none;
+  }
+}
+
+/* 7. Live Telemetry HUD */
+.telemetry-hud {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 90;
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-hairline);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  pointer-events: none;
+}
+
+.hud-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+
+.hud-key {
+  color: var(--text-muted);
+}
+
+.hud-val {
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .telemetry-hud {
+    display: none;
+  }
+}
+
+/* 8. Floating Glass Header */
+.site-header {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1240px, calc(100% - 2rem));
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
 }
 
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
 }
 
 .brand-emblem {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid var(--line);
-  background-color: #fff;
-  transition: transform 0.15s linear;
+  border: 1px solid var(--border-strong);
+  transition: transform 600ms var(--spring-easing);
+}
+
+.brand-logo:hover .brand-emblem {
+  transform: rotate(45deg) scale(1.08);
 }
 
 .brand-name {
-  font-size: 1.05rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
 }
 
-.pipe {
-  color: var(--accent);
+.brand-name .pipe {
+  color: var(--accent-gold);
   margin-inline: 0.15rem;
 }
 
-.minimal-nav {
+.floating-nav {
   display: flex;
   align-items: center;
-  gap: clamp(0.85rem, 2.2vw, 2rem);
+  gap: 1.15rem;
 }
 
-.nav-link {
-  font-size: 0.85rem;
-  color: var(--muted);
-  transition: color 0.2s ease;
+.nav-item {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  transition: color 200ms ease;
 }
 
-.nav-link:hover {
-  color: var(--text);
+.nav-item:hover {
+  color: var(--text-primary);
 }
 
-.nav-pill {
+.nav-ig-chip {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  padding: 0.4rem 0.8rem;
-  border: 1px solid var(--line);
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  color: var(--accent-gold);
+  transition:
+    transform 450ms var(--spring-easing),
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
-.nav-pill:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+.nav-ig-chip:hover {
+  background: var(--text-primary);
+  color: var(--bg-canvas);
+  transform: translateY(-2px);
 }
 
-.theme-btn {
-  width: 2rem;
-  height: 2rem;
+.theme-orb {
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-strong);
   background: transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: transform 500ms var(--spring-easing);
 }
 
-.theme-dot {
-  width: 8px;
-  height: 8px;
+.theme-orb:hover {
+  transform: scale(1.12) rotate(25deg);
+}
+
+.orb-core {
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
-  background-color: var(--text);
-  transition: transform 0.25s ease;
+  background: linear-gradient(135deg, var(--accent-gold) 50%, transparent 50%);
+  box-shadow: inset 0 0 0 1.5px var(--text-primary);
 }
 
-.theme-btn:hover .theme-dot {
-  transform: scale(1.35);
-  background-color: var(--accent);
-}
-
-/* ==========================================================================
-   ACTO I: HERO STAGE & INTERACTIVE X-RAY SPOTLIGHT REVEAL
-   ========================================================================== */
-.hero-stage {
-  min-height: 100vh;
-  padding: 7.5rem clamp(1.25rem, 4vw, 3.5rem) 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-  max-width: 1440px;
-  margin-inline: auto;
-}
-
-.hero-header-block {
-  max-width: 960px;
-}
-
-.hero-statement {
-  font-size: clamp(2.5rem, 5.6vw, 5.2rem);
-  margin-top: 0.75rem;
-}
-
-.hero-statement em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.spotlight-canvas {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  max-height: 64vh;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  cursor: crosshair;
-  --mouse-x: 50%;
-  --mouse-y: 50%;
-}
-
-.canvas-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* MANDATORY: Interactive Content Reveal using registered @property and radial-gradient mask */
-.reveal-layer {
-  position: absolute;
-  inset: 0;
-  background-color: var(--cad-bg);
-  color: var(--cad-ink);
-  pointer-events: none;
-  transition: --inner-size 0.25s ease-in-out, --outer-size 0.25s ease-in-out;
-
-  -webkit-mask-image: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    black var(--inner-size, 0%),
-    transparent var(--outer-size, 0%)
-  );
-  mask-image: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    black var(--inner-size, 0%),
-    transparent var(--outer-size, 0%)
-  );
-  mask-repeat: no-repeat;
-}
-
-.spotlight-canvas:hover .reveal-layer,
-.spotlight-canvas.is-active .reveal-layer {
-  --inner-size: 165px;
-  --outer-size: 250px;
-}
-
-/* MANDATORY Copy-Paste Safety: Disable transition scaling for motion-sensitive users */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-layer {
-    transition: none !important;
+@media (max-width: 780px) {
+  .nav-item {
+    display: none;
   }
 }
 
-.canvas-blueprint-img {
+/* ==========================================================================
+   ACTO I: PORTAL EXPANSIVO + LENTE DE RAYOS-X + HELIODÓN SOLAR EN VIVO
+   ========================================================================== */
+.portal-scroll-track {
+  position: relative;
+  min-height: 165vh;
+  padding-top: 5.5rem;
+}
+
+.portal-sticky-viewport {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5.2rem 1.25rem 2rem;
+  overflow: clip;
+}
+
+/* Giant Split Kinetic Backdrop Typography */
+.kinetic-backdrop {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5.5rem 2vw 2rem;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.13;
+  user-select: none;
+}
+
+.kinetic-line {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 15vw, 13.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.kinetic-left {
+  align-self: flex-start;
+  transform: translate3d(calc(var(--kinetic-shift) * -1), 0, 0) skewX(var(--scroll-skew));
+}
+
+.kinetic-right {
+  align-self: flex-end;
+  font-style: italic;
+  transform: translate3d(var(--kinetic-shift), 0, 0) skewX(calc(var(--scroll-skew) * -1));
+}
+
+.hero-top-caption {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 880px;
+  margin-bottom: 1.25rem;
+}
+
+.hero-top-caption .mono-kicker a {
+  color: var(--accent-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-manifesto {
+  font-size: clamp(2rem, 4.4vw, 3.85rem);
+  margin-top: 0.45rem;
+}
+
+.hero-manifesto em {
+  color: var(--accent-gold);
+  font-style: italic;
+}
+
+/* Expanding Portal Window with X-Ray Lens & Solar Heliodon */
+.portal-window {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --inner-size: 105px;
+  --outer-size: 165px;
+  position: relative;
+  z-index: 2;
+  width: min(1240px, 94vw);
+  height: min(64vh, 620px);
+  border-radius: var(--portal-radius);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  transform: scale(var(--portal-scale));
+  transform-origin: center center;
+  transition:
+    --inner-size 500ms var(--spring-easing),
+    --outer-size 500ms var(--spring-easing);
+  box-shadow: 0 32px 80px -24px rgba(0, 0, 0, 0.45);
+  cursor: crosshair;
+}
+
+.portal-window:hover,
+.portal-window:active {
+  --inner-size: 195px;
+  --outer-size: 270px;
+}
+
+.portal-photo,
+.portal-blueprint-photo,
+.portal-cad-svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: invert(1) grayscale(1) contrast(2.2) mix-blend-mode(screen);
-  opacity: 0.28;
 }
 
-.blueprint-vectors {
+.portal-photo {
+  filter:
+    contrast(var(--sun-contrast))
+    brightness(var(--sun-brightness))
+    sepia(var(--sun-warmth));
+  transition: filter 120ms linear;
+}
+
+/* Dynamic Solar Beam Cast across the Architecture */
+.solar-beam-overlay {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    var(--sun-angle),
+    rgba(255, 198, 112, 0.34) 0%,
+    rgba(255, 180, 90, 0.08) 42%,
+    rgba(6, 12, 26, 0.55) 100%
+  );
+  mix-blend-mode: soft-light;
 }
 
-.canvas-hint {
+/* X-Ray Spotlight Layer (interactive-content-reveal) */
+.reveal-layer {
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  background-color: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(8px);
-  padding: 0.45rem 0.85rem;
-  border: 1px solid var(--line);
-  color: var(--text);
+  inset: 0;
+  pointer-events: none;
+  background-color: var(--bg-blueprint);
+  mask-image: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    black var(--inner-size),
+    transparent var(--outer-size)
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    black var(--inner-size),
+    transparent var(--outer-size)
+  );
+}
+
+.portal-blueprint-photo {
+  filter: grayscale(1) contrast(1.85) invert(1) hue-rotate(185deg) opacity(0.32);
+}
+
+.portal-cad-svg {
+  position: absolute;
+  inset: 0;
+  color: var(--accent-cyan);
+}
+
+/* Interactive Heliodon Bar inside Portal */
+.solar-controller {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(10, 12, 16, 0.76);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f4f1ea;
+}
+
+.solar-controller .mono-kicker {
+  color: #f4f1ea;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  pointer-events: none;
+  gap: 0.45rem;
+  white-space: nowrap;
 }
 
-.pulse-ring {
-  width: 7px;
-  height: 7px;
+.sun-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: var(--accent);
+  background: #fbbf24;
+  box-shadow: 0 0 12px #fbbf24;
 }
 
-.hero-footer-strip {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
+#sunSlider {
+  flex: 1;
+  max-width: 340px;
+  accent-color: #dfaf67;
+  cursor: ew-resize;
 }
 
-.scroll-cue {
-  color: var(--text);
+@media (max-width: 720px) {
+  .solar-controller {
+    flex-wrap: wrap;
+    border-radius: 18px;
+    justify-content: center;
+  }
+  #sunSlider {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 /* ==========================================================================
-   ACTO II: SCROLLYTELLING — DECONSTRUCCIÓN TECTÓNICA EN SCROLL
+   ACTO II: MAQUETA 3D VOLUMÉTRICA QUE EXPLOTA AL SCROLLEAR (scrollytelling)
    ========================================================================== */
 .scrolly-architecture {
+  timeline-scope: --tl-1, --tl-2, --tl-3;
   position: relative;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background-color: var(--surface);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  gap: 2rem;
 }
 
 .scrolly-sticky-stage {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 5.5rem;
+  height: calc(100vh - 6.5rem);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
   overflow: hidden;
 }
 
-.iso-architecture {
-  width: min(86vw, 520px);
+.stage-3d-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  z-index: 4;
+}
+
+.spring-btn {
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-canvas);
+  color: var(--accent-gold);
+  cursor: pointer;
+  transition:
+    transform 500ms var(--spring-easing),
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.spring-btn:hover,
+.spring-btn[aria-pressed="true"] {
+  background: var(--text-primary);
+  color: var(--bg-canvas);
+  transform: scale(1.06);
+}
+
+/* 3D Perspective Stage */
+.scene-3d {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.scene-3d:active {
+  cursor: grabbing;
+}
+
+.building-rig {
+  --rot-x: 58deg;
+  --rot-z: -38deg;
+  --explode-gap: 64px;
+  position: relative;
+  width: min(340px, 68vw);
+  height: min(260px, 52vw);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rot-x)) rotateZ(var(--rot-z));
+  transition: transform 650ms var(--spring-easing);
+}
+
+.building-rig.is-dragging {
+  transition: none;
+}
+
+.building-rig.is-exploded {
+  --explode-gap: 138px;
+}
+
+.slab-3d {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition:
+    transform 750ms var(--spring-easing),
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.slab-face {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--accent-gold);
+  background: light-dark(rgba(245, 243, 238, 0.88), rgba(18, 22, 31, 0.86));
+  padding: 0.85rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  transform: translateX(18vw);
+  justify-content: space-between;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
 }
 
-.iso-plane {
-  position: relative;
-  color: var(--text);
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.iso-plane svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.iso-tag {
+.slab-coord {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   letter-spacing: 0.1em;
-  color: var(--accent);
+  color: var(--accent-gold);
+}
+
+/* Volumetric Slab Elevations */
+.slab-roof {
+  transform: translateZ(var(--explode-gap));
+}
+
+.slab-envelope {
+  transform: translateZ(0px);
+}
+
+.slab-foundation {
+  transform: translateZ(calc(var(--explode-gap) * -1));
+}
+
+/* Architectural Features inside the 3D Slabs */
+.skylight-void {
+  width: 48%;
+  height: 44%;
+  align-self: flex-end;
+  border: 1px dashed var(--accent-cyan);
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(92, 225, 230, 0.14),
+    rgba(92, 225, 230, 0.14) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.columns-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  height: 55%;
+  align-items: center;
+}
+
+.columns-grid i {
   display: block;
-  text-align: right;
-  margin-bottom: -0.5rem;
+  height: 100%;
+  border: 1px solid var(--accent-cyan);
+  background: rgba(92, 225, 230, 0.12);
 }
 
+.water-mirror {
+  width: 68%;
+  height: 48%;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.32), rgba(223, 175, 103, 0.18));
+  border: 1px solid var(--accent-cyan);
+}
+
+/* Scroll-Driven Keyframes for the 3D Slabs (scrollytelling) */
 .scrolly-chapters {
-  position: relative;
-  z-index: 2;
-  margin-top: -100vh;
-}
-
-#tracked section:nth-child(1) {
-  view-timeline: --tl-1 block;
-}
-#tracked section:nth-child(2) {
-  view-timeline: --tl-2 block;
-}
-#tracked section:nth-child(3) {
-  view-timeline: --tl-3 block;
+  display: flex;
+  flex-direction: column;
 }
 
 .scrolly-step {
-  min-height: 95vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
-  padding-inline: clamp(1.25rem, 6vw, 6rem);
-  max-width: 1440px;
-  margin-inline: auto;
 }
 
-.step-card {
-  max-width: 420px;
-  padding: 2rem;
-  background-color: color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--line);
+.scrolly-step:nth-child(1) {
+  view-timeline: --tl-1;
+}
+.scrolly-step:nth-child(2) {
+  view-timeline: --tl-2;
+}
+.scrolly-step:nth-child(3) {
+  view-timeline: --tl-3;
 }
 
-.step-card h2 {
-  font-size: clamp(2rem, 3.2vw, 2.8rem);
-  margin-block: 0.5rem 0.85rem;
-}
-
-.step-card p {
-  color: var(--muted);
-  font-size: 0.98rem;
-}
-
-/* Native CSS Scroll-Driven Scrollytelling */
-@media (prefers-reduced-motion: no-preference) {
-  @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
-    @keyframes plane-assemble-base {
-      from {
-        transform: translateY(90px) scale(0.84);
-        opacity: 0.2;
-      }
-      to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes plane-assemble-walls {
-      from {
-        transform: translateY(-60px) scale(1.12);
-        opacity: 0.15;
-      }
-      to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes plane-assemble-roof {
-      from {
-        transform: translateY(-130px) scale(0.88);
-        opacity: 0.1;
-      }
-      to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    #animated .iso-base {
-      animation: plane-assemble-base auto linear both;
-      /* MANDATORY: Declare animation-timeline and animation-range after animation shorthand */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .slab-foundation {
+      animation: pulse-foundation linear both;
       animation-timeline: --tl-1;
-      animation-range: entry 15% cover 55%;
     }
-
-    #animated .iso-walls {
-      animation: plane-assemble-walls auto linear both;
+    .slab-envelope {
+      animation: pulse-envelope linear both;
       animation-timeline: --tl-2;
-      animation-range: entry 15% cover 55%;
     }
-
-    #animated .iso-roof {
-      animation: plane-assemble-roof auto linear both;
+    .slab-roof {
+      animation: pulse-roof linear both;
       animation-timeline: --tl-3;
-      animation-range: entry 15% cover 55%;
     }
   }
 }
 
-/* MANDATORY Copy-Paste Safety: Disable continuous storytelling motion for sensitive users */
-@media (prefers-reduced-motion: reduce) {
-  #animated .iso-plane {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    translate: 0 0 !important;
+@keyframes pulse-foundation {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes pulse-envelope {
+  0%, 100% {
+    transform: translateZ(0px) scale(1);
+  }
+  50% {
+    transform: translateZ(18px) scale(1.05);
+  }
+}
+
+@keyframes pulse-roof {
+  0%, 100% {
+    transform: translateZ(var(--explode-gap));
+  }
+  50% {
+    transform: translateZ(calc(var(--explode-gap) + 36px));
+  }
+}
+
+.step-glass-card {
+  padding: 2.25rem;
+  border-radius: 22px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+}
+
+.step-glass-card h2 {
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  margin-block: 0.55rem 0.85rem;
+}
+
+@media (max-width: 920px) {
+  .scrolly-architecture {
+    grid-template-columns: 1fr;
+  }
+  .scrolly-sticky-stage {
+    position: relative;
+    top: 0;
+    height: 440px;
+  }
+  .scrolly-step {
+    min-height: auto;
+    padding-block: 1.25rem;
   }
 }
 
 /* ==========================================================================
-   ACTO III: 4 OBRAS MONUMENTALES EN SCROLL
+   ACTO III: GALERÍA HORIZONTAL CINEMÁTICA IMPULSADA POR SCROLL VERTICAL
    ========================================================================== */
-.works-showcase {
-  max-width: 1320px;
-  margin-inline: auto;
-  padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 4vw, 3.5rem);
+.horizontal-gallery-section {
+  position: relative;
+  height: 320vh;
+  margin-top: 4rem;
 }
 
-.works-intro {
-  margin-bottom: clamp(3rem, 6vw, 5rem);
-}
-
-.works-heading {
-  font-size: clamp(2.6rem, 5vw, 4.4rem);
-  margin-top: 0.4rem;
-}
-
-.monumental-list {
+.horizontal-sticky-wrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: clamp(5rem, 11vw, 9.5rem);
+  justify-content: center;
+  overflow: clip;
+  padding-inline: max(1.5rem, 4vw);
 }
 
-.monumental-item {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.15rem;
+.gallery-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
 }
 
-.monumental-item:nth-child(even) {
-  padding-left: clamp(0rem, 12vw, 11rem);
+.gallery-heading {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  margin-top: 0.25rem;
 }
 
-.monumental-item:nth-child(odd) {
-  padding-right: clamp(0rem, 12vw, 11rem);
+.horizontal-track {
+  display: flex;
+  gap: 2.25rem;
+  width: max-content;
+  will-change: transform;
 }
 
-.monumental-frame {
+.h-card {
+  width: min(640px, 82vw);
+  border-radius: 22px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 600ms var(--spring-easing),
+    border-color 250ms ease;
+}
+
+.h-card:hover,
+.h-card:focus-visible {
+  transform: translateY(-8px) scale(1.015);
+  border-color: var(--accent-gold);
+  outline: none;
+}
+
+.h-card-media {
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  border: 1px solid var(--line);
-  cursor: pointer;
-  background-color: var(--surface);
 }
 
-.monumental-img {
+.h-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1.1);
+  transition: transform 700ms var(--smooth-out);
 }
 
-.monumental-frame:hover .monumental-img {
-  transform: scale(1.04);
+.h-card:hover .h-card-img {
+  transform: scale(1.02);
 }
 
-.monumental-hover-pill {
+.h-card-tag {
   position: absolute;
-  bottom: 1.25rem;
-  right: 1.25rem;
-  padding: 0.55rem 1rem;
-  background-color: var(--bg);
-  color: var(--text);
-  border: 1px solid var(--line);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(10, 12, 16, 0.75);
+  backdrop-filter: blur(8px);
+  color: #f4f1ea;
 }
 
-.monumental-frame:hover .monumental-hover-pill {
-  background-color: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
+.h-card-info {
+  padding: 1.4rem 1.6rem 1.65rem;
 }
 
-.monumental-caption {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  padding-top: 0.35rem;
+.h-card-info h3 {
+  font-size: 1.85rem;
+  margin-bottom: 0.35rem;
 }
 
-.monumental-caption h3 {
-  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
-}
-
-.monumental-caption p {
-  color: var(--muted);
-  max-width: 48ch;
-  font-size: 0.95rem;
-}
-
-/* Scroll-Driven Un-clip & Scale on Monumental Works */
-@media (prefers-reduced-motion: no-preference) {
-  @supports ((animation-timeline: view()) and (animation-range: entry)) {
-    @keyframes monumental-reveal {
-      from {
-        opacity: 0.25;
-        transform: translateY(48px) scale(0.94);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .monumental-item {
-      animation: monumental-reveal auto ease-out backwards;
-      /* MANDATORY: Declare animation-timeline after animation shorthand */
-      animation-timeline: view(block);
-      animation-range: entry 0% entry 75%;
-    }
+@media (max-width: 760px) {
+  .horizontal-gallery-section {
+    height: auto;
+    padding-block: 4rem;
+  }
+  .horizontal-sticky-wrap {
+    position: relative;
+    height: auto;
+  }
+  .horizontal-track {
+    flex-direction: column;
+    width: 100%;
+  }
+  .h-card {
+    width: 100%;
   }
 }
 
 /* ==========================================================================
-   ACTO IV: ESTUDIO & INSTAGRAM @turbancoronel
+   ACTO IV: CINTA CINÉTICA + PORTAL DE ARQUITECTOS (@turbancoronel)
    ========================================================================== */
-.studio-minimal {
-  border-top: 1px solid var(--line);
-  padding: clamp(5rem, 10vw, 8.5rem) clamp(1.25rem, 4vw, 3.5rem);
-  background-color: var(--surface);
+.studio-portal-section {
+  padding-block: 5rem 6rem;
+  overflow: clip;
 }
 
-.studio-minimal-inner {
-  max-width: 780px;
+.marquee-band {
+  padding-block: 1.35rem;
+  border-block: 1px solid var(--border-strong);
+  margin-bottom: 4.5rem;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  width: max-content;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  white-space: nowrap;
+  animation: marquee-flow 26s linear infinite;
+  transform: skewX(var(--scroll-skew));
+}
+
+.marquee-track .dot {
+  color: var(--accent-gold);
+  font-size: 1.4rem;
+}
+
+@keyframes marquee-flow {
+  from {
+    transform: translateX(0) skewX(var(--scroll-skew));
+  }
+  to {
+    transform: translateX(-50%) skewX(var(--scroll-skew));
+  }
+}
+
+.studio-bento {
+  max-width: 1240px;
   margin-inline: auto;
-  text-align: center;
+  padding-inline: 1.5rem;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  gap: 1.5rem;
 }
 
-.ig-identity-feature {
+.bento-card {
+  padding: 2.25rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.15rem;
+  justify-content: space-between;
 }
 
-.ig-big-emblem {
-  width: 6.5rem;
-  height: 6.5rem;
+.spring-interactive {
+  transition:
+    transform 600ms var(--spring-easing),
+    border-color 250ms ease;
+}
+
+.spring-interactive:hover {
+  transform: translateY(-6px) scale(1.015);
+  border-color: var(--accent-gold);
+}
+
+.bento-emblem-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.bento-emblem {
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid var(--line);
-  background-color: #fff;
+  border: 1.5px solid var(--accent-gold);
+  transition: transform 700ms var(--spring-easing);
 }
 
-.ig-big-title {
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+.bento-main:hover .bento-emblem {
+  transform: rotate(25deg) scale(1.08);
 }
 
-.ig-big-quote {
+.bento-title {
+  font-size: clamp(2.2rem, 3.5vw, 3.1rem);
+  margin-block: 0.4rem 0.6rem;
+}
+
+.bento-quote {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-  color: var(--muted);
-  max-width: 38ch;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
 }
 
-.architects-duo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
-  margin-block: 1.25rem;
-}
-
-.arch-chip {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 0.75rem 1.25rem;
-  background-color: var(--bg);
-  border: 1px solid var(--line);
-  text-align: left;
-  transition: border-color 0.25s ease, transform 0.25s ease;
-}
-
-.arch-chip:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-}
-
-.arch-chip img {
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.arch-chip strong {
-  display: block;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-.magnetic-btn {
+.magnetic-cta {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 1.05rem 2.2rem;
-  background-color: var(--text);
-  color: var(--bg);
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: var(--text-primary);
+  color: var(--bg-canvas);
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease-out;
 }
 
-.magnetic-btn:hover {
-  background-color: var(--accent);
-  color: #fff;
+.founder-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
+.founder-pic {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--accent-gold);
+}
+
+.pill-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  color: var(--accent-gold);
+}
+
+.bento-founder h3 {
+  font-size: 1.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.founder-sub {
+  color: var(--accent-gold);
+  margin-bottom: 0.85rem;
+}
+
+@media (max-width: 980px) {
+  .studio-bento {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer */
 .minimal-footer {
-  padding: 2rem clamp(1.25rem, 4vw, 3.5rem);
-  border-top: 1px solid var(--line);
+  max-width: 1240px;
+  margin-inline: auto;
+  padding: 2rem 1.5rem 3.5rem;
+  border-top: 1px solid var(--border-hairline);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -845,105 +1166,91 @@ img {
 }
 
 /* ==========================================================================
-   MODAL CON COMPARADOR ANTES/DESPUÉS (OBRA REAL vs. CORTE CAD)
+   MODAL CON COMPARADOR CAD & TOP-LAYER ANIMATION (animate-to-from-top-layer)
    ========================================================================== */
 .project-dialog {
   margin: auto;
-  width: min(94vw, 980px);
-  border: 1px solid var(--line);
-  background-color: var(--bg);
-  color: var(--text);
+  width: min(980px, calc(100vw - 2rem));
+  border: 1px solid var(--border-strong);
+  border-radius: 24px;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
   padding: 0;
-
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.65);
   opacity: 0;
-  transform: scale(0.95);
-
-  /* MANDATORY: transition display and overlay for top-layer elements */
-  transition-property: opacity, transform, display, overlay;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-out;
-  transition-behavior: allow-discrete;
+  transform: scale(0.92) translateY(16px);
+  transition:
+    opacity 320ms var(--smooth-out),
+    transform 450ms var(--spring-easing),
+    overlay 320ms var(--smooth-out) allow-discrete,
+    display 320ms var(--smooth-out) allow-discrete;
 }
 
-.project-dialog[open] {
+.project-dialog:open {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateY(0);
+}
 
-  @starting-style {
+@starting-style {
+  .project-dialog:open {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.92) translateY(16px);
   }
 }
 
 .project-dialog::backdrop {
-  background-color: rgba(10, 10, 10, 0);
+  background-color: rgba(6, 8, 12, 0);
   backdrop-filter: blur(0px);
   transition:
-    display 0.3s allow-discrete,
-    overlay 0.3s allow-discrete,
-    background-color 0.3s ease-out,
-    backdrop-filter 0.3s ease-out;
+    background-color 320ms ease,
+    backdrop-filter 320ms ease,
+    overlay 320ms ease allow-discrete,
+    display 320ms ease allow-discrete;
 }
 
-.project-dialog[open]::backdrop {
-  background-color: rgba(10, 10, 10, 0.72);
-  backdrop-filter: blur(6px);
+.project-dialog:open::backdrop {
+  background-color: rgba(6, 8, 12, 0.76);
+  backdrop-filter: blur(10px);
+}
 
-  @starting-style {
-    background-color: rgba(10, 10, 10, 0);
+@starting-style {
+  .project-dialog:open::backdrop {
+    background-color: rgba(6, 8, 12, 0);
     backdrop-filter: blur(0px);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .project-dialog {
-    transform: none;
-    transition-duration: 0.1s;
-  }
-
-  @starting-style {
-    .project-dialog[open] {
-      transform: none;
-    }
-  }
-}
-
 .dialog-inner {
-  padding: clamp(1.25rem, 3vw, 2.25rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  padding: 1.75rem;
 }
 
 .dialog-top {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .dialog-title {
-  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .dialog-close {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
   background: transparent;
-  border: 1px solid var(--line);
-  padding: 0.45rem 0.8rem;
   cursor: pointer;
-  color: var(--text);
-}
-
-.dialog-close:hover {
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 .comparison-viewer {
+  --split: 52%;
   position: relative;
   aspect-ratio: 16 / 9;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-strong);
   user-select: none;
 }
 
@@ -956,23 +1263,11 @@ img {
 .comp-cad-layer {
   position: absolute;
   inset: 0;
-  background-color: var(--cad-bg);
-  color: var(--cad-ink);
-  clip-path: inset(0 0 0 var(--split, 55%));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  background: var(--bg-blueprint);
+  clip-path: inset(0 0 0 var(--split));
 }
 
-.comp-svg-wrap {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+.comp-svg-wrap,
 .comp-svg-wrap svg {
   width: 100%;
   height: 100%;
@@ -985,18 +1280,18 @@ img {
   height: 100%;
   opacity: 0;
   cursor: ew-resize;
-  z-index: 3;
+  z-index: 4;
 }
 
 .comp-divider {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: var(--split, 55%);
+  left: var(--split);
   width: 2px;
-  background-color: var(--accent);
+  background: var(--accent-gold);
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 .comp-handle {
@@ -1004,57 +1299,48 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: var(--accent);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  background: var(--text-primary);
+  color: var(--bg-canvas);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .dialog-bottom {
+  margin-top: 1.25rem;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  align-items: baseline;
   gap: 1rem;
-}
-
-.dialog-bottom p {
-  color: var(--muted);
-  max-width: 60ch;
-  font-size: 0.94rem;
 }
 
 .dialog-meta-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .dialog-meta-pills span {
-  padding: 0.3rem 0.65rem;
-  border: 1px solid var(--line);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  color: var(--accent-gold);
 }
 
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
-@media (max-width: 900px) {
-  .iso-architecture {
-    transform: none;
-    opacity: 0.25;
-  }
-
-  .elevation-hud {
-    display: none;
-  }
-
-  .nav-link {
-    display: none;
+/* Reduced Motion Respect (physics-based-easing & scroll guides) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
   }
 }
