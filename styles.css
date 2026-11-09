@@ -478,10 +478,38 @@ body.cad-mode .arch-grid-line {
 
 .brand-logo {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
+  align-items: center;
+  gap: 0.7rem;
   font-size: 1.25rem;
   letter-spacing: -0.03em;
+}
+
+.brand-emblem {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-strong);
+  background-color: #fff;
+  flex-shrink: 0;
+}
+
+.brand-text-wrap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.32rem;
+  flex-wrap: wrap;
+}
+
+.inline-ig-link {
+  color: var(--accent-brand);
+  font-weight: 500;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-brand) 45%, transparent);
+  transition: border-color 0.2s ease;
+}
+
+.inline-ig-link:hover {
+  border-color: var(--accent-brand);
 }
 
 .brand-word {
@@ -1068,6 +1096,14 @@ body.cad-mode .project-img {
   padding-left: 1.25rem;
   border-left: 2px solid var(--accent-brand);
   margin-block: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote-cite {
+  font-style: normal;
+  color: var(--accent-brand);
 }
 
 .studio-body {
@@ -1088,10 +1124,40 @@ body.cad-mode .project-img {
   padding: 1.65rem;
 }
 
+.founder-profile-row {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  margin-bottom: 0.9rem;
+}
+
+.founder-avatar {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-strong);
+  flex-shrink: 0;
+}
+
 .founder-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.6rem;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.founder-ig-pill {
+  color: var(--accent-brand);
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-canvas);
+}
+
+.founder-ig-pill:hover {
+  border-color: var(--accent-brand);
 }
 
 .founder-name {
@@ -1242,18 +1308,93 @@ body.cad-mode .project-img {
 /* ==========================================================================
    INSTAGRAM SHOWCASE (@turbancoronel)
    ========================================================================== */
-.ig-banner-header {
+.ig-profile-card {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-end;
-  gap: 1.5rem;
-  margin-bottom: 2.25rem;
+  align-items: center;
+  gap: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 2rem;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
 }
 
-.ig-handle-link {
+.ig-profile-identity {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1 1 420px;
+}
+
+.ig-profile-avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-brand);
+  background-color: #fff;
+  flex-shrink: 0;
+}
+
+.ig-profile-handle-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.ig-verified-handle {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
   color: var(--accent-brand);
-  border-bottom: 1px solid currentColor;
+  font-weight: 500;
+}
+
+.ig-profile-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  margin-bottom: 0.35rem;
+}
+
+.ig-profile-bio {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.ig-profile-stats-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.15rem;
+}
+
+.ig-stats-list {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.ig-stat {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: center;
+}
+
+.ig-stat dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ig-stat dd {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
 .ig-grid {

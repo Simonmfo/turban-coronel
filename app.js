@@ -6,17 +6,17 @@
 const PROJECTS_DATA = {
   ayelen: {
     code: "TC-01",
-    category: "CULTURAL & PAISAJE",
+    category: "CULTURAL & PAISAJE · 28 HECTÁREAS",
     title: "Ayelén Venue",
     location: "Salto, Uruguay",
     year: "2023 — 2024",
-    area: "1.450 m² cubiertos + paisaje",
+    area: "28 hectáreas de parque + 1.450 m² edificados",
     scale: "ESC 1:100",
-    authors: "Arq. Juan Turban, Arq. Diego Coronel",
-    materials: "Hormigón visto, perfilería de acero negro, vidrio laminado y flora citrícola nativa",
+    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
+    materials: "Hormigón visto, perfilería de acero negro, vidrio laminado, escultura y flora citrícola",
     image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=85",
     description:
-      "Ubicado en un entorno de chacras de cítricos en las afueras de la ciudad de Salto, Ayelén Venue se concibe como un pabellón horizontal que articula arquitectura, arte escultórico y naturaleza. La cubierta flota sobre cerramientos vidriados continuos, disolviendo el límite entre el salón principal y el paisaje productivo del norte uruguayo.",
+      "Ubicado en un predio rural de 28 hectáreas de chacras citrícolas en las afueras de Salto, Ayelén Venue es un complejo multipropósito concebido bajo una mirada integral que fusiona arte contemporáneo, arquitectura y naturaleza. La cubierta flota sobre cerramientos vidriados continuos, integrando la precisión constructiva con la fantasía del paisaje norteño.",
     svg: `
       <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="20" y1="125" x2="580" y2="125" stroke="currentColor" stroke-width="1.5"/>
@@ -35,14 +35,14 @@ const PROJECTS_DATA = {
     category: "ESPACIO PÚBLICO · 1° PREMIO ARQATÓN",
     title: "Proyecto «Centrípeta» — Plaza Lluís Companys",
     location: "Barrio Buceo, Municipio CH, Montevideo",
-    year: "2023 (Concurso Nacional / BAQ Quito)",
+    year: "2023 (1° Premio Nacional / BAQ Quito)",
     area: "3.800 m² de intervención urbana",
     scale: "ESC 1:250",
-    authors: "Arq. Juan Turban, Arq. Diego Coronel",
+    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
     materials: "Pavimentos drenantes continuos, equipamiento en hormigón prefabricado y estrato arbóreo nativo",
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85",
     description:
-      "Primer Premio en la segunda edición del Concurso Nacional Arqatón (Feria de la Construcción & Universidad ORT). La estrategia «Centrípeta» reorganiza la masa vegetal hacia los bordes perimetrales para amortiguar el tránsito vehicular y libera un gran vacío cívico central que potencia la apropiación comunitaria, el juego y la permanencia vecinal.",
+      "Primer Premio en la segunda edición del Concurso Nacional Arqatón (Feria de la Construcción & Universidad ORT). La estrategia «Centrípeta» reorganiza la masa vegetal hacia los bordes perimetrales para amortiguar el tránsito vehicular y libera un gran vacío cívico central que potencia la apropiación comunitaria en el barrio Buceo.",
     svg: `
       <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="80" y="18" width="440" height="114" stroke="currentColor" stroke-dasharray="4 4"/>
@@ -58,15 +58,15 @@ const PROJECTS_DATA = {
     code: "TC-03",
     category: "VIVIENDA UNIFAMILIAR",
     title: "Casa del Litoral",
-    location: "Litoral Oeste, Uruguay",
+    location: "Paysandú / Litoral Oeste, Uruguay",
     year: "2024",
     area: "380 m²",
     scale: "ESC 1:75",
-    authors: "Arq. Juan Turban, Arq. Diego Coronel",
+    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
     materials: "Losa casetonada de hormigón visto, basamento de piedra local y parasoles de lapacho",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
     description:
-      "Implantada sobre una barranca suave hacia el Río Uruguay, la vivienda se organiza bajo una única cubierta horizontal que resuelve los aleros de control solar al poniente. Los paquetes de servicio se agrupan en dos muros pétreos ciegos, liberando las visuales cruzadas entre el patio de acceso y el horizonte ribereño.",
+      "Implantada sobre el paisaje ribereño del litoral uruguayo, la vivienda se organiza bajo una única cubierta horizontal que resuelve los aleros de control solar al poniente. Los paquetes de servicio se agrupan en dos muros pétreos ciegos, liberando las visuales cruzadas entre el patio de acceso y el horizonte del Río Uruguay.",
     svg: `
       <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 110 L260 110 L420 132 L580 138" stroke="currentColor" stroke-width="1.5"/>
@@ -80,17 +80,17 @@ const PROJECTS_DATA = {
   },
   nave: {
     code: "TC-04",
-    category: "INFRAESTRUCTURA & TRABAJO",
-    title: "Polo Productivo & Oficinas Litoral",
-    location: "Paysandú, Uruguay",
+    category: "INFRAESTRUCTURA INDUSTRIAL",
+    title: "Planta Industrial Metalúrgica — Ruta 3 y Av. de las Américas",
+    location: "Ruta 3 y Av. de las Américas, Paysandú, Uruguay",
     year: "2024",
     area: "3.200 m²",
     scale: "ESC 1:200",
-    authors: "Arq. Juan Turban, Arq. Diego Coronel",
+    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
     materials: "Estructura metálica de alma llena, paneles termoacústicos y envolvente de policarbonato alveolar",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
     description:
-      "Proyecto de infraestructura industrial y bloque administrativo concebido desde la racionalidad constructiva y el confort ambiental. El sistema de pórticos modulados cada 7,50 metros permite flexibilidad operativa total, mientras que un patio longitudinal introduce iluminación natural difusa a las áreas de oficina y laboratorio.",
+      "Proyecto y diseño de planta industrial metalúrgica y bloque corporativo ubicado en el nodo estratégico de Ruta 3 y Avenida de las Américas en Paysandú. El sistema de pórticos modulados de gran luz libre permite máxima eficiencia operativa, complementado con oficinas iluminadas naturalmente.",
     svg: `
       <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="30" y1="128" x2="570" y2="128" stroke="currentColor" stroke-width="1.5"/>
@@ -106,15 +106,15 @@ const PROJECTS_DATA = {
     code: "TC-05",
     category: "RECICLAJE & VIVIENDA",
     title: "Casa Patio en trama consolidada",
-    location: "Montevideo, Uruguay",
+    location: "Montevideo / Paysandú, Uruguay",
     year: "2025",
     area: "215 m²",
     scale: "ESC 1:50",
-    authors: "Arq. Juan Turban, Arq. Diego Coronel",
+    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
     materials: "Mampostería cerámica recuperada, perfiles IPN a la vista, pisos monolíticos y carpintería de cedro",
     image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=85",
     description:
-      "Operación de acupuntura doméstica sobre un padrón largo y estrecho entre medianeras. Mediante el vaciamiento estratégico del tercio central y la incorporación de una estructura liviana de acero, la vivienda multiplica su ganancia de sol norte y articula la vida cotidiana en torno a un patio con vegetación caduca.",
+      "Operación de acupuntura doméstica sobre un padrón entre medianeras. Mediante el vaciamiento estratégico del tercio central y la incorporación de una estructura liviana de acero, la vivienda multiplica su ganancia de sol norte y articula la vida cotidiana en torno a un patio interior.",
     svg: `
       <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="90" y="30" width="140" height="98" stroke="currentColor" stroke-width="1.5"/>
@@ -130,15 +130,15 @@ const PROJECTS_DATA = {
     code: "TC-06",
     category: "HOSPITALIDAD & PAISAJE",
     title: "Pabellones de Basalto & Agua",
-    location: "Salto, Uruguay",
+    location: "Litoral Norte (Salto / Paysandú), Uruguay",
     year: "2025",
     area: "640 m²",
     scale: "ESC 1:100",
-    authors: "Arq. Juan Turban, Arq. Diego Coronel",
+    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
     materials: "Muros de piedra basáltica en seco, estructura de eucalipto grandis laminado y espejos de agua",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85",
     description:
-      "Conjunto de pabellones de descanso y contemplación termal que emergen de la geología basáltica del norte uruguayo. Los muros de piedra local anclan el proyecto a la topografía mientras que los entramados de madera laminada certificada resuelven las cubiertas ventiladas de rápida montaje en seco.",
+      "Conjunto de pabellones de descanso y contemplación termal que emergen de la geología basáltica del litoral norte uruguayo. Los muros de piedra local anclan el proyecto a la topografía mientras que los entramados de madera laminada certificada resuelven las cubiertas ventiladas.",
     svg: `
       <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="40" y1="122" x2="560" y2="122" stroke="currentColor" stroke-width="1.5"/>
