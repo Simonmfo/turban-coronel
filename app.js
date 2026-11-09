@@ -1,606 +1,327 @@
 /**
- * turban | coronel — Estudio de Arquitectura & Urbanismo
- * Interactive Application Logic & Modern Web Platform Fallbacks
+ * CORONEL | TURBAN (@turbancoronel) — Interactive Architectural Experience
  */
 
 const PROJECTS_DATA = {
   ayelen: {
-    code: "TC-01",
-    category: "CULTURAL & PAISAJE · 28 HECTÁREAS",
+    code: "01 / SALTO · 28 HECTÁREAS",
     title: "Ayelén Venue",
     location: "Salto, Uruguay",
-    year: "2023 — 2024",
-    area: "28 hectáreas de parque + 1.450 m² edificados",
-    scale: "ESC 1:100",
-    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
-    materials: "Hormigón visto, perfilería de acero negro, vidrio laminado, escultura y flora citrícola",
-    image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=85",
+    area: "28 ha · 1.450 m²",
+    authors: "Arq @juankturban & Arq @die.coronel",
+    image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85",
     description:
-      "Ubicado en un predio rural de 28 hectáreas de chacras citrícolas en las afueras de Salto, Ayelén Venue es un complejo multipropósito concebido bajo una mirada integral que fusiona arte contemporáneo, arquitectura y naturaleza. La cubierta flota sobre cerramientos vidriados continuos, integrando la precisión constructiva con la fantasía del paisaje norteño.",
+      "Complejo multipropósito en un predio rural de 28 hectáreas citrícolas en Salto. Fusiona arte escultórico, arquitectura pabellonal de hormigón y acero y paisaje natural.",
     svg: `
-      <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="20" y1="125" x2="580" y2="125" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="60" y1="42" x2="540" y2="42" stroke="currentColor" stroke-width="3"/>
-        <line x1="120" y1="42" x2="120" y2="125" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="300" y1="42" x2="300" y2="125" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="480" y1="42" x2="480" y2="125" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="120" y="48" width="360" height="77" stroke="currentColor" stroke-dasharray="3 3"/>
-        <text x="65" y="32" fill="currentColor" font-family="JetBrains Mono" font-size="10">VOLADIZO SUR +4.20m</text>
-        <text x="430" y="32" fill="currentColor" font-family="JetBrains Mono" font-size="10">GALERÍA NORTE</text>
+      <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="40" y1="360" x2="760" y2="360" stroke="currentColor" stroke-width="2"/>
+        <line x1="110" y1="130" x2="690" y2="130" stroke="currentColor" stroke-width="4"/>
+        <line x1="190" y1="130" x2="190" y2="360" stroke="currentColor" stroke-width="2"/>
+        <line x1="400" y1="130" x2="400" y2="360" stroke="currentColor" stroke-width="2"/>
+        <line x1="610" y1="130" x2="610" y2="360" stroke="currentColor" stroke-width="2"/>
+        <rect x="190" y="145" width="420" height="215" stroke="currentColor" stroke-dasharray="6 6"/>
+        <circle cx="400" cy="245" r="85" stroke="currentColor" stroke-dasharray="4 4"/>
+        <text x="115" y="110" fill="currentColor" font-family="JetBrains Mono" font-size="13">CORTE TECTÓNICO // LOSA +4.20m</text>
+        <text x="115" y="390" fill="currentColor" font-family="JetBrains Mono" font-size="13">AYELÉN VENUE · 28 HA · SALTO, UY</text>
       </svg>
     `
   },
   centripeta: {
-    code: "TC-02",
-    category: "ESPACIO PÚBLICO · 1° PREMIO ARQATÓN",
+    code: "02 / MONTEVIDEO · 1° PREMIO ARQATÓN",
     title: "Proyecto «Centrípeta» — Plaza Lluís Companys",
-    location: "Barrio Buceo, Municipio CH, Montevideo",
-    year: "2023 (1° Premio Nacional / BAQ Quito)",
-    area: "3.800 m² de intervención urbana",
-    scale: "ESC 1:250",
-    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
-    materials: "Pavimentos drenantes continuos, equipamiento en hormigón prefabricado y estrato arbóreo nativo",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85",
+    location: "Buceo, Montevideo",
+    area: "1° Premio Nacional · BAQ Quito",
+    authors: "Arq @juankturban & Arq @die.coronel",
+    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=85",
     description:
-      "Primer Premio en la segunda edición del Concurso Nacional Arqatón (Feria de la Construcción & Universidad ORT). La estrategia «Centrípeta» reorganiza la masa vegetal hacia los bordes perimetrales para amortiguar el tránsito vehicular y libera un gran vacío cívico central que potencia la apropiación comunitaria en el barrio Buceo.",
+      "Primer Premio en el Concurso Nacional Arqatón (Feria de la Construcción & Universidad ORT) y representación en la Bienal Panamericana de Arquitectura de Quito. Reorganiza el borde verde como filtro urbano para liberar un corazón cívico barrial.",
     svg: `
-      <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="80" y="18" width="440" height="114" stroke="currentColor" stroke-dasharray="4 4"/>
-        <circle cx="300" cy="75" r="46" stroke="currentColor" stroke-width="1.75"/>
-        <circle cx="300" cy="75" r="24" stroke="currentColor" stroke-dasharray="2 2"/>
-        <path d="M140 35 L255 62 M460 35 L345 62 M140 115 L255 88 M460 115 L345 88" stroke="currentColor" stroke-width="1.2"/>
-        <text x="92" y="34" fill="currentColor" font-family="JetBrains Mono" font-size="10">BORDE VERDE AMORTIGUADOR</text>
-        <text x="252" y="78" fill="currentColor" font-family="JetBrains Mono" font-size="10">NÚCLEO CÍVICO</text>
-      </svg>
-    `
-  },
-  casario: {
-    code: "TC-03",
-    category: "VIVIENDA UNIFAMILIAR",
-    title: "Casa del Litoral",
-    location: "Paysandú / Litoral Oeste, Uruguay",
-    year: "2024",
-    area: "380 m²",
-    scale: "ESC 1:75",
-    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
-    materials: "Losa casetonada de hormigón visto, basamento de piedra local y parasoles de lapacho",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
-    description:
-      "Implantada sobre el paisaje ribereño del litoral uruguayo, la vivienda se organiza bajo una única cubierta horizontal que resuelve los aleros de control solar al poniente. Los paquetes de servicio se agrupan en dos muros pétreos ciegos, liberando las visuales cruzadas entre el patio de acceso y el horizonte del Río Uruguay.",
-    svg: `
-      <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 110 L260 110 L420 132 L580 138" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="110" y="52" width="330" height="8" fill="currentColor" fill-opacity="0.25" stroke="currentColor"/>
-        <rect x="145" y="60" width="45" height="50" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="360" y1="60" x2="360" y2="122" stroke="currentColor" stroke-width="1.5"/>
-        <text x="115" y="42" fill="currentColor" font-family="JetBrains Mono" font-size="10">LOSA CONTINUA H°A°</text>
-        <text x="435" y="100" fill="currentColor" font-family="JetBrains Mono" font-size="10">VISUALES AL RÍO →</text>
+      <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="120" y="60" width="560" height="330" stroke="currentColor" stroke-dasharray="6 6"/>
+        <circle cx="400" cy="225" r="125" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="400" cy="225" r="65" stroke="currentColor" stroke-dasharray="4 4"/>
+        <line x1="120" y1="60" x2="310" y2="170" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="680" y1="60" x2="490" y2="170" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="120" y1="390" x2="310" y2="280" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="680" y1="390" x2="490" y2="280" stroke="currentColor" stroke-width="1.5"/>
+        <text x="135" y="90" fill="currentColor" font-family="JetBrains Mono" font-size="13">ESTRATEGIA CENTRÍPETA // 1° PREMIO ARQATÓN</text>
+        <text x="330" y="230" fill="currentColor" font-family="JetBrains Mono" font-size="13">VACÍO CÍVICO</text>
       </svg>
     `
   },
   nave: {
-    code: "TC-04",
-    category: "INFRAESTRUCTURA INDUSTRIAL",
-    title: "Planta Industrial Metalúrgica — Ruta 3 y Av. de las Américas",
-    location: "Ruta 3 y Av. de las Américas, Paysandú, Uruguay",
-    year: "2024",
-    area: "3.200 m²",
-    scale: "ESC 1:200",
-    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
-    materials: "Estructura metálica de alma llena, paneles termoacústicos y envolvente de policarbonato alveolar",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
+    code: "03 / PAYSANDÚ · RUTA 3 & AV. DE LAS AMÉRICAS",
+    title: "Planta Industrial Metalúrgica",
+    location: "Paysandú, Uruguay",
+    area: "3.200 m² · Gran Escala",
+    authors: "Arq @juankturban & Arq @die.coronel",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85",
     description:
-      "Proyecto y diseño de planta industrial metalúrgica y bloque corporativo ubicado en el nodo estratégico de Ruta 3 y Avenida de las Américas en Paysandú. El sistema de pórticos modulados de gran luz libre permite máxima eficiencia operativa, complementado con oficinas iluminadas naturalmente.",
+      "Proyecto y diseño de planta industrial metalúrgica y bloque administrativo sobre Ruta 3 y Avenida de las Américas en Paysandú. Pórticos modulados de gran luz libre y fachadas ventiladas.",
     svg: `
-      <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="30" y1="128" x2="570" y2="128" stroke="currentColor" stroke-width="1.5"/>
-        <polygon points="80,128 80,55 210,36 340,55 340,128" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="370" y="68" width="140" height="60" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="80" y1="55" x2="340" y2="55" stroke="currentColor" stroke-dasharray="3 3"/>
-        <text x="135" y="95" fill="currentColor" font-family="JetBrains Mono" font-size="10">NAVE LUZ LIBRE 26m</text>
-        <text x="385" y="100" fill="currentColor" font-family="JetBrains Mono" font-size="10">BLOQUE TÉCNICO</text>
+      <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="365" x2="750" y2="365" stroke="currentColor" stroke-width="2"/>
+        <polygon points="110,365 110,165 290,110 470,165 470,365" stroke="currentColor" stroke-width="2.5"/>
+        <rect x="500" y="205" width="190" height="160" stroke="currentColor" stroke-width="2"/>
+        <line x1="110" y1="165" x2="470" y2="165" stroke="currentColor" stroke-dasharray="5 5"/>
+        <text x="180" y="265" fill="currentColor" font-family="JetBrains Mono" font-size="13">PÓRTICO METÁLICO LUZ LIBRE 26m</text>
+        <text x="110" y="395" fill="currentColor" font-family="JetBrains Mono" font-size="13">RUTA 3 Y AV. DE LAS AMÉRICAS · PAYSANDÚ</text>
       </svg>
     `
   },
-  patiocordon: {
-    code: "TC-05",
-    category: "RECICLAJE & VIVIENDA",
-    title: "Casa Patio en trama consolidada",
-    location: "Montevideo / Paysandú, Uruguay",
-    year: "2025",
-    area: "215 m²",
-    scale: "ESC 1:50",
-    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
-    materials: "Mampostería cerámica recuperada, perfiles IPN a la vista, pisos monolíticos y carpintería de cedro",
-    image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=85",
+  casario: {
+    code: "04 / LITORAL OESTE · VIVIENDA",
+    title: "Casa del Litoral",
+    location: "Paysandú, Uruguay",
+    area: "380 m²",
+    authors: "Arq @juankturban & Arq @die.coronel",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85",
     description:
-      "Operación de acupuntura doméstica sobre un padrón entre medianeras. Mediante el vaciamiento estratégico del tercio central y la incorporación de una estructura liviana de acero, la vivienda multiplica su ganancia de sol norte y articula la vida cotidiana en torno a un patio interior.",
+      "Una losa continua de hormigón visto gravita sobre muros de piedra local y parasoles de lapacho, protegiendo las galerías del sol poniente y abriendo la vivienda hacia el Río Uruguay.",
     svg: `
-      <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="90" y="30" width="140" height="98" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="230" y="75" width="110" height="53" stroke="currentColor" stroke-dasharray="3 3"/>
-        <rect x="340" y="45" width="160" height="83" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="255" y1="22" x2="285" y2="68" stroke="currentColor" stroke-dasharray="2 2"/>
-        <line x1="285" y1="22" x2="315" y2="68" stroke="currentColor" stroke-dasharray="2 2"/>
-        <text x="242" y="65" fill="currentColor" font-family="JetBrains Mono" font-size="10">PATIO LUZ NORTE</text>
-      </svg>
-    `
-  },
-  mirador: {
-    code: "TC-06",
-    category: "HOSPITALIDAD & PAISAJE",
-    title: "Pabellones de Basalto & Agua",
-    location: "Litoral Norte (Salto / Paysandú), Uruguay",
-    year: "2025",
-    area: "640 m²",
-    scale: "ESC 1:100",
-    authors: "Arq. Juank Turban (@juankturban) & Arq. Diego Coronel (@die.coronel)",
-    materials: "Muros de piedra basáltica en seco, estructura de eucalipto grandis laminado y espejos de agua",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85",
-    description:
-      "Conjunto de pabellones de descanso y contemplación termal que emergen de la geología basáltica del litoral norte uruguayo. Los muros de piedra local anclan el proyecto a la topografía mientras que los entramados de madera laminada certificada resuelven las cubiertas ventiladas.",
-    svg: `
-      <svg viewBox="0 0 600 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="40" y1="122" x2="560" y2="122" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="110" y="58" width="150" height="64" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="320" y="58" width="150" height="64" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="260" y1="115" x2="320" y2="115" stroke="currentColor" stroke-width="3"/>
-        <text x="125" y="48" fill="currentColor" font-family="JetBrains Mono" font-size="10">MÓDULO BASALTO 01</text>
-        <text x="335" y="48" fill="currentColor" font-family="JetBrains Mono" font-size="10">MÓDULO BASALTO 02</text>
+      <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 320 L420 320 L620 370 L750 380" stroke="currentColor" stroke-width="2"/>
+        <rect x="140" y="155" width="460" height="18" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="2"/>
+        <rect x="190" y="173" width="70" height="147" stroke="currentColor" stroke-width="2"/>
+        <line x1="510" y1="173" x2="510" y2="342" stroke="currentColor" stroke-width="2"/>
+        <text x="145" y="138" fill="currentColor" font-family="JetBrains Mono" font-size="13">VOLADIZO HORMIGÓN VISTO // CONTROL SOLAR OESTE</text>
       </svg>
     `
   }
 };
 
 /* ==========================================================================
-   1. DARK MODE TWO-STATE TOGGLE & SYSTEM PREFERENCE SYNC
+   1. INTERACTIVE X-RAY SPOTLIGHT REVEAL (interactive-content-reveal)
    ========================================================================== */
-const initThemeControl = () => {
-  const themeToggle = document.getElementById("themeToggle");
-  const metaScheme = document.querySelector('meta[name="color-scheme"]');
-  const systemDarkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+const initSpotlightCanvas = () => {
+  const container = document.getElementById("heroSpotlight");
+  const hudCoords = document.getElementById("hudCoords");
+  if (!container) return;
 
-  const getEffectiveTheme = () => {
-    const pinned = document.documentElement.dataset.theme;
-    if (pinned === "light" || pinned === "dark") return pinned;
-    return systemDarkQuery.matches ? "dark" : "light";
-  };
+  let rect = container.getBoundingClientRect();
+  const resizeObserver = new ResizeObserver(() => {
+    rect = container.getBoundingClientRect();
+  });
+  resizeObserver.observe(container);
 
-  const applyTheme = (targetScheme) => {
-    document.documentElement.dataset.theme = targetScheme;
-    if (metaScheme) {
-      metaScheme.content = targetScheme;
+  container.addEventListener("pointermove", (e) => {
+    rect = container.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+
+    container.style.setProperty("--mouse-x", `${x}%`);
+    container.style.setProperty("--mouse-y", `${y}%`);
+
+    if (hudCoords) {
+      hudCoords.textContent = `X:${String(Math.round(x)).padStart(3, "0")} Y:${String(Math.round(y)).padStart(3, "0")}`;
     }
-    localStorage.setItem("color-scheme", targetScheme);
-  };
+  });
 
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const current = getEffectiveTheme();
-      const next = current === "dark" ? "light" : "dark";
-      applyTheme(next);
-    });
-  }
-
-  // Listen for OS theme changes when no explicit override is pinned
-  systemDarkQuery.addEventListener("change", () => {
-    const saved = localStorage.getItem("color-scheme");
-    if (!saved && metaScheme) {
-      metaScheme.content = "light dark";
-    }
+  container.addEventListener("pointerdown", () => {
+    container.classList.add("is-active");
+  });
+  container.addEventListener("pointerup", () => {
+    container.classList.remove("is-active");
   });
 };
 
 /* ==========================================================================
-   2. CAD BLUEPRINT MODE TOGGLE & MOBILE NAVIGATION DRAWER
+   2. SCROLL SURPRISES: ELEVATION ALTIMETER, ROTATING EMBLEM & FALLBACKS
    ========================================================================== */
-const initHeaderControls = () => {
-  const blueprintToggle = document.getElementById("blueprintToggle");
-  if (blueprintToggle) {
-    blueprintToggle.addEventListener("click", () => {
-      const isActive = document.body.classList.toggle("cad-mode");
-      blueprintToggle.setAttribute("aria-pressed", String(isActive));
-    });
-  }
+const initScrollEffects = () => {
+  const hudElevation = document.getElementById("hudElevation");
+  const rotatingEmblem = document.getElementById("rotatingEmblem");
+  const progress = document.getElementById("scrollProgress");
+  const supportsScrollTimeline = CSS.supports("animation-timeline", "scroll()");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-  const mobileNavDrawer = document.getElementById("mobileNavDrawer");
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const scrolled = window.scrollY;
+      const ratio = Math.max(0, Math.min(1, scrolled / scrollable));
 
-  if (mobileMenuBtn && mobileNavDrawer) {
-    mobileMenuBtn.addEventListener("click", () => {
-      const expanded = mobileMenuBtn.getAttribute("aria-expanded") === "true";
-      mobileMenuBtn.setAttribute("aria-expanded", String(!expanded));
-      mobileNavDrawer.hidden = expanded;
-    });
-
-    mobileNavDrawer.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenuBtn.setAttribute("aria-expanded", "false");
-        mobileNavDrawer.hidden = true;
-      });
-    });
-  }
-};
-
-/* ==========================================================================
-   3. ARCHITECTURAL ARCHIVE FILTERING
-   ========================================================================== */
-const initProjectFilters = () => {
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".project-card");
-  const filterStatus = document.getElementById("filterStatus");
-
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const category = btn.dataset.filter;
-
-      filterBtns.forEach((b) => {
-        const active = b === btn;
-        b.classList.toggle("is-active", active);
-        b.setAttribute("aria-pressed", String(active));
-      });
-
-      let visibleCount = 0;
-      cards.forEach((card) => {
-        const matches = category === "all" || card.dataset.category === category;
-        card.hidden = !matches;
-        if (matches) visibleCount++;
-      });
-
-      if (filterStatus) {
-        filterStatus.textContent = `MOSTRANDO ${visibleCount} ${visibleCount === 1 ? "PROYECTO" : "PROYECTOS"}`;
+      // Update live architectural section elevation (from ±0.00m to +12.40m)
+      if (hudElevation) {
+        const meters = (ratio * 12.4).toFixed(2);
+        hudElevation.textContent = ratio <= 0.01 ? "±0.00 m" : `+${meters} m`;
       }
-    });
-  });
+
+      // Gently rotate official CORONEL | TURBAN emblem on scroll
+      if (rotatingEmblem && !prefersReducedMotion) {
+        rotatingEmblem.style.transform = `rotate(${(scrolled * 0.14).toFixed(1)}deg)`;
+      }
+
+      // Fallback for scroll progress indicator if animation-timeline: scroll() is unsupported
+      if (!supportsScrollTimeline && progress) {
+        progress.style.transform = `scaleX(${ratio})`;
+      }
+    },
+    { passive: true }
+  );
+
+  if (prefersReducedMotion) return;
+
+  // Fallback for Scrollytelling isometric assembly in browsers without scroll-driven animations
+  if (!CSS.supports("(animation-timeline: scroll()) and (animation-range: 0% 100%)")) {
+    const animatedPlanes = document.querySelectorAll("#animated .iso-plane");
+    const trackedSteps = Array.from(document.querySelectorAll("#tracked section"));
+
+    const scrollyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const idx = trackedSteps.indexOf(entry.target);
+          if (idx !== -1 && animatedPlanes[idx]) {
+            const r = entry.intersectionRatio;
+            animatedPlanes[idx].style.opacity = String(0.2 + r * 0.8);
+            animatedPlanes[idx].style.transform = `translateY(${(1 - r) * 40}px) scale(${0.9 + r * 0.1})`;
+          }
+        });
+      },
+      { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }
+    );
+
+    trackedSteps.forEach((step) => scrollyObserver.observe(step));
+  }
+
+  // Fallback for Monumental Works entry reveal
+  if (!CSS.supports("(animation-timeline: view()) and (animation-range: entry)")) {
+    const workObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const r = entry.intersectionRatio;
+            entry.target.style.opacity = String(0.25 + r * 0.75);
+            entry.target.style.transform = `translateY(${Math.round((1 - r) * 32)}px)`;
+          }
+        }
+      },
+      { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }
+    );
+
+    document.querySelectorAll(".monumental-item").forEach((el) => workObserver.observe(el));
+  }
 };
 
 /* ==========================================================================
-   4. MODAL DIALOG WITH LIGHT-DISMISS & TOP-LAYER ANIMATION FALLBACKS
+   3. MODAL DIALOG WITH BEFORE/AFTER CAD SLIDER & LIGHT-DISMISS FALLBACK
    ========================================================================== */
-const initProjectDialog = () => {
+const initProjectModal = () => {
   const dialog = document.getElementById("projectDialog");
-  if (!dialog) return;
-
   const closeBtn = document.getElementById("closeDialogBtn");
-  const consultBtn = document.getElementById("dialogConsultBtn");
+  const slider = document.getElementById("comparisonSlider");
+  const viewer = document.getElementById("comparisonViewer");
+  if (!dialog) return;
 
   const els = {
     code: document.getElementById("dialogCode"),
-    category: document.getElementById("dialogCategory"),
     title: document.getElementById("dialogProjectTitle"),
     description: document.getElementById("dialogDescription"),
     location: document.getElementById("dialogLocation"),
-    year: document.getElementById("dialogYear"),
     area: document.getElementById("dialogArea"),
-    scale: document.getElementById("dialogScale"),
     authors: document.getElementById("dialogAuthors"),
-    materials: document.getElementById("dialogMaterials"),
     image: document.getElementById("dialogImage"),
-    svgBox: document.getElementById("dialogSvgBlueprint")
+    svg: document.getElementById("dialogSvgBlueprint")
   };
 
-  // Feature detection for top-layer animations
-  const supportsTopLayerAnimation =
-    window.CSS &&
-    CSS.supports("transition-behavior", "allow-discrete") &&
-    CSS.supports("overlay", "auto");
-
-  const closeDialogSafely = () => {
-    if (!supportsTopLayerAnimation) {
-      dialog.classList.add("is-closing");
-      dialog.close();
-      dialog.classList.remove("is-closing");
-      return;
-    }
-    dialog.close();
-  };
-
-  const openProjectModal = (projectId) => {
-    const data = PROJECTS_DATA[projectId];
+  const openModal = (id) => {
+    const data = PROJECTS_DATA[id];
     if (!data) return;
 
     els.code.textContent = data.code;
-    els.category.textContent = data.category;
     els.title.textContent = data.title;
     els.description.textContent = data.description;
     els.location.textContent = data.location;
-    els.year.textContent = data.year;
     els.area.textContent = data.area;
-    els.scale.textContent = data.scale;
     els.authors.textContent = data.authors;
-    els.materials.textContent = data.materials;
     els.image.src = data.image;
     els.image.alt = `${data.title} — ${data.location}`;
-    els.svgBox.innerHTML = data.svg;
+    els.svg.innerHTML = data.svg;
+
+    if (slider && viewer) {
+      slider.value = "55";
+      viewer.style.setProperty("--split", "55%");
+    }
 
     // MANDATORY: Open modal dialogs with showModal()
     dialog.showModal();
   };
 
-  document.querySelectorAll("[data-open-project]").forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      openProjectModal(trigger.dataset.openProject);
+  document.querySelectorAll("[data-open-project]").forEach((el) => {
+    el.addEventListener("click", () => openModal(el.dataset.openProject));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(el.dataset.openProject);
+      }
     });
   });
 
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeDialogSafely);
-  }
-
-  if (consultBtn) {
-    consultBtn.addEventListener("click", () => {
-      closeDialogSafely();
+  if (slider && viewer) {
+    slider.addEventListener("input", () => {
+      viewer.style.setProperty("--split", `${slider.value}%`);
     });
   }
 
-  // MANDATORY: Fallback for browsers without <dialog closedby="any"> support (e.g. Safari)
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => dialog.close());
+  }
+
+  // MANDATORY: Fallback for browsers without <dialog closedby="any"> support
   if (!("closedBy" in HTMLDialogElement.prototype)) {
     dialog.addEventListener("click", (event) => {
       if (event.target !== dialog) return;
-
       const rect = dialog.getBoundingClientRect();
-      const isDialogContent =
+      const isInside =
         rect.top <= event.clientY &&
         event.clientY <= rect.top + rect.height &&
         rect.left <= event.clientX &&
         event.clientX <= rect.left + rect.width;
-
-      if (isDialogContent) return;
-
-      closeDialogSafely();
+      if (!isInside) dialog.close();
     });
   }
 };
 
 /* ==========================================================================
-   5. SCROLL-DRIVEN ANIMATIONS & SCROLL PROGRESS FALLBACKS
+   4. THEME TOGGLE & MAGNETIC CTA
    ========================================================================== */
-const initScrollRevealFallback = () => {
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const initThemeAndMagnetic = () => {
+  const themeToggle = document.getElementById("themeToggle");
+  const metaScheme = document.querySelector('meta[name="color-scheme"]');
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-  // Scroll Progress Bar Fallback for browsers without animation-timeline: scroll()
-  if (!CSS.supports("animation-timeline", "scroll()")) {
-    const progress = document.querySelector("#scrollProgress");
-    if (progress) {
-      window.addEventListener(
-        "scroll",
-        () => {
-          const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-          const scrolled = window.scrollY;
-          const progressPercentage = scrollable > 0 ? scrolled / scrollable : 0;
-          progress.style.transform = `scaleX(${progressPercentage})`;
-        },
-        { passive: true }
-      );
-    }
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const current =
+        document.documentElement.dataset.theme || (systemDark.matches ? "dark" : "light");
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      if (metaScheme) metaScheme.content = next;
+      localStorage.setItem("color-scheme", next);
+    });
   }
 
-  if (prefersReducedMotion) return;
-
-  if (!CSS.supports("(animation-timeline: view()) and (animation-range: entry)")) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = String(0.2 + entry.intersectionRatio * 0.8);
-            entry.target.style.transform = `translateY(${Math.round((1 - entry.intersectionRatio) * 20)}px)`;
-          }
-        }
-      },
-      {
-        threshold: Array.from({ length: 21 }, (_, i) => i / 20)
-      }
-    );
-
-    document.querySelectorAll(".scroll-reveal").forEach((el) => {
-      observer.observe(el);
+  const magneticBtn = document.getElementById("magneticCta");
+  if (magneticBtn && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    magneticBtn.addEventListener("pointermove", (e) => {
+      const r = magneticBtn.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width / 2)) * 0.22;
+      const dy = (e.clientY - (r.top + r.height / 2)) * 0.22;
+      magneticBtn.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
+    });
+    magneticBtn.addEventListener("pointerleave", () => {
+      magneticBtn.style.transform = "translate(0, 0)";
     });
   }
 };
 
-/* ==========================================================================
-   5B. PRE-FEASIBILITY & SCOPE CONFIGURATOR
-   ========================================================================== */
-const initScopeEstimator = () => {
-  const simType = document.getElementById("simType");
-  const simArea = document.getElementById("simArea");
-  const simAreaOutput = document.getElementById("simAreaOutput");
-  const simDesignMonths = document.getElementById("simDesignMonths");
-  const simBuildMonths = document.getElementById("simBuildMonths");
-  const simDeliverablesList = document.getElementById("simDeliverablesList");
-  const transferBtn = document.getElementById("transferToContactBtn");
-
-  if (!simType || !simArea) return;
-
-  const calculateEstimate = () => {
-    const area = Number(simArea.value) || 240;
-    const selectedOption = simType.options[simType.selectedIndex];
-    const rate = Number(selectedOption?.dataset.rate) || 1;
-    const systemInput = document.querySelector('input[name="simSystem"]:checked');
-    const speedFactor = Number(systemInput?.dataset.speed) || 1;
-    const scopeInput = document.querySelector('input[name="simScope"]:checked');
-    const phases = Number(scopeInput?.dataset.phases) || 4;
-
-    if (simAreaOutput) {
-      simAreaOutput.textContent = `${area.toLocaleString("es-UY")} m²`;
-    }
-
-    const designMonths = Math.max(1.5, Math.min(6, +(1.5 + (area / 450) * rate).toFixed(1)));
-    const buildMonths = Math.max(4, Math.round((4.5 + (area / 90) * rate) * speedFactor));
-
-    if (simDesignMonths) {
-      simDesignMonths.textContent = `${designMonths} meses`;
-    }
-    if (simBuildMonths) {
-      simBuildMonths.textContent = phases === 4 ? `${buildMonths} meses` : "A licitar";
-    }
-
-    if (simDeliverablesList) {
-      const items = [
-        "Implantación solar, volumetría 3D y memoria descriptiva (ESC 1:200 / 1:100)",
-        "Recaudos gráficos ejecutivos BIM, planillas de carpinterías y estructura (ESC 1:50)",
-        "Detalles constructivos tectónicos y pliego de condiciones (ESC 1:20 / 1:5)"
-      ];
-      if (phases === 4) {
-        items.push("Dirección de obra en sitio, control de certificaciones y entrega llave en mano (ESC 1:1)");
-      }
-      simDeliverablesList.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
-    }
-  };
-
-  simType.addEventListener("change", calculateEstimate);
-  simArea.addEventListener("input", calculateEstimate);
-  document.querySelectorAll('input[name="simSystem"], input[name="simScope"]').forEach((radio) => {
-    radio.addEventListener("change", calculateEstimate);
-  });
-
-  if (transferBtn) {
-    transferBtn.addEventListener("click", () => {
-      const area = simArea.value;
-      const systemVal = document.querySelector('input[name="simSystem"]:checked')?.value || "";
-      const scopeVal = document.querySelector('input[name="simScope"]:checked')?.value || "";
-
-      const projectTypeSelect = document.getElementById("projectType");
-      const projectMessage = document.getElementById("projectMessage");
-
-      if (projectTypeSelect) {
-        projectTypeSelect.value = simType.value;
-      }
-      if (projectMessage) {
-        projectMessage.value = `Configuración preliminar: Superficie aprox. de ${area} m², sistema constructivo en ${systemVal}, alcance solicitado: ${scopeVal}.`;
-      }
-
-      document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
-      document.getElementById("clientName")?.focus();
-    });
-  }
-
-  calculateEstimate();
-};
-
-/* ==========================================================================
-   6. VALIDATE INPUT AFTER INTERACTION (:user-invalid Fallback & ARIA Sync)
-   ========================================================================== */
-const UserInvalidFallback = (() => {
-  const dirtyState = new WeakMap();
-
-  const updateState = (input) => {
-    const isValid = input.checkValidity();
-    input.classList.toggle("user-invalid-fallback", !isValid);
-    input.classList.toggle("user-valid-fallback", isValid);
-
-    if (!isValid) {
-      input.setAttribute("aria-invalid", "true");
-    } else {
-      input.removeAttribute("aria-invalid");
-    }
-  };
-
-  const handleEvent = (event) => {
-    const input = event.target;
-
-    if (event.type === "reset") {
-      const controls = input.elements || [];
-      for (const control of controls) {
-        dirtyState.delete(control);
-        control.classList.remove("user-invalid-fallback", "user-valid-fallback");
-        control.removeAttribute("aria-invalid");
-      }
-      return;
-    }
-
-    if (!input.checkValidity) return;
-
-    if (event.type === "input" || event.type === "change") {
-      const state = dirtyState.get(input) || { hasInteracted: false, hasBlurred: false };
-      state.hasInteracted = true;
-      dirtyState.set(input, state);
-      if (state.hasBlurred) {
-        updateState(input);
-      }
-    } else if (event.type === "blur") {
-      const state = dirtyState.get(input) || { hasInteracted: false, hasBlurred: false };
-      state.hasBlurred = true;
-      dirtyState.set(input, state);
-      if (state.hasInteracted) {
-        updateState(input);
-      }
-    }
-  };
-
-  const init = (root = document) => {
-    if (CSS.supports("selector(:user-invalid)")) return;
-    root.addEventListener("blur", handleEvent, true);
-    root.addEventListener("input", handleEvent);
-    root.addEventListener("change", handleEvent);
-    root.addEventListener("reset", handleEvent, true);
-  };
-
-  return { init };
-})();
-
-const initInquiryForm = () => {
-  const form = document.getElementById("projectInquiryForm");
-  const feedback = document.getElementById("formFeedback");
-  if (!form) return;
-
-  UserInvalidFallback.init(form);
-
-  // Sync aria-invalid with native :user-invalid state
-  const syncAria = (el) => {
-    if (!el || typeof el.matches !== "function") return;
-    if (CSS.supports("selector(:user-invalid)")) {
-      el.setAttribute("aria-invalid", el.matches(":user-invalid") ? "true" : "false");
-    }
-  };
-
-  form.addEventListener("blur", (e) => syncAria(e.target), true);
-  form.addEventListener("input", (e) => {
-    if (e.target && e.target.hasAttribute && e.target.hasAttribute("aria-invalid")) {
-      syncAria(e.target);
-    }
-  });
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.checkValidity()) {
-      const firstInvalid = form.querySelector(":invalid");
-      if (firstInvalid) {
-        firstInvalid.focus();
-        syncAria(firstInvalid);
-      }
-      return;
-    }
-
-    const formData = new FormData(form);
-    const clientName = formData.get("clientName");
-    const projectType = formData.get("projectType");
-
-    if (feedback) {
-      feedback.hidden = false;
-      feedback.textContent = `Gracias, ${clientName}. Recibimos tu consulta sobre «${projectType}». Los arquitectos Juan Turban y Diego Coronel se pondrán en contacto a la brevedad.`;
-    }
-
-    form.reset();
-  });
-};
-
-/* ==========================================================================
-   INITIALIZE APPLICATION
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("currentYear");
-  if (yearEl) {
-    yearEl.textContent = String(new Date().getFullYear());
-  }
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  initThemeControl();
-  initHeaderControls();
-  initProjectFilters();
-  initProjectDialog();
-  initScrollRevealFallback();
-  initScopeEstimator();
-  initInquiryForm();
+  initSpotlightCanvas();
+  initScrollEffects();
+  initProjectModal();
+  initThemeAndMagnetic();
 });
-

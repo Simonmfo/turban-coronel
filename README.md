@@ -16,3 +16,4 @@ El proyecto es estático de cero dependencias de compilación y cuenta con confi
 
 1. Importar el repositorio [`Simonmfo/turban-coronel`](https://github.com/Simonmfo/turban-coronel) en [Vercel](https://vercel.com/new).
 2. Hacer clic en **Deploy**.
+
