@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>turban | coronel — Estudio de Arquitectura &amp; Urbanismo</title>
+  <meta name="description" content="turban | coronel — Estudio de arquitectura contemporánea, diseño urbano y paisaje fundado por los arquitectos Juan Turban y Diego Coronel en Uruguay.">
+  
+  <!-- MANDATORY: Declare support for both light and dark themes to prevent FOUC -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    {
+      const savedScheme = localStorage.getItem("color-scheme");
+      if (savedScheme === "light" || savedScheme === "dark") {
+        const meta = document.querySelector('meta[name="color-scheme"]');
+        if (meta) meta.content = savedScheme;
+        document.documentElement.dataset.theme = savedScheme;
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Cormorant Garamond (editorial serif), Plus Jakarta Sans (architectural grotesk), JetBrains Mono (technical coordinates/metrics) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- MANDATORY: Purely decorative visual scroll progress bars MUST set aria-hidden="true" -->
+  <div id="scrollProgress" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Subtle architectural grid lines overlay -->
+  <div class="arch-grid-overlay" aria-hidden="true">
+    <div class="arch-grid-line"></div>
+    <div class="arch-grid-line"></div>
+    <div class="arch-grid-line"></div>
+    <div class="arch-grid-line"></div>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header" id="top">
+    <div class="header-inner container">
+      <a href="#top" class="brand-logo" aria-label="turban | coronel — Inicio">
+        <span class="brand-word">turban</span>
+        <span class="brand-pipe" aria-hidden="true">|</span>
+        <span class="brand-word">coronel</span>
+        <span class="brand-sub">arquitectura</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#obras" class="nav-link"><span class="nav-index">01</span> Obras</a></li>
+          <li><a href="#estudio" class="nav-link"><span class="nav-index">02</span> Estudio</a></li>
+          <li><a href="#metodologia" class="nav-link"><span class="nav-index">03</span> Proceso</a></li>
+          <li><a href="#prefactibilidad" class="nav-link"><span class="nav-index">04</span> Simulador</a></li>
+          <li><a href="#reconocimientos" class="nav-link"><span class="nav-index">05</span> Premios</a></li>
+          <li><a href="#instagram" class="nav-link"><span class="nav-index">06</span> @turbancoronel</a></li>
+          <li><a href="#contacto" class="nav-link nav-link-cta">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          id="blueprintToggle"
+          class="mode-chip"
+          aria-pressed="false"
+          title="Alternar modo plano técnico CAD"
+        >
+          <span class="chip-dot" aria-hidden="true"></span>
+          <span class="chip-label">Vista CAD</span>
+        </button>
+
+        <button
+          type="button"
+          id="themeToggle"
+          class="theme-toggle"
+          aria-label="Cambiar tema de color"
+          title="Alternar luz / oscuridad"
+        >
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5"></circle>
+            <path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77"></path>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          id="mobileMenuBtn"
+          class="mobile-menu-btn"
+          aria-expanded="false"
+          aria-controls="mobileNavDrawer"
+          aria-label="Abrir menú de navegación"
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavDrawer" class="mobile-drawer" hidden>
+      <nav aria-label="Navegación móvil">
+        <ul class="mobile-nav-list">
+          <li><a href="#obras" class="mobile-nav-link"><span>01</span> Obras seleccionadas</a></li>
+          <li><a href="#estudio" class="mobile-nav-link"><span>02</span> Estudio &amp; Fundadores</a></li>
+          <li><a href="#metodologia" class="mobile-nav-link"><span>03</span> Metodología tectónica</a></li>
+          <li><a href="#reconocimientos" class="mobile-nav-link"><span>04</span> Premios &amp; Concursos</a></li>
+          <li><a href="#instagram" class="mobile-nav-link"><span>05</span> @turbancoronel</a></li>
+          <li><a href="#contacto" class="mobile-nav-link"><span>06</span> Iniciar proyecto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section container">
+      <div class="hero-meta-bar">
+        <span class="mono-tag">ESTUDIO DE ARQUITECTURA &amp; URBANISMO</span>
+        <span class="mono-coords" title="Coordenadas Montevideo / Salto, Uruguay">34°54′S 56°09′W · MVD / SLT — UY</span>
+        <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="mono-ig-link">
+          IG / @turbancoronel ↗
+        </a>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">ARQ. JUAN TURBAN &amp; ARQ. DIEGO CORONEL</p>
+          <h1 class="hero-title">
+            Materia, vacío y territorio en equilibrio tectónico.
+          </h1>
+          <p class="hero-lead pretty-copy">
+            Proyectamos arquitectura contemporánea, infraestructura cultural y espacio público desde Uruguay. Exploramos la honestidad constructiva del hormigón, la madera y el acero en diálogo permanente con el paisaje natural y la vida urbana.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#obras" class="btn btn-primary">
+              Explorar obras
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <path d="M5 12h14M13 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <a href="#contacto" class="btn btn-outline">Agendar consulta</a>
+          </div>
+
+          <dl class="hero-metrics" aria-label="Indicadores del estudio">
+            <div class="metric-item">
+              <dt class="metric-label">Reconocimiento</dt>
+              <dd class="metric-value">1° Premio Arqatón</dd>
+            </div>
+            <div class="metric-item">
+              <dt class="metric-label">Escalas</dt>
+              <dd class="metric-value">Vivienda · Paisaje · Urbano</dd>
+            </div>
+            <div class="metric-item">
+              <dt class="metric-label">Territorio</dt>
+              <dd class="metric-value">Montevideo &amp; Litoral UY</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="hero-figure">
+            <div class="hero-image-frame">
+              <!-- MANDATORY: Elevate LCP priority with fetchpriority="high" and no lazy loading -->
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85"
+                alt="Pabellón contemporáneo de hormigón visto y vidrio integrado al paisaje uruguayo por turban | coronel"
+                fetchpriority="high"
+                width="1400"
+                height="1000"
+                class="hero-img"
+              >
+              <!-- Technical CAD overlay visible when CAD mode is active -->
+              <svg class="cad-overlay" viewBox="0 0 800 600" fill="none" aria-hidden="true">
+                <line x1="40" y1="80" x2="760" y2="80" stroke="currentColor" stroke-dasharray="4 4"/>
+                <line x1="40" y1="520" x2="760" y2="520" stroke="currentColor" stroke-dasharray="4 4"/>
+                <line x1="120" y1="40" x2="120" y2="560" stroke="currentColor" stroke-dasharray="4 4"/>
+                <line x1="680" y1="40" x2="680" y2="560" stroke="currentColor" stroke-dasharray="4 4"/>
+                <rect x="120" y="180" width="560" height="340" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="400" cy="350" r="95" stroke="currentColor" stroke-dasharray="3 3"/>
+                <text x="132" y="170" fill="currentColor" font-family="JetBrains Mono" font-size="11">COTA +3.60m // LOSA HORMIGÓN VISTO</text>
+                <text x="132" y="510" fill="currentColor" font-family="JetBrains Mono" font-size="11">NIVEL ±0.00 // TERRENO NATURAL</text>
+                <text x="545" y="170" fill="currentColor" font-family="JetBrains Mono" font-size="11">ESC 1:100</text>
+              </svg>
+            </div>
+            <figcaption class="hero-caption">
+              <span class="caption-code">OBRA DESTACADA · TC-01</span>
+              <span class="caption-title">Ayelén Venue — Arquitectura, Arte &amp; Paisaje en Salto</span>
+              <span class="caption-year">2023—2024</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORKS / OBRAS SECTION -->
+    <section id="obras" class="section-block container scroll-reveal">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">01 / ARCHIVO DE PROYECTOS</p>
+          <h2 class="section-title">Obras &amp; Concursos Seleccionados</h2>
+        </div>
+        <p class="section-subtitle pretty-copy">
+          Cada proyecto responde a las preexistencias del sitio, la orientación solar y la economía de recursos materiales para construir atmósferas atemporales.
+        </p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar" role="toolbar" aria-label="Filtrar obras por tipología">
+        <div class="filter-buttons">
+          <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">
+            Todas <span class="filter-count">6</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="residencial" aria-pressed="false">
+            Vivienda <span class="filter-count">2</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="cultural" aria-pressed="false">
+            Cultural &amp; Paisaje <span class="filter-count">2</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="urbano" aria-pressed="false">
+            Espacio Público &amp; Urbano <span class="filter-count">2</span>
+          </button>
+        </div>
+        <div class="filter-status mono-tag" id="filterStatus" aria-live="polite">
+          MOSTRANDO 6 PROYECTOS
+        </div>
+      </div>
+
+      <!-- Architectural Projects Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project 1: Ayelén Venue -->
+        <article class="project-card scroll-reveal" data-category="cultural" data-project-id="ayelen">
+          <div class="project-media">
+            <img
+              src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1000&q=80"
+              alt="Ayelén Venue en Salto — Pabellón entre chacras de cítricos y naturaleza"
+              loading="lazy"
+              width="1000"
+              height="750"
+              class="project-img"
+            >
+            <div class="project-cad-badge mono-tag">TC-01 · 1.450 m²</div>
+            <button type="button" class="project-trigger" data-open-project="ayelen" aria-label="Ver ficha técnica de Ayelén Venue">
+              <span>Ver memoria &amp; planos</span>
+              <span aria-hidden="true">+</span>
+            </button>
+          </div>
+          <div class="project-meta">
+            <div class="project-meta-top">
+              <span class="project-code mono-tag">TC-01 · CULTURAL &amp; PAISAJE</span>
+              <span class="project-location mono-tag">SALTO, UY · 2023</span>
+            </div>
+            <h3 class="project-title">
+              <button type="button" class="project-title-btn" data-open-project="ayelen">
+                Ayelén Venue
+              </button>
+            </h3>
+            <p class="project-excerpt pretty-copy">
+              Espacio multidisciplinario de eventos y contemplación inmerso en un entorno de chacras citrícolas en Salto. Fusión de arquitectura pabellonal, escultura contemporánea y paisaje productivo.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 2: Centrípeta - Plaza Lluís Companys -->
+        <article class="project-card project-card-tall scroll-reveal" data-category="urbano" data-project-id="centripeta">
+          <div class="project-media">
+            <img
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80"
+              alt="Proyecto Centrípeta — Rediseño urbano de la Plaza Lluís Companys en Montevideo"
+              loading="lazy"
+              width="1000"
+              height="850"
+              class="project-img"
+            >
+            <div class="project-cad-badge mono-tag">1° PREMIO ARQATÓN · BAQ QUITO</div>
+            <button type="button" class="project-trigger" data-open-project="centripeta" aria-label="Ver ficha técnica de Proyecto Centrípeta">
+              <span>Ver memoria &amp; planos</span>
+              <span aria-hidden="true">+</span>
+            </button>
+          </div>
+          <div class="project-meta">
+            <div class="project-meta-top">
+              <span class="project-code mono-tag">TC-02 · ESPACIO PÚBLICO</span>
+              <span class="project-location mono-tag">BUCEO, MONTEVIDEO · 2023</span>
+            </div>
+            <h3 class="project-title">
+              <button type="button" class="project-title-btn" data-open-project="centripeta">
+                Proyecto «Centrípeta» — Plaza Lluís Companys
+              </button>
+            </h3>
+            <p class="project-excerpt pretty-copy">
+              Primer Premio Concurso Nacional Arqatón. Reorganización de los bordes vegetales como filtro urbano para liberar un corazón cívico flexible de encuentro barrial en el Municipio CH.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 3: Casa Horizontal del Río -->
+        <article class="project-card scroll-reveal" data-category="residencial" data-project-id="casario">
+          <div class="project-media">
+            <img
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80"
+              alt="Casa del Río — Vivienda unifamiliar de hormigón y madera frente al Río Uruguay"
+              loading="lazy"
+              width="1000"
+              height="750"
+              class="project-img"
+            >
+            <div class="project-cad-badge mono-tag">TC-03 · 380 m²</div>
+            <button type="button" class="project-trigger" data-open-project="casario" aria-label="Ver ficha técnica de Casa del Litoral">
+              <span>Ver memoria &amp; planos</span>
+              <span aria-hidden="true">+</span>
+            </button>
+          </div>
+          <div class="project-meta">
+            <div class="project-meta-top">
+              <span class="project-code mono-tag">TC-03 · VIVIENDA UNIFAMILIAR</span>
+              <span class="project-location mono-tag">LITORAL OESTE, UY · 2024</span>
+            </div>
+            <h3 class="project-title">
+              <button type="button" class="project-title-btn" data-open-project="casario">
+                Casa del Litoral
+              </button>
+            </h3>
+            <p class="project-excerpt pretty-copy">
+              Una losa continua de hormigón armado gravita sobre dos volúmenes de piedra y lapacho, enmarcando el horizonte fluvial y protegiendo las galerías del asoleamiento oeste.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 4: Nave Industrial & Laboratorio Logístico -->
+        <article class="project-card scroll-reveal" data-category="urbano" data-project-id="nave">
+          <div class="project-media">
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
+              alt="Infraestructura productiva y oficinas corporativas de acero y policarbonato"
+              loading="lazy"
+              width="1000"
+              height="750"
+              class="project-img"
+            >
+            <div class="project-cad-badge mono-tag">TC-04 · 3.200 m²</div>
+            <button type="button" class="project-trigger" data-open-project="nave" aria-label="Ver ficha técnica de Polo Productivo Litoral">
+              <span>Ver memoria &amp; planos</span>
+              <span aria-hidden="true">+</span>
+            </button>
+          </div>
+          <div class="project-meta">
+            <div class="project-meta-top">
+              <span class="project-code mono-tag">TC-04 · INFRAESTRUCTURA &amp; TRABAJO</span>
+              <span class="project-location mono-tag">PAYSANDÚ, UY · 2024</span>
+            </div>
+            <h3 class="project-title">
+              <button type="button" class="project-title-btn" data-open-project="nave">
+                Polo Productivo &amp; Oficinas Litoral
+              </button>
+            </h3>
+            <p class="project-excerpt pretty-copy">
+              Arquitectura industrial de gran luz estructural resuelta mediante pórticos metálicos modulados, fachadas ventiladas y patios internos que humanizan el espacio de trabajo.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 5: Vivienda Patio Cordón -->
+        <article class="project-card scroll-reveal" data-category="residencial" data-project-id="patiocordon">
+          <div class="project-media">
+            <img
+              src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=80"
+              alt="Rehabilitación y ampliación de vivienda entre medianeras con patio interior"
+              loading="lazy"
+              width="1000"
+              height="750"
+              class="project-img"
+            >
+            <div class="project-cad-badge mono-tag">TC-05 · 215 m²</div>
+            <button type="button" class="project-trigger" data-open-project="patiocordon" aria-label="Ver ficha técnica de Casa entre Medianeras">
+              <span>Ver memoria &amp; planos</span>
+              <span aria-hidden="true">+</span>
+            </button>
+          </div>
+          <div class="project-meta">
+            <div class="project-meta-top">
+              <span class="project-code mono-tag">TC-05 · RECICLAJE &amp; VIVIENDA</span>
+              <span class="project-location mono-tag">MONTEVIDEO, UY · 2025</span>
+            </div>
+            <h3 class="project-title">
+              <button type="button" class="project-title-btn" data-open-project="patiocordon">
+                Casa Patio en trama consolidada
+              </button>
+            </h3>
+            <p class="project-excerpt pretty-copy">
+              Intervención sobre tipología estándar montevideana: sustracción de masa edificada para introducir luz cenital, ventilación cruzada y un jardín vertical silencioso.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 6: Mirador & Refugio Termal -->
+        <article class="project-card scroll-reveal" data-category="cultural" data-project-id="mirador">
+          <div class="project-media">
+            <img
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80"
+              alt="Pabellones de madera y piedra basáltica en paisaje ribereño"
+              loading="lazy"
+              width="1000"
+              height="750"
+              class="project-img"
+            >
+            <div class="project-cad-badge mono-tag">TC-06 · 640 m²</div>
+            <button type="button" class="project-trigger" data-open-project="mirador" aria-label="Ver ficha técnica de Pabellones de Basalto">
+              <span>Ver memoria &amp; planos</span>
+              <span aria-hidden="true">+</span>
+            </button>
+          </div>
+          <div class="project-meta">
+            <div class="project-meta-top">
+              <span class="project-code mono-tag">TC-06 · HOSPITALIDAD &amp; PAISAJE</span>
+              <span class="project-location mono-tag">SALTO, UY · 2025</span>
+            </div>
+            <h3 class="project-title">
+              <button type="button" class="project-title-btn" data-open-project="mirador">
+                Pabellones de Basalto &amp; Agua
+              </button>
+            </h3>
+            <p class="project-excerpt pretty-copy">
+              Módulos de refugio construidos con piedra basáltica local y eucalipto laminado que se posan con mínimo impacto topográfico sobre la penillanura norteña.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- STUDIO & FOUNDERS SECTION -->
+    <section id="estudio" class="section-block studio-section scroll-reveal">
+      <div class="container">
+        <div class="studio-layout">
+          <div class="studio-manifesto">
+            <p class="eyebrow">02 / EL ESTUDIO</p>
+            <h2 class="section-title">
+              Una práctica arraigada en el rigor constructivo y la sensibilidad del lugar.
+            </h2>
+            <blockquote class="architectural-quote pretty-copy">
+              «Entendemos cada encargo como una oportunidad de ordenar el espacio con economía de gestos: donde la estructura es el espacio mismo y la luz natural define la experiencia humana.»
+            </blockquote>
+            <p class="studio-body pretty-copy">
+              <strong>turban | coronel</strong> es el estudio de arquitectura liderado por los arquitectos uruguayos <strong>Juan Turban</strong> y <strong>Diego Coronel</strong>. Con actividad articulada entre Montevideo y el litoral norte (Salto y Paysandú), la oficina aborda encargos de diversa escala: desde viviendas unifamiliares y reciclajes patrimoniales hasta equipamientos culturales, complejos industriales y concursos de espacio público.
+            </p>
+            <p class="studio-body pretty-copy">
+              Su práctica combina la investigación proyectual premiada en certámenes nacionales e internacionales —como el Primer Premio en <em>Arqatón</em> y la representación en la <em>Bienal Panamericana de Arquitectura de Quito (BAQ)</em>— con una dirección de obra cercana, precisa y comprometida con la nobleza envejecida de los materiales locales.
+            </p>
+          </div>
+
+          <div class="founders-column">
+            <article class="founder-card">
+              <div class="founder-header">
+                <span class="mono-tag">SOCIO CO-FUNDADOR</span>
+                <span class="mono-tag">ARQUITECTO</span>
+              </div>
+              <h3 class="founder-name">Arq. Juan Turban</h3>
+              <p class="founder-role">Diseño Arquitectónico, Morfología &amp; Paisaje</p>
+              <p class="founder-bio pretty-copy">
+                Enfocado en la síntesis espacial, la inserción paisajística y el desarrollo conceptual de proyectos residenciales, culturales y urbanos. Co-autor del proyecto ganador «Centrípeta» y de intervenciones integrales como Ayelén Venue.
+              </p>
+            </article>
+
+            <article class="founder-card">
+              <div class="founder-header">
+                <span class="mono-tag">SOCIO CO-FUNDADOR</span>
+                <span class="mono-tag">ARQUITECTO</span>
+              </div>
+              <h3 class="founder-name">Arq. Diego Coronel</h3>
+              <p class="founder-role">Proyecto Ejecutivo, Tecnología &amp; Dirección de Obra</p>
+              <p class="founder-bio pretty-copy">
+                Especializado en resolución tectónica, sistemas constructivos contemporáneos, coordinación ejecutiva e infraestructura de mediana y gran escala en Montevideo y el litoral uruguayo.
+              </p>
+            </article>
+
+            <div class="studio-credentials">
+              <div class="cred-row">
+                <span class="cred-label">Práctica</span>
+                <span class="cred-val">Proyecto · Dirección de Obra · Urbanismo</span>
+              </div>
+              <div class="cred-row">
+                <span class="cred-label">Sedes operativas</span>
+                <span class="cred-val">Montevideo &amp; Salto, Uruguay</span>
+              </div>
+              <div class="cred-row">
+                <span class="cred-label">Instagram oficial</span>
+                <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="cred-link">@turbancoronel ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS / METODOLOGÍA SECTION -->
+    <section id="metodologia" class="section-block container scroll-reveal">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">03 / METODOLOGÍA PROYECTUAL</p>
+          <h2 class="section-title">Del territorio al detalle constructivo</h2>
+        </div>
+        <p class="section-subtitle pretty-copy">
+          Acompañamos cada etapa del proceso con precisión técnica, control presupuestal y diálogo transparente con el cliente.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-step">
+          <div class="step-top">
+            <span class="step-num mono-tag">FASE 01</span>
+            <span class="step-scale mono-tag">ESC 1:500</span>
+          </div>
+          <h3 class="step-title">Lectura del Sitio &amp; Anteproyecto</h3>
+          <p class="step-desc pretty-copy">
+            Relevamiento topográfico, asoleamiento, vientos predominantes y normativas. Definimos la implantación estratégica y las primeras maquetas espaciales y volumétricas.
+          </p>
+        </article>
+
+        <article class="process-step">
+          <div class="step-top">
+            <span class="step-num mono-tag">FASE 02</span>
+            <span class="step-scale mono-tag">ESC 1:100 / 1:50</span>
+          </div>
+          <h3 class="step-title">Proyecto Ejecutivo &amp; BIM</h3>
+          <p class="step-desc pretty-copy">
+            Coordinación integral de estructura, instalaciones térmicas, sanitarias y lumínicas. Documentación gráfica exhaustiva para licitar y construir sin imprevistos.
+          </p>
+        </article>
+
+        <article class="process-step">
+          <div class="step-top">
+            <span class="step-num mono-tag">FASE 03</span>
+            <span class="step-scale mono-tag">ESC 1:20 / 1:5</span>
+          </div>
+          <h3 class="step-title">Tectónica &amp; Materialidad</h3>
+          <p class="step-desc pretty-copy">
+            Diseño de encuentros constructivos, carpinterías a medida, selección de hormigones, piedras locales y maderas nobles de bajo mantenimiento y alta durabilidad.
+          </p>
+        </article>
+
+        <article class="process-step">
+          <div class="step-top">
+            <span class="step-num mono-tag">FASE 04</span>
+            <span class="step-scale mono-tag">OBRA 1:1</span>
+          </div>
+          <h3 class="step-title">Dirección &amp; Gestión de Obra</h3>
+          <p class="step-desc pretty-copy">
+            Supervisión rigurosa en sitio, control de calidad de ejecución, certificaciones de avance y acompañamiento hasta la entrega final llave en mano.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE PRE-FEASIBILITY & SCOPE CONFIGURATOR -->
+    <section id="prefactibilidad" class="section-block container scroll-reveal">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">04 / SIMULADOR TÉCNICO DE ALCANCE</p>
+          <h2 class="section-title">Estimador de Prefactibilidad &amp; Etapas</h2>
+        </div>
+        <p class="section-subtitle pretty-copy">
+          Configurá los parámetros iniciales de tu encargo para estimar plazos de desarrollo proyectual, tiempos de ejecución en obra y entregables técnicos antes de nuestra primera reunión.
+        </p>
+      </div>
+
+      <div class="estimator-grid">
+        <div class="estimator-controls">
+          <div class="field">
+            <label for="simType" class="field-label">1. Tipología arquitectónica</label>
+            <select id="simType">
+              <option value="vivienda-nueva" data-label="Vivienda unifamiliar (Obra nueva)" data-rate="1">Vivienda unifamiliar (Obra nueva)</option>
+              <option value="reforma-reciclaje" data-label="Reforma / Reciclaje patrimonial" data-rate="0.85">Reforma / Reciclaje integral</option>
+              <option value="comercial-cultural" data-label="Espacio comercial, gastronómico o cultural" data-rate="1.1">Espacio cultural, venue o comercial</option>
+              <option value="industrial-logistico" data-label="Infraestructura industrial / corporativa" data-rate="0.75">Nave industrial / Infraestructura corporativa</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <div class="range-header">
+              <label for="simArea" class="field-label">2. Superficie estimada a intervenir</label>
+              <output for="simArea" id="simAreaOutput" class="mono-tag range-value">240 m²</output>
+            </div>
+            <input type="range" id="simArea" min="60" max="2000" step="20" value="240" class="arch-range">
+            <div class="range-ticks mono-tag">
+              <span>60 m²</span>
+              <span>500 m²</span>
+              <span>1.000 m²</span>
+              <span>2.000 m²</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="field-label">3. Sistema constructivo predominante</span>
+            <div class="radio-pills" role="radiogroup" aria-label="Sistema constructivo">
+              <label class="radio-pill">
+                <input type="radio" name="simSystem" value="Hormigón visto & madera noble" data-speed="1" checked>
+                <span>Hormigón visto &amp; madera</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="simSystem" value="Acero & montaje en seco" data-speed="0.8">
+                <span>Acero &amp; montaje en seco</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="simSystem" value="Mampostería & estructura mixta" data-speed="1.05">
+                <span>Tradicional / Mixto</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="field-label">4. Alcance del encargo profesional</span>
+            <div class="radio-pills" role="radiogroup" aria-label="Alcance profesional">
+              <label class="radio-pill">
+                <input type="radio" name="simScope" value="Ciclo Completo (Anteproyecto + Ejecutivo + Dirección de Obra)" data-phases="4" checked>
+                <span>Ciclo Completo Llave en Mano</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="simScope" value="Anteproyecto + Proyecto Ejecutivo BIM" data-phases="3">
+                <span>Anteproyecto + Ejecutivo</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="estimator-summary" aria-live="polite">
+          <div class="summary-top mono-tag">
+            <span>FICHA PRELIMINAR DE ENCARGO</span>
+            <span id="simCodeTag">REF · TC-SIM</span>
+          </div>
+
+          <div class="summary-kpis">
+            <div class="kpi-box">
+              <span class="mono-tag">FASE DE PROYECTO</span>
+              <strong id="simDesignMonths" class="kpi-number">2.5 meses</strong>
+              <span class="kpi-sub">Anteproyecto + Documentación ejecutiva</span>
+            </div>
+            <div class="kpi-box">
+              <span class="mono-tag">EJECUCIÓN ESTIMADA</span>
+              <strong id="simBuildMonths" class="kpi-number">9 meses</strong>
+              <span class="kpi-sub">Obra civil, estructura y terminaciones</span>
+            </div>
+          </div>
+
+          <div class="summary-deliverables">
+            <p class="mono-tag">ENTREGABLES TÉCNICOS INCLUIDOS</p>
+            <ul id="simDeliverablesList" class="deliverables-list">
+              <li>Implantación solar, volumetría 3D y memoria descriptiva (ESC 1:200 / 1:100)</li>
+              <li>Recaudos gráficos ejecutivos, planillas de carpinterías y estructura (ESC 1:50)</li>
+              <li>Detalles constructivos tectónicos y pliego de condiciones (ESC 1:20 / 1:5)</li>
+              <li>Dirección de obra, control de certificaciones y recepción definitiva (ESC 1:1)</li>
+            </ul>
+          </div>
+
+          <button type="button" id="transferToContactBtn" class="btn btn-primary btn-full">
+            Vincular esta configuración a mi consulta ↓
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS & MILESTONES SECTION -->
+    <section id="reconocimientos" class="section-block awards-section scroll-reveal">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">05 / RECONOCIMIENTOS &amp; HITOS</p>
+            <h2 class="section-title">Concursos, Bienales &amp; Publicaciones</h2>
+          </div>
+        </div>
+
+        <div class="awards-list">
+          <article class="award-row">
+            <div class="award-year mono-tag">2024</div>
+            <div class="award-content">
+              <h3 class="award-title">Bienal Panamericana de Arquitectura de Quito (BAQ)</h3>
+              <p class="award-detail pretty-copy">
+                Representación de los equipos concursantes de Uruguay en Quito, Ecuador, tras la obtención del máximo galardón nacional en el concurso de ideas urbanas Arqatón.
+              </p>
+            </div>
+            <div class="award-tag mono-tag">INTERNACIONAL · QUITO</div>
+          </article>
+
+          <article class="award-row">
+            <div class="award-year mono-tag">2023</div>
+            <div class="award-content">
+              <h3 class="award-title">1° Premio Concurso Nacional Arqatón — Proyecto «Centrípeta»</h3>
+              <p class="award-detail pretty-copy">
+                Primer puesto otorgado en la Feria de la Construcción (Rural del Prado, Montevideo) junto a la Facultad de Arquitectura de la Universidad ORT y el Municipio CH por la propuesta de revitalización de la Plaza Lluís Companys.
+              </p>
+            </div>
+            <div class="award-tag mono-tag">1° PREMIO NACIONAL</div>
+          </article>
+
+          <article class="award-row">
+            <div class="award-year mono-tag">2023</div>
+            <div class="award-content">
+              <h3 class="award-title">Inauguración de Ayelén Venue — Arquitectura &amp; Paisaje</h3>
+              <p class="award-detail pretty-copy">
+                Obra destacada en prensa y publicaciones de diseño en Uruguay por su diálogo entre arquitectura contemporánea, intervención artística escultórica y paisaje citrícola en Salto.
+              </p>
+            </div>
+            <div class="award-tag mono-tag">OBRA CONSTRUIDA · SALTO</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM SHOWCASE SECTION (@turbancoronel) -->
+    <section id="instagram" class="section-block container scroll-reveal">
+      <div class="ig-banner">
+        <div class="ig-banner-header">
+          <div>
+            <p class="eyebrow">05 / BITÁCORA EN VIVO</p>
+            <h2 class="section-title">Seguí el proceso de obra en <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="ig-handle-link">@turbancoronel</a></h2>
+          </div>
+          <a
+            href="https://www.instagram.com/turbancoronel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            Abrir Instagram @turbancoronel ↗
+          </a>
+        </div>
+
+        <div class="ig-grid" aria-label="Publicaciones destacadas de Instagram @turbancoronel">
+          <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="ig-post">
+            <img
+              src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80"
+              alt="Detalle de encofrado de hormigón visto y luz rasante — @turbancoronel"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+            <div class="ig-overlay">
+              <span class="mono-tag">OBRA EN PROCESO</span>
+              <p>Encofrados y voladizos en hormigón visto · Seguimiento en sitio</p>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="ig-post">
+            <img
+              src="https://images.unsplash.com/photo-1600573472589-003525b2b729?auto=format&fit=crop&w=600&q=80"
+              alt="Maqueta y axonometría de espacio público — @turbancoronel"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+            <div class="ig-overlay">
+              <span class="mono-tag">CONCURSO URBANO</span>
+              <p>Estrategia «Centrípeta» · Borde verde y corazón cívico</p>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="ig-post">
+            <img
+              src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80"
+              alt="Galería exterior en madera y piedra al atardecer — @turbancoronel"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+            <div class="ig-overlay">
+              <span class="mono-tag">MATERIA &amp; LUZ</span>
+              <p>Transiciones interior-exterior · Galerías profundas del litoral</p>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="ig-post">
+            <img
+              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80"
+              alt="Revisión de planos ejecutivos en estudio — @turbancoronel"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+            <div class="ig-overlay">
+              <span class="mono-tag">ESTUDIO TC</span>
+              <p>Detalles constructivos 1:5 · Precisión antes de obra</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & PROJECT INQUIRY SECTION -->
+    <section id="contacto" class="section-block contact-section scroll-reveal">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p class="eyebrow">06 / CONTACTO &amp; NUEVOS ENCARGOS</p>
+            <h2 class="section-title">Conversemos sobre tu próximo proyecto.</h2>
+            <p class="contact-lead pretty-copy">
+              Ya sea una vivienda unifamiliar, una reforma integral, un desarrollo comercial o una consultoría de factibilidad en terreno, agendamos una primera reunión técnica para evaluar alcances.
+            </p>
+
+            <div class="contact-channels">
+              <div class="channel-block">
+                <span class="mono-tag">INSTAGRAM DIRECTO</span>
+                <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="channel-link">
+                  instagram.com/turbancoronel ↗
+                </a>
+              </div>
+
+              <div class="channel-block">
+                <span class="mono-tag">ESTUDIO &amp; ATENCIÓN</span>
+                <p class="channel-text">Montevideo &amp; Salto, Uruguay</p>
+                <p class="channel-sub">Reuniones presenciales con agenda previa y asesoría online.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-wrapper">
+            <form id="projectInquiryForm" class="inquiry-form" novalidate>
+              <div class="form-row-two">
+                <div class="field">
+                  <label for="clientName" class="field-label">Nombre completo *</label>
+                  <input
+                    type="text"
+                    id="clientName"
+                    name="clientName"
+                    required
+                    minlength="2"
+                    autocomplete="name"
+                    placeholder="Ej. Martín Rodríguez"
+                    aria-describedby="nameHint"
+                  >
+                  <span id="nameHint" class="field-hint">Ingresá tu nombre y apellido (mínimo 2 caracteres).</span>
+                </div>
+
+                <div class="field">
+                  <label for="clientEmail" class="field-label">Correo electrónico *</label>
+                  <input
+                    type="email"
+                    id="clientEmail"
+                    name="clientEmail"
+                    required
+                    autocomplete="email"
+                    placeholder="nombre@dominio.com"
+                    aria-describedby="emailHint"
+                  >
+                  <span id="emailHint" class="field-hint">Ingresá un correo válido para enviarte nuestra propuesta.</span>
+                </div>
+              </div>
+
+              <div class="form-row-two">
+                <div class="field">
+                  <label for="projectType" class="field-label">Tipología de encargo *</label>
+                  <select id="projectType" name="projectType" required aria-describedby="typeHint">
+                    <option value="" disabled selected>Seleccionar escala...</option>
+                    <option value="vivienda-nueva">Vivienda unifamiliar (Obra nueva)</option>
+                    <option value="reforma-reciclaje">Reforma / Reciclaje patrimonial</option>
+                    <option value="comercial-cultural">Espacio comercial, gastronómico o cultural</option>
+                    <option value="industrial-logistico">Infraestructura industrial / corporativa</option>
+                    <option value="urbanismo-paisaje">Diseño urbano / Paisajismo</option>
+                  </select>
+                  <span id="typeHint" class="field-hint">Elegí el tipo de proyecto que buscás desarrollar.</span>
+                </div>
+
+                <div class="field">
+                  <label for="projectLocation" class="field-label">Ubicación del proyecto</label>
+                  <input
+                    type="text"
+                    id="projectLocation"
+                    name="projectLocation"
+                    placeholder="Ej. Montevideo, Salto, Maldonado..."
+                  >
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="projectMessage" class="field-label">Memoria breve o consulta *</label>
+                <textarea
+                  id="projectMessage"
+                  name="projectMessage"
+                  rows="4"
+                  required
+                  minlength="15"
+                  placeholder="Contanos si ya contás con terreno o inmueble, metraje estimado y plazos deseados..."
+                  aria-describedby="messageHint"
+                ></textarea>
+                <span id="messageHint" class="field-hint">Describí brevemente tu idea o necesidad (mínimo 15 caracteres).</span>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-full">
+                  Enviar consulta al estudio
+                </button>
+              </div>
+
+              <div id="formFeedback" class="form-feedback" role="status" aria-live="polite" hidden></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-logo">
+          <span class="brand-word">turban</span>
+          <span class="brand-pipe" aria-hidden="true">|</span>
+          <span class="brand-word">coronel</span>
+        </span>
+        <p class="footer-copy pretty-copy">
+          Estudio de Arquitectura &amp; Urbanismo · Arq. Juan Turban &amp; Arq. Diego Coronel · Uruguay.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#obras">Obras</a>
+        <a href="#estudio">Estudio</a>
+        <a href="#metodologia">Proceso</a>
+        <a href="#reconocimientos">Premios</a>
+        <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer">Instagram @turbancoronel ↗</a>
+      </div>
+
+      <div class="footer-meta mono-tag">
+        <span>© <span id="currentYear">2026</span> turban | coronel</span>
+        <span>MVD · SLT · UY</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT TECHNICAL SHEET MODAL DIALOG -->
+  <!-- MANDATORY: closedby="any" for native light-dismiss + showModal() -->
+  <dialog id="projectDialog" class="project-dialog" closedby="any" aria-labelledby="dialogProjectTitle">
+    <div class="dialog-surface">
+      <header class="dialog-header">
+        <div class="dialog-meta-tags">
+          <span id="dialogCode" class="mono-tag">TC-01</span>
+          <span id="dialogCategory" class="mono-tag">CULTURAL &amp; PAISAJE</span>
+        </div>
+        <button type="button" id="closeDialogBtn" class="dialog-close-btn" aria-label="Cerrar ficha de obra">
+          <span class="mono-tag">ESC</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </header>
+
+      <div class="dialog-body">
+        <div class="dialog-visual-col">
+          <img
+            id="dialogImage"
+            src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=85"
+            alt="Vista principal del proyecto"
+            fetchpriority="low"
+            width="1200"
+            height="800"
+            class="dialog-img"
+          >
+          <div class="dialog-blueprint-box">
+            <div class="blueprint-box-header mono-tag">
+              <span>ESQUEMA AXONOMÉTRICO / CORTE TECTÓNICO</span>
+              <span id="dialogScale">ESC 1:100</span>
+            </div>
+            <div id="dialogSvgBlueprint" class="blueprint-svg-container" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="dialog-info-col">
+          <h2 id="dialogProjectTitle" class="dialog-title">Ayelén Venue</h2>
+          <p id="dialogDescription" class="dialog-description pretty-copy"></p>
+
+          <dl class="dialog-specs">
+            <div class="spec-row">
+              <dt>Ubicación</dt>
+              <dd id="dialogLocation">Salto, Uruguay</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Año</dt>
+              <dd id="dialogYear">2023</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Superficie</dt>
+              <dd id="dialogArea">1.450 m²</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Autores</dt>
+              <dd id="dialogAuthors">Arq. Juan Turban, Arq. Diego Coronel</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Materialidad</dt>
+              <dd id="dialogMaterials">Hormigón visto, acero negro, madera nativa y paisaje citrícola</dd>
+            </div>
+          </dl>
+
+          <div class="dialog-footer-actions">
+            <a href="#contacto" id="dialogConsultBtn" class="btn btn-primary">
+              Consultar por un proyecto similar
+            </a>
+            <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              Ver más en @turbancoronel ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
