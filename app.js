@@ -164,10 +164,89 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================================================================
-  // 3. ACTO I: X-RAY SPOTLIGHT LENS + TELEMETRY COORDINATES
+  // 3. ACTO I: PORTAL SCENE SWITCHER, X-RAY LOUPE & STRUCTURAL HOTSPOTS
   // =========================================================================
+  const PORTAL_SCENES = {
+    litoral: {
+      code: "OBRA 01 // HORMIGÓN VISTO & AGUA",
+      span: "VOLADIZO LIBRE 6.40m",
+      image:
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=90",
+      alt: "Pabellón contemporáneo de hormigón arquitectónico blanco, cristal y espejo de agua por CORONEL | TURBAN",
+      hotspotTitle: "Losa en Voladizo Postensada (+4.80m)",
+      hotspotSpec:
+        "Hormigón armado visto con 6.40m de vuelo libre sin apoyos esquineros sobre el espejo de agua.",
+    },
+    ayelen: {
+      code: "OBRA 02 // AYELÉN VENUE · SALTO",
+      span: "PREDIO 28 HECTÁREAS",
+      image:
+        "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2000&q=90",
+      alt: "Ayelén Venue en Salto — Arquitectura pabellonal en 28 hectáreas citrícolas por CORONEL | TURBAN",
+      hotspotTitle: "Pabellón Multipropósito en 28 Hectáreas",
+      hotspotSpec:
+        "Fusión de arquitectura, arte y paisaje rural citrícola en Salto con gran luz libre y galerías abiertas.",
+    },
+    centripeta: {
+      code: "OBRA 03 // CENTRÍPETA · 1° PREMIO ARQATÓN",
+      span: "SELECCIÓN BAQ QUITO",
+      image:
+        "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=2000&q=90",
+      alt: "Proyecto Centrípeta — 1° Premio Nacional Arqatón en Plaza Lluís Companys por CORONEL | TURBAN",
+      hotspotTitle: "Geometría Radial & Anfiteatro Urbano",
+      hotspotSpec:
+        "1° Premio Concurso Nacional Arqatón en Plaza Lluís Companys (Montevideo) y representante en la BAQ Quito.",
+    },
+  };
+
   const heroSpotlight = document.getElementById("heroSpotlight");
   const hudCoords = document.getElementById("hudCoords");
+  const xrayLoupe = document.getElementById("xrayLoupe");
+  const loupeCoordTag = document.getElementById("loupeCoordTag");
+  const solarPhoto = document.getElementById("solarPhoto");
+  const solarBlueprintPhoto = document.getElementById("solarBlueprintPhoto");
+  const portalSceneCode = document.getElementById("portalSceneCode");
+  const portalSceneSpan = document.getElementById("portalSceneSpan");
+  const hotspotDetailTitle = document.getElementById("hotspotDetailTitle");
+  const hotspotDetailSpec = document.getElementById("hotspotDetailSpec");
+
+  document.querySelectorAll("[data-portal-scene]").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const key = tab.getAttribute("data-portal-scene");
+      const scene = PORTAL_SCENES[key];
+      if (!scene) return;
+
+      document.querySelectorAll("[data-portal-scene]").forEach((t) => {
+        t.classList.remove("is-active");
+        t.setAttribute("aria-selected", "false");
+      });
+      tab.classList.add("is-active");
+      tab.setAttribute("aria-selected", "true");
+
+      if (solarPhoto) {
+        solarPhoto.src = scene.image;
+        solarPhoto.alt = scene.alt;
+      }
+      if (solarBlueprintPhoto) solarBlueprintPhoto.src = scene.image;
+      if (portalSceneCode) portalSceneCode.textContent = scene.code;
+      if (portalSceneSpan) portalSceneSpan.textContent = scene.span;
+      if (hotspotDetailTitle) hotspotDetailTitle.textContent = scene.hotspotTitle;
+      if (hotspotDetailSpec) hotspotDetailSpec.textContent = scene.hotspotSpec;
+    });
+  });
+
+  document.querySelectorAll(".arch-hotspot").forEach((spot) => {
+    const activateSpot = () => {
+      document.querySelectorAll(".arch-hotspot").forEach((s) => s.classList.remove("is-selected"));
+      spot.classList.add("is-selected");
+      const title = spot.getAttribute("data-hotspot-title");
+      const spec = spot.getAttribute("data-hotspot-spec");
+      if (hotspotDetailTitle && title) hotspotDetailTitle.textContent = title;
+      if (hotspotDetailSpec && spec) hotspotDetailSpec.textContent = spec;
+    };
+    spot.addEventListener("click", activateSpot);
+    spot.addEventListener("pointerenter", activateSpot);
+  });
 
   if (heroSpotlight) {
     heroSpotlight.addEventListener(
@@ -178,6 +257,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const y = e.clientY - rect.top;
         heroSpotlight.style.setProperty("--mouse-x", `${x}px`);
         heroSpotlight.style.setProperty("--mouse-y", `${y}px`);
+
+        if (xrayLoupe) {
+          xrayLoupe.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1)`;
+        }
+
+        const cadX = Math.max(0, Math.min(1200, Math.round((x / rect.width) * 1200)));
+        const cadY = Math.max(0, Math.min(720, Math.round((y / rect.height) * 720)));
+        if (loupeCoordTag) {
+          loupeCoordTag.textContent = `CAD 1:50 · X:${cadX} Y:${cadY}`;
+        }
 
         if (hudCoords) {
           const nx = Math.max(0, Math.min(999, Math.round((x / rect.width) * 999)));
@@ -195,16 +284,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const sunSlider = document.getElementById("sunSlider");
   const sunTimeOutput = document.getElementById("sunTimeOutput");
   const hudSunAngle = document.getElementById("hudSunAngle");
+  const sunArcOrb = document.getElementById("sunArcOrb");
+  const sunArcHalo = document.getElementById("sunArcHalo");
 
   function updateSolarHeliodon(decimalHour) {
     const hours = Math.floor(decimalHour);
     const minutes = Math.round((decimalHour - hours) * 60);
     const timeStr = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
 
-    // Map 6:00 -> 21:00 to solar angle and lighting mood
-    const progress = (decimalHour - 6) / 15; // 0 to 1
-    const beamAngle = Math.round(65 + progress * 135);
-    const elevationDeg = Math.round(Math.sin(progress * Math.PI) * 68);
+    // Map 6:00 -> 21:00 to solar angle, arc position & lighting mood
+    const t = Math.max(0, Math.min(1, (decimalHour - 6) / 15));
+    const beamAngle = Math.round(65 + t * 135);
+    const elevationDeg = Math.round(Math.sin(t * Math.PI) * 68);
+
+    // Quadratic Bezier point along M 14 46 Q 110 -12 206 46
+    const omt = 1 - t;
+    const arcX = omt * omt * 14 + 2 * omt * t * 110 + t * t * 206;
+    const arcY = omt * omt * 46 + 2 * omt * t * -12 + t * t * 46;
+    if (sunArcOrb) {
+      sunArcOrb.setAttribute("cx", arcX.toFixed(1));
+      sunArcOrb.setAttribute("cy", arcY.toFixed(1));
+    }
+    if (sunArcHalo) {
+      sunArcHalo.setAttribute("cx", arcX.toFixed(1));
+      sunArcHalo.setAttribute("cy", arcY.toFixed(1));
+    }
 
     let warmth = 0.05;
     let brightness = 1.04;
