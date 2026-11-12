@@ -175,72 +175,220 @@
     <section id="maqueta" class="scrolly-architecture">
       <!-- Sticky White Museum 3D Volumetric Stage -->
       <div id="animated" class="scrolly-sticky-stage">
+        <!-- Top Bar: Mode Switcher, Camera Presets & Explosion Toggle -->
         <div class="stage-3d-controls">
-          <button type="button" id="explodeToggleBtn" class="spring-btn mono-kicker" aria-pressed="false">
-            [ EXPLOTAR MAQUETA 3D ]
-          </button>
-          <span class="mono-kicker stage-hint">Arrastrá con el mouse o hacé scroll para orbitar</span>
+          <div class="controls-left">
+            <button type="button" id="explodeToggleBtn" class="spring-btn mono-kicker" aria-pressed="false">
+              [ EXPLOTAR MAQUETA 3D ]
+            </button>
+            <button type="button" id="wireframeToggleBtn" class="spring-btn btn-secondary mono-kicker" aria-pressed="false">
+              MODO: ACRÍLICO &amp; H°A°
+            </button>
+          </div>
+
+          <div class="camera-presets" role="group" aria-label="Vistas de cámara 3D">
+            <button type="button" class="cam-btn mono-kicker is-active" data-cam="iso">ISO</button>
+            <button type="button" class="cam-btn mono-kicker" data-cam="plan">PLANTA</button>
+            <button type="button" class="cam-btn mono-kicker" data-cam="front">FACHADA</button>
+            <button type="button" class="cam-btn mono-kicker" data-cam="low">PEATÓN</button>
+          </div>
         </div>
 
-        <div class="scene-3d" id="scene3d" data-cursor="ORBITAR 3D">
+        <!-- Interactive 3D Viewport -->
+        <div class="scene-3d" id="scene3d" data-cursor="ARRASTRAR 360°">
           <div class="building-rig" id="buildingRig">
-            <!-- Nivel 03: Losa Casentonada & Lucernario -->
-            <div class="slab-3d slab-roof iso-plane">
-              <div class="slab-face slab-top">
-                <span class="slab-coord">03 // CUBIERTA &amp; LUCERNARIO (+4.20m)</span>
-                <div class="skylight-void"></div>
-              </div>
+            <!-- Sombra Proyectada & Base Topográfica Escala 1:75 -->
+            <div class="base-shadow-grid" aria-hidden="true">
+              <div class="cast-shadow-blob"></div>
+              <span class="base-compass">N ↗</span>
+              <span class="base-scale">ESC 1:75 · CORONEL | TURBAN</span>
             </div>
 
-            <!-- Nivel 02: Pórticos, Vidrio & Brise-Soleil (Fantasía Espacial) -->
-            <div class="slab-3d slab-envelope iso-plane">
-              <div class="slab-face slab-glass">
-                <span class="slab-coord">02 // VACÍO &amp; PÓRTICOS (+2.10m)</span>
-                <div class="columns-grid">
-                  <i></i><i></i><i></i><i></i>
+            <!-- Ejes Láser Verticales Z (Conectan los niveles al explotar) -->
+            <div class="z-axis-guide z-nw" aria-hidden="true"></div>
+            <div class="z-axis-guide z-ne" aria-hidden="true"></div>
+            <div class="z-axis-guide z-sw" aria-hidden="true"></div>
+            <div class="z-axis-guide z-se" aria-hidden="true"></div>
+
+            <!-- ===============================================================
+                 NIVEL 03: CUBIERTA CASENTONADA EN VOLADIZO & LUCERNARIO (+5.40m)
+                 =============================================================== -->
+            <div class="slab-3d slab-roof iso-plane" data-level="3">
+              <!-- Espesor Volumétrico 3D de la Losa de Cubierta -->
+              <div class="slab-wall wall-front"></div>
+              <div class="slab-wall wall-back"></div>
+              <div class="slab-wall wall-left"></div>
+              <div class="slab-wall wall-right"></div>
+
+              <div class="slab-face slab-top">
+                <div class="slab-header-row">
+                  <span class="slab-coord">03 // CUBIERTA CASENTONADA (+5.40m)</span>
+                  <span class="slab-tag">VOLADIZO 4.80m</span>
+                </div>
+
+                <!-- Grilla de Casetones de Hormigón Armado + Lucernario 3D Elevado -->
+                <div class="roof-architecture">
+                  <div class="waffle-cassettes" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i><i></i><i></i><i></i>
+                  </div>
+                  <div class="skylight-prism-3d">
+                    <div class="skylight-glass-top">
+                      <span>LUCERNARIO CENITAL</span>
+                    </div>
+                    <div class="skylight-side-s"></div>
+                    <div class="skylight-side-e"></div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Nivel 01: Basamento de Piedra & Espejo de Agua (Precisión) -->
-            <div class="slab-3d slab-foundation iso-plane">
-              <div class="slab-face slab-stone">
-                <span class="slab-coord">01 // BASAMENTO &amp; ESPEJO DE AGUA (±0.00m)</span>
-                <div class="water-mirror"></div>
+            <!-- ===============================================================
+                 NIVEL 02: PLANTA NOBLE, CAJA DE CRISTAL, COLUMNAS 3D & BRISE-SOLEIL (+2.40m)
+                 =============================================================== -->
+            <div class="slab-3d slab-envelope iso-plane" data-level="2">
+              <!-- Espesor Volumétrico 3D de la Losa de Entrepiso -->
+              <div class="slab-wall wall-front"></div>
+              <div class="slab-wall wall-back"></div>
+              <div class="slab-wall wall-left"></div>
+              <div class="slab-wall wall-right"></div>
+
+              <div class="slab-face slab-glass">
+                <div class="slab-header-row">
+                  <span class="slab-coord">02 // PLANTA NOBLE &amp; PÓRTICOS (+2.40m)</span>
+                  <span class="slab-tag">LUZ LIBRE 14.40m</span>
+                </div>
+
+                <div class="envelope-floorplan">
+                  <div class="timber-terrace-zone">
+                    <span class="zone-label">GALERÍA EN VOLADIZO</span>
+                  </div>
+                  <div class="interior-living-zone">
+                    <span class="zone-label">PABELLÓN PRINCIPAL</span>
+                  </div>
+                </div>
+
+                <!-- Elementos Verticales 3D Reales (Parados a 90° en el espacio Z) -->
+                <!-- 8 Columnas Estructurales 3D Cruciformes -->
+                <div class="col-3d c1"><i></i><b></b></div>
+                <div class="col-3d c2"><i></i><b></b></div>
+                <div class="col-3d c3"><i></i><b></b></div>
+                <div class="col-3d c4"><i></i><b></b></div>
+                <div class="col-3d c5"><i></i><b></b></div>
+                <div class="col-3d c6"><i></i><b></b></div>
+                <div class="col-3d c7"><i></i><b></b></div>
+                <div class="col-3d c8"><i></i><b></b></div>
+
+                <!-- Cerramientos Verticales de Cristal 3D (Muro Cortina) -->
+                <div class="curtain-wall-3d cw-south"></div>
+                <div class="curtain-wall-3d cw-north"></div>
+                <div class="curtain-wall-3d cw-east"></div>
+
+                <!-- Núcleo Central Volumétrico 3D de Hormigón y Escalera -->
+                <div class="core-box-3d">
+                  <div class="core-top">NÚCLEO H°A°</div>
+                  <div class="core-front"></div>
+                  <div class="core-side"></div>
+                  <div class="stair-flight-3d"></div>
+                </div>
+
+                <!-- Parasoles Verticales 3D de Madera Lapacho (Brise-Soleil Oeste) -->
+                <div class="brise-soleil-3d" aria-hidden="true">
+                  <s></s><s></s><s></s><s></s><s></s><s></s><s></s>
+                </div>
               </div>
             </div>
+
+            <!-- ===============================================================
+                 NIVEL 01: BASAMENTO DE PIEDRA, ESCALINATA & ESPEJO DE AGUA (±0.00m)
+                 =============================================================== -->
+            <div class="slab-3d slab-foundation iso-plane" data-level="1">
+              <!-- Espesor Volumétrico 3D del Basamento Tectónico -->
+              <div class="slab-wall wall-front foundation-wall"></div>
+              <div class="slab-wall wall-back foundation-wall"></div>
+              <div class="slab-wall wall-left foundation-wall"></div>
+              <div class="slab-wall wall-right foundation-wall"></div>
+
+              <div class="slab-face slab-stone">
+                <div class="slab-header-row">
+                  <span class="slab-coord">01 // BASAMENTO &amp; ESPEJO DE AGUA (±0.00m)</span>
+                  <span class="slab-tag">PIEDRA &amp; H°A°</span>
+                </div>
+
+                <div class="foundation-layout">
+                  <!-- Espejo de Agua con Basamentos Sumergidos -->
+                  <div class="water-mirror">
+                    <div class="water-ripples"></div>
+                    <div class="stepping-stones">
+                      <i></i><i></i><i></i>
+                    </div>
+                    <span class="water-label">ESPEJO DE AGUA · COTA -0.35m</span>
+                  </div>
+
+                  <!-- Plataforma Tectónica y Escalinata de Acceso -->
+                  <div class="plinth-terrace">
+                    <div class="entry-steps">
+                      <i></i><i></i><i></i><i></i>
+                    </div>
+                    <span class="zone-label">ACCESO PEATONAL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar: Interactive Level Isolator & Explosion Slider -->
+        <div class="stage-3d-footer">
+          <div class="level-selector" role="group" aria-label="Inspeccionar nivel constructivo">
+            <button type="button" class="lvl-pill mono-kicker is-active" data-filter-level="all">TODOS</button>
+            <button type="button" class="lvl-pill mono-kicker" data-filter-level="3">03 CUBIERTA</button>
+            <button type="button" class="lvl-pill mono-kicker" data-filter-level="2">02 PLANTA NOBLE</button>
+            <button type="button" class="lvl-pill mono-kicker" data-filter-level="1">01 BASAMENTO</button>
+          </div>
+
+          <div class="explode-slider-wrap">
+            <label for="explodeRange" class="mono-kicker">DESPIECE Z</label>
+            <input
+              type="range"
+              id="explodeRange"
+              min="38"
+              max="155"
+              value="68"
+              aria-label="Separación vertical entre losas 3D"
+            >
           </div>
         </div>
       </div>
 
       <!-- Tracked Scroll Chapters driving the 3D assembly -->
       <div id="tracked" class="scrolly-chapters">
-        <section class="scrolly-step">
+        <section class="scrolly-step" data-step-level="1">
           <div class="step-glass-card">
-            <span class="step-num">01 / PRECISIÓN TECTÓNICA</span>
+            <span class="step-num">01 / BASAMENTO TECTÓNICO (±0.00m)</span>
             <h2>La gravedad ordenada</h2>
             <p class="pretty-copy">
-              Cada proyecto nace de una grilla estructural clara y honesta. Implantación, asoleamiento y materia resuelven el programa con rigor constructivo.
+              El edificio se ancla al territorio mediante un podio macizo de hormigón y piedra local junto a un espejo de agua que refleja el cielo uruguayo y refresca las brisas predominantes.
             </p>
           </div>
         </section>
 
-        <section class="scrolly-step">
+        <section class="scrolly-step" data-step-level="2">
           <div class="step-glass-card">
-            <span class="step-num">02 / FANTASÍA ESPACIAL</span>
+            <span class="step-num">02 / PLANTA NOBLE &amp; PÓRTICOS (+2.40m)</span>
             <h2>La luz como materia</h2>
             <p class="pretty-copy">
-              Grandes luces libres, espejos de agua y voladizos de hormigón que suspenden el paisaje y transforman el recorrido cotidiano en asombro.
+              Ocho columnas cruciformes y un núcleo rígido liberan la fachada: el cerramiento de cristal desaparece hacia las galerías y los parasoles verticales de lapacho tamizan el sol del oeste.
             </p>
           </div>
         </section>
 
-        <section class="scrolly-step">
+        <section class="scrolly-step" data-step-level="3">
           <div class="step-glass-card">
-            <span class="step-num">03 / ESCALA INTEGRAL</span>
+            <span class="step-num">03 / CUBIERTA CASENTONADA (+5.40m)</span>
             <h2>Del detalle al territorio</h2>
             <p class="pretty-copy">
-              Desde arquitectura residencial y complejos culturales de 28 hectáreas hasta naves industriales y espacio público premiado en Paysandú, Salto y Montevideo.
+              Una losa casetonada de hormigón armado vuela 4.80 metros sin apoyos esquineros, coronada por un lucernario prismático que baña de luz cenital el corazón de la obra.
             </p>
           </div>
         </section>

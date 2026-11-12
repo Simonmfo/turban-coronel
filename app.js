@@ -253,21 +253,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================================================================
-  // 5. ACTO II: 3D VOLUMETRIC MAQUETA (ORBIT DRAG + EXPLODE TOGGLE)
+  // 5. ACTO II: 3D VOLUMETRIC MAQUETA (ORBIT, CAMERA PRESETS, WIREFRAME & ISOLATOR)
   // =========================================================================
   const scene3d = document.getElementById("scene3d");
   const buildingRig = document.getElementById("buildingRig");
   const explodeToggleBtn = document.getElementById("explodeToggleBtn");
+  const wireframeToggleBtn = document.getElementById("wireframeToggleBtn");
+  const explodeRange = document.getElementById("explodeRange");
 
-  let rotX = 58;
+  let rotX = 60;
   let rotZ = -38;
   let isDragging3d = false;
+  let userPinnedCamera = false;
   let startX = 0;
   let startY = 0;
 
   if (explodeToggleBtn && buildingRig) {
     explodeToggleBtn.addEventListener("click", () => {
       const exploded = buildingRig.classList.toggle("is-exploded");
+      const gapVal = exploded ? 138 : 68;
+      buildingRig.style.setProperty("--explode-gap", `${gapVal}px`);
+      if (explodeRange) explodeRange.value = String(gapVal);
       explodeToggleBtn.setAttribute("aria-pressed", String(exploded));
       explodeToggleBtn.textContent = exploded
         ? "[ COMPACTAR MAQUETA 3D ]"
@@ -275,9 +281,76 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  if (explodeRange && buildingRig) {
+    explodeRange.addEventListener("input", (e) => {
+      const val = parseInt(e.target.value, 10);
+      buildingRig.classList.add("is-exploded");
+      buildingRig.style.setProperty("--explode-gap", `${val}px`);
+      if (explodeToggleBtn) {
+        explodeToggleBtn.setAttribute("aria-pressed", String(val > 95));
+        explodeToggleBtn.textContent =
+          val > 95 ? "[ COMPACTAR MAQUETA 3D ]" : "[ EXPLOTAR MAQUETA 3D ]";
+      }
+    });
+  }
+
+  if (wireframeToggleBtn && buildingRig) {
+    wireframeToggleBtn.addEventListener("click", () => {
+      const wf = buildingRig.classList.toggle("is-wireframe");
+      wireframeToggleBtn.setAttribute("aria-pressed", String(wf));
+      wireframeToggleBtn.textContent = wf
+        ? "MODO: RAYOS-X CAD"
+        : "MODO: ACRÍLICO & H°A°";
+    });
+  }
+
+  // Camera Angle Presets (ISO, PLANTA, FACHADA, PEATÓN)
+  const CAMERA_PRESETS = {
+    iso: { x: 60, z: -38, scale: 1 },
+    plan: { x: 18, z: 0, scale: 0.96 },
+    front: { x: 78, z: 0, scale: 1.02 },
+    low: { x: 72, z: -56, scale: 1.08 },
+  };
+
+  document.querySelectorAll("[data-cam]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const presetKey = btn.getAttribute("data-cam");
+      const preset = CAMERA_PRESETS[presetKey];
+      if (!preset || !buildingRig) return;
+
+      userPinnedCamera = presetKey !== "iso";
+      rotX = preset.x;
+      rotZ = preset.z;
+      buildingRig.style.setProperty("--rot-x", `${rotX}deg`);
+      buildingRig.style.setProperty("--rot-z", `${rotZ}deg`);
+      buildingRig.style.setProperty("--rig-scale", String(preset.scale));
+
+      document.querySelectorAll("[data-cam]").forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+    });
+  });
+
+  // Level Isolator Pills (TODOS, 03 CUBIERTA, 02 PLANTA NOBLE, 01 BASAMENTO)
+  document.querySelectorAll("[data-filter-level]").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const level = pill.getAttribute("data-filter-level");
+      if (!buildingRig) return;
+
+      if (!level || level === "all") {
+        delete buildingRig.dataset.isolate;
+      } else {
+        buildingRig.dataset.isolate = level;
+      }
+
+      document.querySelectorAll("[data-filter-level]").forEach((p) => p.classList.remove("is-active"));
+      pill.classList.add("is-active");
+    });
+  });
+
   if (scene3d && buildingRig) {
     scene3d.addEventListener("pointerdown", (e) => {
       isDragging3d = true;
+      userPinnedCamera = true;
       startX = e.clientX;
       startY = e.clientY;
       buildingRig.classList.add("is-dragging");
@@ -290,14 +363,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const rect = scene3d.getBoundingClientRect();
         const relX = (e.clientX - rect.left) / rect.width - 0.5;
         const relY = (e.clientY - rect.top) / rect.height - 0.5;
-        buildingRig.style.setProperty("--rot-z", `${(rotZ + relX * 18).toFixed(1)}deg`);
-        buildingRig.style.setProperty("--rot-x", `${(rotX - relY * 14).toFixed(1)}deg`);
+        buildingRig.style.setProperty("--rot-z", `${(rotZ + relX * 16).toFixed(1)}deg`);
+        buildingRig.style.setProperty("--rot-x", `${(rotX - relY * 12).toFixed(1)}deg`);
         return;
       }
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
-      rotZ = Math.max(-140, Math.min(60, rotZ + dx * 0.35));
-      rotX = Math.max(30, Math.min(78, rotX - dy * 0.25));
+      rotZ = rotZ + dx * 0.42;
+      rotX = Math.max(12, Math.min(82, rotX - dy * 0.28));
       startX = e.clientX;
       startY = e.clientY;
 
@@ -372,11 +445,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const mProgress = Math.max(0, Math.min(1, -rect.top / total));
 
       if (!buildingRig.classList.contains("is-exploded")) {
-        const dynamicGap = Math.round(48 + Math.sin(mProgress * Math.PI) * 88);
+        const dynamicGap = Math.round(52 + Math.sin(mProgress * Math.PI) * 86);
         buildingRig.style.setProperty("--explode-gap", `${dynamicGap}px`);
+        if (explodeRange) explodeRange.value = String(dynamicGap);
       }
-      const scrollOrbitZ = -38 + mProgress * 52;
-      buildingRig.style.setProperty("--rot-z", `${scrollOrbitZ.toFixed(1)}deg`);
+      if (!userPinnedCamera) {
+        const scrollOrbitZ = -38 + mProgress * 56;
+        rotZ = scrollOrbitZ;
+        buildingRig.style.setProperty("--rot-z", `${scrollOrbitZ.toFixed(1)}deg`);
+      }
     }
 
     // D. Acto III: Sticky Horizontal Scroll Gallery
