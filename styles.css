@@ -481,6 +481,21 @@ h3,
   margin-bottom: 1.15rem;
 }
 
+.hero-simple-caption {
+  text-align: center;
+  max-width: 900px;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+
+.portal-window-clean {
+  cursor: default;
+}
+
+.portal-window-clean .portal-photo {
+  filter: none;
+}
+
 .hero-header-grid {
   display: grid;
   grid-template-columns: 1.35fr 0.65fr;
