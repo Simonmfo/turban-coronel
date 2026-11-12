@@ -669,4 +669,141 @@ document.addEventListener("DOMContentLoaded", () => {
       comparisonViewer.style.setProperty("--split", `${e.target.value}%`);
     });
   }
+
+  // =========================================================================
+  // 8. INSTAGRAM FEED GRID & LIGHTBOX VIEWER (@turbancoronel)
+  // =========================================================================
+  const IG_POSTS_DB = [
+    {
+      title: "Ayelén Venue — 28 Hectáreas",
+      location: "Salto, Uruguay",
+      category: "OBRA · SALTO",
+      image:
+        "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=900&q=85",
+      caption:
+        "Ayelén Venue: un espacio multipropósito donde se fusionan arte, arquitectura y naturaleza en un predio rural de 28 hectáreas citrícolas en Salto. Pabellones abiertos y espejos de agua.",
+      tags: "#turbancoronel #arquitecturauruguay #ayelenvenue #salto #precisionyfantasia",
+    },
+    {
+      title: "Proyecto «Centrípeta» — 1° Premio",
+      location: "Montevideo, Buceo",
+      category: "1° PREMIO · BAQ QUITO",
+      image:
+        "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=85",
+      caption:
+        "Orgullosos de obtener el 1° Premio en el Concurso Nacional Arqatón con Proyecto «Centrípeta» para Plaza Lluís Companys y representar a Uruguay en la Bienal Panamericana de Arquitectura de Quito (BAQ).",
+      tags: "#turbancoronel #arqatón #baqquito #montevideo #espaciopublico",
+    },
+    {
+      title: "Planta Industrial Metalúrgica",
+      location: "Paysandú, Ruta 3 & Av. de las Américas",
+      category: "INDUSTRIAL · PAYSANDÚ",
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85",
+      caption:
+        "Nave metalúrgica y bloque administrativo en el acceso a Paysandú (Ruta 3 y Av. de las Américas). Pórticos metálicos de gran luz libre e iluminación cenital controlada.",
+      tags: "#turbancoronel #paysandu #arquitecturaindustrial #estructuras #juankturban #diecoronel",
+    },
+    {
+      title: "Casa del Litoral — Voladizo H°A°",
+      location: "Paysandú · Río Uruguay",
+      category: "RESIDENCIAL · LITORAL",
+      image:
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85",
+      caption:
+        "Explorando la fusión entre precisión y fantasía en la Arquitectura: losa continua de hormigón armado en voladizo sobre espejo de agua y parasoles de lapacho frente al litoral oeste.",
+      tags: "#turbancoronel #hormigonvisto #casadellitoral #arquitecturacontemporanea",
+    },
+    {
+      title: "Proceso Proyectual & Maquetas",
+      location: "Estudio CORONEL | TURBAN",
+      category: "PROCESO · TALLER",
+      image:
+        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85",
+      caption:
+        "Del trazo a mano al detalle constructivo en taller. Cada obra comienza estudiando implantación, asoleamiento y materia junto a @juankturban y @die.coronel.",
+      tags: "#turbancoronel #croquis #maqueta #estudioarquitectura #uruguay",
+    },
+    {
+      title: "Luz Natural & Tectónica",
+      location: "Paysandú · Salto · Montevideo",
+      category: "LUZ & MATERIA",
+      image:
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85",
+      caption:
+        "La luz como material de proyecto: doble vidriado hermético de gran luz, galerías en sombra y reflejos cambiantes a lo largo del día.",
+      tags: "#turbancoronel #luznatural #detalleconstructivo #precisionyfantasia",
+    },
+  ];
+
+  const igDialog = document.getElementById("igPostDialog");
+  const closeIgDialogBtn = document.getElementById("closeIgDialogBtn");
+  const igDialogImg = document.getElementById("igDialogImg");
+  const igDialogLocation = document.getElementById("igDialogLocation");
+  const igDialogCategory = document.getElementById("igDialogCategory");
+  const igDialogTitle = document.getElementById("igDialogTitle");
+  const igDialogCaption = document.getElementById("igDialogCaption");
+  const igDialogTags = document.getElementById("igDialogTags");
+  const igPrevBtn = document.getElementById("igPrevBtn");
+  const igNextBtn = document.getElementById("igNextBtn");
+
+  let activeIgIndex = 0;
+
+  function renderIgDialog(index) {
+    const safeIdx = (index + IG_POSTS_DB.length) % IG_POSTS_DB.length;
+    activeIgIndex = safeIdx;
+    const post = IG_POSTS_DB[safeIdx];
+    if (!post) return;
+
+    if (igDialogImg) {
+      igDialogImg.src = post.image;
+      igDialogImg.alt = post.title;
+    }
+    if (igDialogLocation) igDialogLocation.textContent = post.location;
+    if (igDialogCategory) igDialogCategory.textContent = post.category;
+    if (igDialogTitle) igDialogTitle.textContent = post.title;
+    if (igDialogCaption) igDialogCaption.textContent = post.caption;
+    if (igDialogTags) igDialogTags.textContent = post.tags;
+  }
+
+  function openIgModal(index) {
+    if (!igDialog) return;
+    renderIgDialog(index);
+    igDialog.showModal();
+  }
+
+  document.querySelectorAll("[data-ig-filter]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const cat = btn.getAttribute("data-ig-filter");
+      document.querySelectorAll("[data-ig-filter]").forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+
+      document.querySelectorAll(".ig-post-card").forEach((card) => {
+        const cardCat = card.getAttribute("data-ig-cat");
+        card.classList.toggle("is-hidden", cat !== "all" && cardCat !== cat);
+      });
+    });
+  });
+
+  document.querySelectorAll(".ig-post-card").forEach((card) => {
+    const idx = parseInt(card.getAttribute("data-ig-id") || "0", 10);
+    card.addEventListener("click", () => openIgModal(idx));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openIgModal(idx);
+      }
+    });
+  });
+
+  if (igPrevBtn) igPrevBtn.addEventListener("click", () => renderIgDialog(activeIgIndex - 1));
+  if (igNextBtn) igNextBtn.addEventListener("click", () => renderIgDialog(activeIgIndex + 1));
+  if (closeIgDialogBtn && igDialog) {
+    closeIgDialogBtn.addEventListener("click", () => igDialog.close());
+  }
+  if (igDialog && !("closedBy" in igDialog)) {
+    igDialog.addEventListener("click", (e) => {
+      if (e.target === igDialog) igDialog.close();
+    });
+  }
 });
