@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-UY">
+<html lang="es-UY" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,22 +12,20 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/jpeg" href="assets/turbancoronel-logo.jpg">
 
-  <!-- MANDATORY: Declare support for both light and dark themes -->
+  <!-- MANDATORY: Declare support for both light and dark themes, defaulting to luminous light canvas -->
   <meta name="color-scheme" content="light dark">
   <script>
     {
-      const savedScheme = localStorage.getItem("color-scheme");
-      if (savedScheme === "light" || savedScheme === "dark") {
-        const meta = document.querySelector('meta[name="color-scheme"]');
-        if (meta) meta.content = savedScheme;
-        document.documentElement.dataset.theme = savedScheme;
-      }
+      const savedScheme = localStorage.getItem("tc-color-scheme") || "light";
+      const meta = document.querySelector('meta[name="color-scheme"]');
+      if (meta) meta.content = savedScheme;
+      document.documentElement.dataset.theme = savedScheme;
     }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -44,26 +42,26 @@
   <aside class="telemetry-hud" aria-hidden="true">
     <div class="hud-cell">
       <span class="hud-key">COTA</span>
-      <span id="hudElevation" class="hud-val">±0.00m</span>
+      <span id="hudElevation" class="hud-val">+0.00m</span>
     </div>
     <div class="hud-cell">
-      <span class="hud-key">SOL</span>
+      <span class="hud-key">LUZ</span>
       <span id="hudSunAngle" class="hud-val">16:30 · 42°</span>
     </div>
     <div class="hud-cell">
-      <span class="hud-key">EJE</span>
+      <span class="hud-key">XY</span>
       <span id="hudCoords" class="hud-val">050 · 050</span>
     </div>
   </aside>
 
-  <!-- Ultra-Clean Floating Glass Header -->
+  <!-- Ultra-Clean Luminous Floating Glass Header -->
   <header class="site-header" id="top">
     <a href="#top" class="brand-logo" aria-label="CORONEL | TURBAN — Inicio">
       <img
         src="assets/turbancoronel-logo.jpg"
         alt="Emblema oficial CORONEL | TURBAN"
-        width="40"
-        height="40"
+        width="38"
+        height="38"
         class="brand-emblem"
         id="rotatingEmblem"
       >
@@ -71,14 +69,14 @@
     </a>
 
     <nav class="floating-nav" aria-label="Navegación principal">
-      <a href="#portal" class="nav-item">Portal</a>
-      <a href="#maqueta" class="nav-item">Maqueta 3D</a>
-      <a href="#obras" class="nav-item">Obras</a>
-      <a href="#estudio" class="nav-item">Estudio</a>
+      <a href="#portal" class="nav-item">01 Portal</a>
+      <a href="#maqueta" class="nav-item">02 Maqueta 3D</a>
+      <a href="#obras" class="nav-item">03 Obras</a>
+      <a href="#estudio" class="nav-item">04 Estudio</a>
       <a href="https://www.instagram.com/turbancoronel/" target="_blank" rel="noopener noreferrer" class="nav-ig-chip">
         @turbancoronel ↗
       </a>
-      <button type="button" id="themeToggle" class="theme-orb" aria-label="Alternar modo de luz" title="Alternar tema">
+      <button type="button" id="themeToggle" class="theme-orb" aria-label="Alternar tema de luz" title="Alternar modo claro/oscuro">
         <span class="orb-core"></span>
       </button>
     </nav>
@@ -97,20 +95,25 @@
         </div>
 
         <div class="hero-top-caption">
-          <p class="mono-kicker">
-            CORONEL | TURBAN · <a href="https://www.instagram.com/juankturban/" target="_blank" rel="noopener noreferrer">Arq @juankturban</a> &amp; <a href="https://www.instagram.com/die.coronel/" target="_blank" rel="noopener noreferrer">Arq @die.coronel</a>
-          </p>
+          <div class="hero-pill-row">
+            <span class="status-badge">ESTUDIO DE ARQUITECTURA · URUGUAY</span>
+            <span class="mono-kicker">
+              <a href="https://www.instagram.com/juankturban/" target="_blank" rel="noopener noreferrer">Arq @juankturban</a>
+              &amp;
+              <a href="https://www.instagram.com/die.coronel/" target="_blank" rel="noopener noreferrer">Arq @die.coronel</a>
+            </span>
+          </div>
           <h1 class="hero-manifesto">
             Exploramos la fusión entre <em>precisión</em> y <em>fantasía</em> en la Arquitectura.
           </h1>
         </div>
 
         <!-- Expanding Architectural Portal Window -->
-        <div class="portal-window" id="heroSpotlight" data-cursor="RAYOS-X">
+        <div class="portal-window" id="heroSpotlight" data-cursor="RAYOS-X CAD">
           <!-- Base LCP Architectural Photograph with Dynamic Solar Lighting Filter -->
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85"
-            alt="Pabellón contemporáneo de hormigón y luz por CORONEL | TURBAN"
+            alt="Pabellón contemporáneo de hormigón claro y luz natural por CORONEL | TURBAN"
             fetchpriority="high"
             width="1800"
             height="1080"
@@ -121,7 +124,7 @@
           <!-- Dynamic Architectural Sunbeam Overlay driven by Solar Slider -->
           <div class="solar-beam-overlay" id="solarBeam" aria-hidden="true"></div>
 
-          <!-- Interactive X-Ray Spotlight Layer (Modern Web Guidance: interactive-content-reveal) -->
+          <!-- Interactive White-Vellum X-Ray Spotlight Layer (interactive-content-reveal) -->
           <div class="reveal-layer" aria-hidden="true">
             <img
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85"
@@ -131,25 +134,25 @@
               class="portal-blueprint-photo"
             >
             <svg class="portal-cad-svg" viewBox="0 0 1200 720" fill="none">
-              <line x1="0" y1="160" x2="1200" y2="160" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.55"/>
-              <line x1="0" y1="560" x2="1200" y2="560" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.55"/>
-              <line x1="240" y1="0" x2="240" y2="720" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.55"/>
-              <line x1="960" y1="0" x2="960" y2="720" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.55"/>
-              <circle cx="600" cy="360" r="250" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="0" y1="160" x2="1200" y2="160" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.5"/>
+              <line x1="0" y1="560" x2="1200" y2="560" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.5"/>
+              <line x1="240" y1="0" x2="240" y2="720" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.5"/>
+              <line x1="960" y1="0" x2="960" y2="720" stroke="currentColor" stroke-dasharray="6 6" stroke-opacity="0.5"/>
+              <circle cx="600" cy="360" r="250" stroke="currentColor" stroke-width="1.6"/>
               <circle cx="600" cy="360" r="130" stroke="currentColor" stroke-dasharray="4 4"/>
-              <rect x="240" y="160" width="720" height="400" stroke="currentColor" stroke-width="2"/>
-              <line x1="240" y1="560" x2="960" y2="160" stroke="currentColor" stroke-opacity="0.5"/>
-              <line x1="240" y1="160" x2="960" y2="560" stroke="currentColor" stroke-opacity="0.3"/>
-              <text x="256" y="146" fill="currentColor" font-family="JetBrains Mono" font-size="14">COTA +4.20m // VOLADIZO HORMIGÓN ARMADO</text>
-              <text x="256" y="586" fill="currentColor" font-family="JetBrains Mono" font-size="14">NIVEL ±0.00 // CORONEL | TURBAN · @turbancoronel</text>
-              <text x="845" y="146" fill="currentColor" font-family="JetBrains Mono" font-size="14">ESC 1:50</text>
+              <rect x="240" y="160" width="720" height="400" stroke="currentColor" stroke-width="2.2"/>
+              <line x1="240" y1="560" x2="960" y2="160" stroke="currentColor" stroke-opacity="0.45"/>
+              <line x1="240" y1="160" x2="960" y2="560" stroke="currentColor" stroke-opacity="0.35"/>
+              <text x="256" y="144" fill="currentColor" font-family="JetBrains Mono" font-weight="500" font-size="14">COTA +4.20m // LOSA EN VOLADIZO H°A°</text>
+              <text x="256" y="588" fill="currentColor" font-family="JetBrains Mono" font-weight="500" font-size="14">NIVEL ±0.00 // CORONEL | TURBAN · @turbancoronel</text>
+              <text x="845" y="144" fill="currentColor" font-family="JetBrains Mono" font-weight="500" font-size="14">ESC 1:50</text>
             </svg>
           </div>
 
-          <!-- Interactive Heliodon / Sun Position Control inside the Portal -->
+          <!-- Luminous Interactive Heliodon / Sun Position Control inside the Portal -->
           <div class="solar-controller">
             <label for="sunSlider" class="mono-kicker">
-              <span class="sun-dot"></span> ASOLEAMIENTO INTERACTIVO
+              <span class="sun-dot"></span> HELIODÓN SOLAR EN VIVO
             </label>
             <input
               type="range"
@@ -157,26 +160,26 @@
               min="6"
               max="21"
               step="0.25"
-              value="16.5"
+              value="14.5"
               aria-label="Cambiar hora solar y sombras proyectadas en la obra"
             >
-            <output for="sunSlider" id="sunTimeOutput" class="mono-kicker">16:30 HS · LUZ DORADA</output>
+            <output for="sunSlider" id="sunTimeOutput" class="mono-kicker">14:30 HS · SOL DIRECTO</output>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =======================================================================
-         ACTO II: MAQUETA 3D VOLUMÉTRICA QUE EXPLOTA AL SCROLLEAR Y ROTA EN VIVO
+         ACTO II: MAQUETA 3D BLANCA DE ESTUDIO QUE EXPLOTA AL SCROLLEAR
          ======================================================================= -->
     <section id="maqueta" class="scrolly-architecture">
-      <!-- Sticky 3D Volumetric Stage -->
+      <!-- Sticky White Museum 3D Volumetric Stage -->
       <div id="animated" class="scrolly-sticky-stage">
         <div class="stage-3d-controls">
           <button type="button" id="explodeToggleBtn" class="spring-btn mono-kicker" aria-pressed="false">
-            [ EXPLOTAR AXONOMETRÍA 3D ]
+            [ EXPLOTAR MAQUETA 3D ]
           </button>
-          <span class="mono-kicker stage-hint">Arrastrá o hacé scroll para orbitar la estructura</span>
+          <span class="mono-kicker stage-hint">Arrastrá con el mouse o hacé scroll para orbitar</span>
         </div>
 
         <div class="scene-3d" id="scene3d" data-cursor="ORBITAR 3D">
@@ -187,14 +190,12 @@
                 <span class="slab-coord">03 // CUBIERTA &amp; LUCERNARIO (+4.20m)</span>
                 <div class="skylight-void"></div>
               </div>
-              <div class="slab-edge-front"></div>
-              <div class="slab-edge-side"></div>
             </div>
 
             <!-- Nivel 02: Pórticos, Vidrio & Brise-Soleil (Fantasía Espacial) -->
             <div class="slab-3d slab-envelope iso-plane">
               <div class="slab-face slab-glass">
-                <span class="slab-coord">02 // VACÍO &amp; ENVOLVENTE (+2.10m)</span>
+                <span class="slab-coord">02 // VACÍO &amp; PÓRTICOS (+2.10m)</span>
                 <div class="columns-grid">
                   <i></i><i></i><i></i><i></i>
                 </div>
@@ -204,11 +205,9 @@
             <!-- Nivel 01: Basamento de Piedra & Espejo de Agua (Precisión) -->
             <div class="slab-3d slab-foundation iso-plane">
               <div class="slab-face slab-stone">
-                <span class="slab-coord">01 // BASAMENTO &amp; TERRITORIO (±0.00m)</span>
+                <span class="slab-coord">01 // BASAMENTO &amp; ESPEJO DE AGUA (±0.00m)</span>
                 <div class="water-mirror"></div>
               </div>
-              <div class="slab-edge-front"></div>
-              <div class="slab-edge-side"></div>
             </div>
           </div>
         </div>
@@ -218,30 +217,30 @@
       <div id="tracked" class="scrolly-chapters">
         <section class="scrolly-step">
           <div class="step-glass-card">
-            <span class="mono-kicker">01 / PRECISIÓN TECTÓNICA</span>
+            <span class="step-num">01 / PRECISIÓN TECTÓNICA</span>
             <h2>La gravedad ordenada</h2>
             <p class="pretty-copy">
-              Todo proyecto parte de una geometría rigurosa. Implantación, estructura y materia responden al clima y al suelo sin gestos superfluos.
+              Cada proyecto nace de una grilla estructural clara y honesta. Implantación, asoleamiento y materia resuelven el programa con rigor constructivo.
             </p>
           </div>
         </section>
 
         <section class="scrolly-step">
           <div class="step-glass-card">
-            <span class="mono-kicker">02 / FANTASÍA ESPACIAL</span>
-            <h2>El asombro de la luz</h2>
+            <span class="step-num">02 / FANTASÍA ESPACIAL</span>
+            <h2>La luz como materia</h2>
             <p class="pretty-copy">
-              La técnica se pone al servicio de la emoción: grandes luces libres, reflejos de agua y voladizos que suspenden el paisaje frente a los ojos.
+              Grandes luces libres, espejos de agua y voladizos de hormigón que suspenden el paisaje y transforman el recorrido cotidiano en asombro.
             </p>
           </div>
         </section>
 
         <section class="scrolly-step">
           <div class="step-glass-card">
-            <span class="mono-kicker">03 / ESCALA INTEGRAL</span>
+            <span class="step-num">03 / ESCALA INTEGRAL</span>
             <h2>Del detalle al territorio</h2>
             <p class="pretty-copy">
-              Obras residenciales, complejos culturales de 28 hectáreas, plantas industriales y espacio público premiado en Paysandú, Salto y Montevideo.
+              Desde arquitectura residencial y complejos culturales de 28 hectáreas hasta naves industriales y espacio público premiado en Paysandú, Salto y Montevideo.
             </p>
           </div>
         </section>
@@ -255,17 +254,18 @@
       <div class="horizontal-sticky-wrap">
         <div class="gallery-top-bar">
           <div>
-            <span class="mono-kicker">ARCHIVO SELECCIONADO · CORONEL | TURBAN</span>
-            <h2 class="gallery-heading">Obras en Movimiento</h2>
+            <span class="mono-kicker">OBRAS SELECCIONADAS · CORONEL | TURBAN</span>
+            <h2 class="gallery-heading">Archivo en Movimiento</h2>
           </div>
           <div class="gallery-counter mono-kicker">
-            <span id="activeSlideNum">01</span> / 04 · CLIC EN CUALQUIER OBRA PARA ABRIR CORTE CAD
+            <span id="activeSlideNum" class="counter-pill">01 / 04</span>
+            <span>CLIC EN CUALQUIER OBRA PARA COMPARAR CON PLANO CAD</span>
           </div>
         </div>
 
         <div class="horizontal-track" id="horizontalTrack">
           <!-- Obra 01: Ayelén Venue -->
-          <article class="h-card" data-open-project="ayelen" data-cursor="ABRIR CORTE" tabindex="0" role="button" aria-label="Abrir comparador CAD de Ayelén Venue">
+          <article class="h-card" data-open-project="ayelen" data-cursor="ABRIR CAD" tabindex="0" role="button" aria-label="Abrir comparador CAD de Ayelén Venue">
             <div class="h-card-media">
               <img
                 src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85"
@@ -278,13 +278,16 @@
               <span class="h-card-tag mono-kicker">01 · SALTO · 28 HECTÁREAS</span>
             </div>
             <div class="h-card-info">
-              <h3>Ayelén Venue</h3>
+              <div class="h-card-title-row">
+                <h3>Ayelén Venue</h3>
+                <span class="arrow-chip">↗</span>
+              </div>
               <p class="pretty-copy">Fusión de arquitectura pabellonal, escultura contemporánea y naturaleza en 28 ha citrícolas.</p>
             </div>
           </article>
 
           <!-- Obra 02: Proyecto Centrípeta -->
-          <article class="h-card" data-open-project="centripeta" data-cursor="ABRIR CORTE" tabindex="0" role="button" aria-label="Abrir comparador CAD de Proyecto Centrípeta">
+          <article class="h-card" data-open-project="centripeta" data-cursor="ABRIR CAD" tabindex="0" role="button" aria-label="Abrir comparador CAD de Proyecto Centrípeta">
             <div class="h-card-media">
               <img
                 src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=85"
@@ -297,13 +300,16 @@
               <span class="h-card-tag mono-kicker">02 · MONTEVIDEO · 1° PREMIO ARQATÓN</span>
             </div>
             <div class="h-card-info">
-              <h3>Proyecto «Centrípeta»</h3>
+              <div class="h-card-title-row">
+                <h3>Proyecto «Centrípeta»</h3>
+                <span class="arrow-chip">↗</span>
+              </div>
               <p class="pretty-copy">1° Premio Concurso Nacional Arqatón (Plaza Lluís Companys) y representación en la BAQ Quito.</p>
             </div>
           </article>
 
           <!-- Obra 03: Planta Industrial Metalúrgica -->
-          <article class="h-card" data-open-project="nave" data-cursor="ABRIR CORTE" tabindex="0" role="button" aria-label="Abrir comparador CAD de Planta Industrial Metalúrgica">
+          <article class="h-card" data-open-project="nave" data-cursor="ABRIR CAD" tabindex="0" role="button" aria-label="Abrir comparador CAD de Planta Industrial Metalúrgica">
             <div class="h-card-media">
               <img
                 src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85"
@@ -316,13 +322,16 @@
               <span class="h-card-tag mono-kicker">03 · PAYSANDÚ · RUTA 3 &amp; AV. LAS AMÉRICAS</span>
             </div>
             <div class="h-card-info">
-              <h3>Planta Industrial Metalúrgica</h3>
+              <div class="h-card-title-row">
+                <h3>Planta Industrial Metalúrgica</h3>
+                <span class="arrow-chip">↗</span>
+              </div>
               <p class="pretty-copy">Infraestructura industrial de gran luz libre y bloque corporativo en el acceso a Paysandú.</p>
             </div>
           </article>
 
           <!-- Obra 04: Casa del Litoral -->
-          <article class="h-card" data-open-project="casario" data-cursor="ABRIR CORTE" tabindex="0" role="button" aria-label="Abrir comparador CAD de Casa del Litoral">
+          <article class="h-card" data-open-project="casario" data-cursor="ABRIR CAD" tabindex="0" role="button" aria-label="Abrir comparador CAD de Casa del Litoral">
             <div class="h-card-media">
               <img
                 src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85"
@@ -335,7 +344,10 @@
               <span class="h-card-tag mono-kicker">04 · LITORAL OESTE · VIVIENDA</span>
             </div>
             <div class="h-card-info">
-              <h3>Casa del Litoral</h3>
+              <div class="h-card-title-row">
+                <h3>Casa del Litoral</h3>
+                <span class="arrow-chip">↗</span>
+              </div>
               <p class="pretty-copy">Losa continua de hormigón armado en voladizo sobre muros de piedra local y lapacho.</p>
             </div>
           </article>
@@ -377,13 +389,13 @@
               src="assets/turbancoronel-logo.jpg"
               alt="Logo oficial CORONEL | TURBAN (@turbancoronel)"
               loading="lazy"
-              width="120"
-              height="120"
+              width="112"
+              height="112"
               class="bento-emblem"
               id="compassEmblem"
             >
+            <span class="mono-kicker ig-stats-pill">59 PUBLICACIONES · 2.663 SEGUIDORES</span>
           </div>
-          <span class="mono-kicker">INSTAGRAM OFICIAL · 59 PUBLICACIONES · 2.663 SEGUIDORES</span>
           <h2 class="bento-title">CORONEL | TURBAN</h2>
           <p class="bento-quote pretty-copy">
             «Exploramos la fusión entre precisión y fantasía en la Arquitectura»
@@ -396,7 +408,7 @@
             id="magneticCta"
             data-cursor="INSTAGRAM ↗"
           >
-            <span>Entrar a @turbancoronel ↗</span>
+            <span>Explorar @turbancoronel ↗</span>
           </a>
         </div>
 
@@ -446,7 +458,7 @@
     <span class="mono-kicker">PAYSANDÚ · SALTO · MONTEVIDEO — URUGUAY</span>
   </footer>
 
-  <!-- MODAL CON COMPARADOR DESLIZANTE ANTES/DESPUÉS (OBRA REAL vs. TRAZO CAD) -->
+  <!-- MODAL CON COMPARADOR DESLIZANTE ANTES/DESPUÉS (OBRA REAL vs. PLANO CAD BLANCO/AZUL TÉCNICO) -->
   <!-- MANDATORY: closedby="any" + showModal() -->
   <dialog id="projectDialog" class="project-dialog" closedby="any" aria-labelledby="dialogProjectTitle">
     <div class="dialog-inner">

@@ -17,17 +17,17 @@ const PROJECTS_DB = {
       "Espacio multipropósito concebido como una experiencia donde se fusionan arte, arquitectura y naturaleza en un predio rural de 28 hectáreas citrícolas en Salto. Pabellones de luz controlada, espejos de agua y recorridos paisajísticos.",
     svg: `
       <svg viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="1200" height="675" fill="#07192d"/>
-        <g stroke="#5ce1e6" stroke-width="1.4" opacity="0.88">
+        <rect width="1200" height="675" fill="#eef3ff"/>
+        <g stroke="#0047ff" stroke-width="1.6" opacity="0.9">
           <line x1="60" y1="530" x2="1140" y2="530" stroke-width="2.5"/>
-          <rect x="170" y="250" width="860" height="280"/>
+          <rect x="170" y="250" width="860" height="280" fill="#ffffff" fill-opacity="0.6"/>
           <line x1="110" y1="250" x2="1090" y2="250" stroke-width="3.5"/>
           <line x1="390" y1="250" x2="390" y2="530" stroke-dasharray="6 6"/>
           <line x1="620" y1="250" x2="620" y2="530" stroke-dasharray="6 6"/>
           <line x1="840" y1="250" x2="840" y2="530" stroke-dasharray="6 6"/>
-          <circle cx="600" cy="390" r="195" stroke-dasharray="5 5" opacity="0.5"/>
-          <text x="175" y="225" fill="#dfaf67" font-family="JetBrains Mono" font-size="15">CORTE LONGITUDINAL A-A' // AYELÉN VENUE (28 HA - SALTO)</text>
-          <text x="175" y="568" fill="#5ce1e6" font-family="JetBrains Mono" font-size="14">NIVEL ESPEJO DE AGUA ±0.00m · CORONEL | TURBAN (@turbancoronel)</text>
+          <circle cx="600" cy="390" r="195" stroke-dasharray="5 5" opacity="0.55"/>
+          <text x="175" y="222" fill="#d94e1f" font-family="JetBrains Mono" font-weight="500" font-size="15">CORTE LONGITUDINAL A-A' // AYELÉN VENUE (28 HA - SALTO)</text>
+          <text x="175" y="568" fill="#0047ff" font-family="JetBrains Mono" font-weight="500" font-size="14">NIVEL ESPEJO DE AGUA ±0.00m · CORONEL | TURBAN (@turbancoronel)</text>
         </g>
       </svg>
     `,
@@ -44,17 +44,17 @@ const PROJECTS_DB = {
       "Propuesta ganadora del 1° Premio en el Concurso Nacional Arqatón y seleccionada para representar a Uruguay en la Bienal Panamericana de Arquitectura de Quito (BAQ). Geometría radial que ordena flujos peatonales, topografía verde y anfiteatro urbano.",
     svg: `
       <svg viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="1200" height="675" fill="#07192d"/>
-        <g stroke="#5ce1e6" stroke-width="1.4" opacity="0.88">
-          <circle cx="600" cy="338" r="245" stroke-width="2.5"/>
+        <rect width="1200" height="675" fill="#eef3ff"/>
+        <g stroke="#0047ff" stroke-width="1.6" opacity="0.9">
+          <circle cx="600" cy="338" r="245" stroke-width="2.5" fill="#ffffff" fill-opacity="0.55"/>
           <circle cx="600" cy="338" r="170" stroke-dasharray="8 6"/>
           <circle cx="600" cy="338" r="92"/>
           <line x1="120" y1="338" x2="1080" y2="338" stroke-dasharray="4 6"/>
           <line x1="600" y1="50" x2="600" y2="625" stroke-dasharray="4 6"/>
-          <line x1="300" y1="110" x2="900" y2="566" opacity="0.5"/>
-          <line x1="300" y1="566" x2="900" y2="110" opacity="0.5"/>
-          <text x="140" y="95" fill="#dfaf67" font-family="JetBrains Mono" font-size="15">PLANTA VECTORIAL CENTRÍPETA // 1° PREMIO NACIONAL ARQATÓN</text>
-          <text x="140" y="618" fill="#5ce1e6" font-family="JetBrains Mono" font-size="14">PLAZA LLUÍS COMPANYS · SELECCIÓN OFICIAL BAQ QUITO</text>
+          <line x1="300" y1="110" x2="900" y2="566" opacity="0.45"/>
+          <line x1="300" y1="566" x2="900" y2="110" opacity="0.45"/>
+          <text x="140" y="95" fill="#d94e1f" font-family="JetBrains Mono" font-weight="500" font-size="15">PLANTA VECTORIAL CENTRÍPETA // 1° PREMIO NACIONAL ARQATÓN</text>
+          <text x="140" y="618" fill="#0047ff" font-family="JetBrains Mono" font-weight="500" font-size="14">PLAZA LLUÍS COMPANYS · SELECCIÓN OFICIAL BAQ QUITO</text>
         </g>
       </svg>
     `,
@@ -71,15 +71,15 @@ const PROJECTS_DB = {
       "Complejo industrial y nave metalúrgica ubicada estratégicamente en Ruta 3 y Av. de las Américas, Paysandú. Pórticos metálicos de gran luz libre, modulación racional de cerramientos e iluminación cenital controlada.",
     svg: `
       <svg viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="1200" height="675" fill="#07192d"/>
-        <g stroke="#5ce1e6" stroke-width="1.5" opacity="0.88">
-          <polygon points="150,530 150,240 600,145 1050,240 1050,530"/>
+        <rect width="1200" height="675" fill="#eef3ff"/>
+        <g stroke="#0047ff" stroke-width="1.6" opacity="0.9">
+          <polygon points="150,530 150,240 600,145 1050,240 1050,530" fill="#ffffff" fill-opacity="0.6"/>
           <line x1="150" y1="240" x2="1050" y2="240" stroke-dasharray="8 6"/>
           <line x1="375" y1="193" x2="375" y2="530" stroke-dasharray="5 5"/>
           <line x1="600" y1="145" x2="600" y2="530" stroke-dasharray="5 5"/>
           <line x1="825" y1="193" x2="825" y2="530" stroke-dasharray="5 5"/>
-          <text x="150" y="115" fill="#dfaf67" font-family="JetBrains Mono" font-size="15">PÓRTICO METÁLICO DE GRAN LUZ // RUTA 3 &amp; AV. DE LAS AMÉRICAS</text>
-          <text x="150" y="575" fill="#5ce1e6" font-family="JetBrains Mono" font-size="14">COTA +11.40m CUMBRERA · PAYSANDÚ, URUGUAY</text>
+          <text x="150" y="115" fill="#d94e1f" font-family="JetBrains Mono" font-weight="500" font-size="15">PÓRTICO METÁLICO DE GRAN LUZ // RUTA 3 &amp; AV. DE LAS AMÉRICAS</text>
+          <text x="150" y="575" fill="#0047ff" font-family="JetBrains Mono" font-weight="500" font-size="14">COTA +11.40m CUMBRERA · PAYSANDÚ, URUGUAY</text>
         </g>
       </svg>
     `,
@@ -96,14 +96,14 @@ const PROJECTS_DB = {
       "Vivienda unifamiliar proyectada desde la tectónica del hormigón armado visto, piedra local y parasoles de lapacho. Una losa horizontal en voladizo enmarca el horizonte del litoral uruguayo y protege las galerías del asoleamiento oeste.",
     svg: `
       <svg viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="1200" height="675" fill="#07192d"/>
-        <g stroke="#5ce1e6" stroke-width="1.5" opacity="0.88">
-          <rect x="130" y="210" width="940" height="28" fill="#5ce1e6" fill-opacity="0.16"/>
-          <rect x="230" y="238" width="660" height="282"/>
+        <rect width="1200" height="675" fill="#eef3ff"/>
+        <g stroke="#0047ff" stroke-width="1.6" opacity="0.9">
+          <rect x="130" y="210" width="940" height="28" fill="#0047ff" fill-opacity="0.16"/>
+          <rect x="230" y="238" width="660" height="282" fill="#ffffff" fill-opacity="0.65"/>
           <line x1="80" y1="520" x2="1120" y2="520" stroke-width="2.5"/>
-          <line x1="890" y1="238" x2="1070" y2="520" stroke-dasharray="6 6" stroke="#dfaf67"/>
-          <text x="130" y="182" fill="#dfaf67" font-family="JetBrains Mono" font-size="15">LOSA EN VOLADIZO H°A° +3.60m // CASA DEL LITORAL</text>
-          <text x="130" y="562" fill="#5ce1e6" font-family="JetBrains Mono" font-size="14">ARQ @JUANKTURBAN &amp; ARQ @DIE.CORONEL · @TURBANCORONEL</text>
+          <line x1="890" y1="238" x2="1070" y2="520" stroke-dasharray="6 6" stroke="#d94e1f"/>
+          <text x="130" y="182" fill="#d94e1f" font-family="JetBrains Mono" font-weight="500" font-size="15">LOSA EN VOLADIZO H°A° +3.60m // CASA DEL LITORAL</text>
+          <text x="130" y="562" fill="#0047ff" font-family="JetBrains Mono" font-weight="500" font-size="14">ARQ @JUANKTURBAN &amp; ARQ @DIE.CORONEL · @TURBANCORONEL</text>
         </g>
       </svg>
     `,
@@ -118,21 +118,19 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   // =========================================================================
-  // 1. ADAPTIVE LIGHT / DARK MODE TOGGLE (Modern Web Guidance: dark-mode)
+  // 1. LUMINOUS LIGHT-FIRST THEME TOGGLE (Modern Web Guidance: dark-mode)
   // =========================================================================
   const themeToggle = document.getElementById("themeToggle");
   const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-      const currentAttr = root.dataset.theme;
-      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const isCurrentlyDark = currentAttr ? currentAttr === "dark" : systemDark;
-      const nextScheme = isCurrentlyDark ? "light" : "dark";
+      const currentAttr = root.dataset.theme || "light";
+      const nextScheme = currentAttr === "dark" ? "light" : "dark";
 
       root.dataset.theme = nextScheme;
       if (colorSchemeMeta) colorSchemeMeta.content = nextScheme;
-      localStorage.setItem("color-scheme", nextScheme);
+      localStorage.setItem("tc-color-scheme", nextScheme);
     });
   }
 
@@ -192,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================================================================
-  // 4. ACTO I: INTERACTIVE SOLAR HELIODON (DAY-TO-DUSK SUNULATOR)
+  // 4. ACTO I: INTERACTIVE SOLAR HELIODON (DAY-TO-DUSK SUN SIMULATOR)
   // =========================================================================
   const sunSlider = document.getElementById("sunSlider");
   const sunTimeOutput = document.getElementById("sunTimeOutput");
@@ -208,30 +206,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const beamAngle = Math.round(65 + progress * 135);
     const elevationDeg = Math.round(Math.sin(progress * Math.PI) * 68);
 
-    // Golden hour warmth peaks around 17:00-19:00, dusk dims after 19:30
-    let warmth = 0.08;
+    let warmth = 0.05;
     let brightness = 1.04;
     let contrast = 1.05;
-    let phaseLabel = "LUZ CENITAL";
+    let phaseLabel = "SOL DIRECTO";
 
     if (decimalHour < 9) {
-      warmth = 0.22;
-      brightness = 0.96;
+      warmth = 0.18;
+      brightness = 0.98;
       phaseLabel = "AMANECER ESTE";
     } else if (decimalHour >= 9 && decimalHour < 15.5) {
-      warmth = 0.05;
+      warmth = 0.04;
       brightness = 1.06;
-      contrast = 1.08;
+      contrast = 1.06;
       phaseLabel = "SOL DIRECTO";
     } else if (decimalHour >= 15.5 && decimalHour <= 18.75) {
-      warmth = 0.36;
-      brightness = 1.01;
-      contrast = 1.12;
+      warmth = 0.28;
+      brightness = 1.02;
+      contrast = 1.1;
       phaseLabel = "LUZ DORADA OESTE";
     } else {
-      warmth = 0.18;
-      brightness = 0.72;
-      contrast = 1.22;
+      warmth = 0.14;
+      brightness = 0.78;
+      contrast = 1.18;
       phaseLabel = "CREPÚSCULO AZUL";
     }
 
@@ -273,8 +270,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const exploded = buildingRig.classList.toggle("is-exploded");
       explodeToggleBtn.setAttribute("aria-pressed", String(exploded));
       explodeToggleBtn.textContent = exploded
-        ? "[ COMPACTAR AXONOMETRÍA 3D ]"
-        : "[ EXPLOTAR AXONOMETRÍA 3D ]";
+        ? "[ COMPACTAR MAQUETA 3D ]"
+        : "[ EXPLOTAR MAQUETA 3D ]";
     });
   }
 
@@ -359,8 +356,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const totalScrollable = Math.max(1, portalSection.offsetHeight - vh);
       const p = Math.max(0, Math.min(1, -rect.top / totalScrollable));
 
-      const scale = 0.88 + p * 0.12;
-      const radius = Math.round(24 * (1 - p));
+      const scale = 0.9 + p * 0.1;
+      const radius = Math.round(28 * (1 - p));
       const shift = Math.round(p * 180);
 
       root.style.setProperty("--portal-scale", scale.toFixed(3));
@@ -395,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (activeSlideNum) {
           const idx = Math.min(4, Math.max(1, Math.floor(hProgress * 3.99) + 1));
-          activeSlideNum.textContent = `0${idx}`;
+          activeSlideNum.textContent = `0${idx} / 04`;
         }
       } else {
         horizontalTrack.style.transform = "none";
